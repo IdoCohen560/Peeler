@@ -101,3 +101,6 @@ Both Intel and Apple silicon Mac jobs passed in remote CI. Linux quit integratio
 
 Latest remote Windows and Apple silicon jobs passed all checks including packaged tests. Intel Mac passed all 258 conversions but exposed a timing race in the close-window test: page.close can resolve before BrowserWindow destruction finishes. The assertion now polls the same required zero-window/ready state; five repeated Windows runs passed. Linux dependency provisioning stalled, so CI now installs only the Writer/Calc/Impress components used by Peeler, omits optional recommended packages, and bounds network retries/timeouts and the installation step. No conversion or platform test is disabled.
 
+
+Linux provisioning diagnosis: the cancelled runner log shows Azure's Ubuntu mirror taking more than five minutes for a 20 MB package, with continued small transfers preventing ordinary connection timeouts. CI now prefers Ubuntu's official HTTPS archive/security mirrors and retains Azure as fallback; signed-package verification remains enabled. This addresses the observed runner bottleneck without changing users' machines.
+
