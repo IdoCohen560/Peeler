@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Peeler — local file converter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header><a class="wordmark" href="#main" aria-label="Peeler home"><img src="branding/peeler-64.png" width="28" height="28" alt="" aria-hidden="true">Peeler<span>Local file converter</span></a><div class="header-actions"><span class="local">Offline by design</span><button id="quit">Quit Peeler</button></div></header>
+  <main id="main">
+    <div class="title-row"><div><h1>Convert files</h1><p>New formats. Original files kept.</p></div><button id="choose" class="primary">Add files</button></div>
+    <section class="workspace" aria-label="File conversion workspace">
+      <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Drop files here or press Enter to choose files">
+        <svg class="drop-symbol" viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><path d="M12 6h16l9 9v27H12V6Z M28 6v10h9 M19 29h12 M25 23v12" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        <h2>Drop your files here</h2><p>Or add files to choose a format.</p><span class="formats">Images · Video · Audio · PDF · Documents<br>Slides · Spreadsheets · EPUB · Subtitles · Archives</span>
+      </div>
+      <div class="destination"><p id="destination-label">Save beside each original</p><div><button id="destination">Choose output folder</button><button id="destination-reset" hidden>Use original folders</button></div></div>
+      <div class="queue-header"><h2>Conversion queue <span id="count">0 files</span></h2><button id="clear" disabled>Clear</button></div>
+      <div id="queue" aria-label="Files"><p class="empty">Your files will appear here. Results save beside each original.</p></div>
+      <div class="queue-footer"><p id="summary">No files selected</p><div class="queue-actions"><button id="cancel" hidden>Cancel batch</button><button class="primary" id="convert" disabled>Convert files</button></div></div>
+    </section>
+    <p id="message" class="message" role="status" aria-live="polite"></p>
+    <section class="details" aria-labelledby="details-heading"><div><h2 id="details-heading">A smaller workflow</h2><p>Add files, choose each output format, and convert. Select a file’s format menu or focus it and tap Shift.</p></div><div><h2>Stays on this device</h2><p>No account or uploads. Files with matching names get a number, so existing results stay safe.</p></div></section>
+    <section class="support" aria-labelledby="support-heading"><h2 id="support-heading">Supported conversions</h2><p>Working routes across all ten categories. Some exports preserve text content rather than layout; each file’s conversion details explain what will change.</p><dl><div><dt>Images</dt><dd>JPG, PNG, WebP, TIFF, AVIF, BMP, SVG and HEIC input · PDF export</dd></div><div><dt>Video</dt><dd>MP4, MOV, MKV, WebM, AVI, WMV, GIF · MP3 extraction</dd></div><div><dt>Audio</dt><dd>MP3, M4A, WAV, FLAC, OGG, Opus, AIFF, WMA</dd></div><div><dt>PDF</dt><dd>Text, Markdown, DOCX, EPUB · Page images · Image-based PPTX</dd></div><div><dt>Documents</dt><dd>DOCX, RTF, Markdown, TXT, HTML · PDF, page images and EPUB</dd></div><div><dt>Slides</dt><dd>PPT/PPTX to PDF and page images with the Office engine</dd></div><div><dt>Spreadsheets</dt><dd>XLSX, ODS, CSV, TSV · XLS input with the Office engine</dd></div><div><dt>EPUB</dt><dd>Reading-order text to TXT, Markdown, HTML, DOCX, PDF</dd></div><div><dt>Subtitles</dt><dd>SRT, VTT · TXT export</dd></div><div><dt>Archives</dt><dd>ZIP, TAR, TAR.GZ, GZIP and RAR input · ZIP, TAR, TAR.GZ output</dd></div></dl><p>Office rendering requires the local Office engine. HEIC export, Pages, RTFD, text clippings, OCR, and advanced editing remain in development.</p></section>
+    <footer><span>Peeler · Open source · MIT source</span><span>In-window conversion · Engine licenses included</span></footer>
+  </main>
+  <dialog id="format-dialog" aria-labelledby="format-heading"><form method="dialog"><div class="dialog-heading"><h2 id="format-heading">Output format</h2><button aria-label="Close format menu" formnovalidate>Close</button></div><p id="format-file"></p><p id="format-note" class="format-note"></p><fieldset id="image-options" hidden><legend>Image options</legend><div class="image-fields"><label>Max width (px)<input id="image-width" type="number" min="1" max="16384" step="1" placeholder="Original"></label><label>Max height (px)<input id="image-height" type="number" min="1" max="16384" step="1" placeholder="Original"></label><label>Lossy quality<input id="image-quality" type="number" min="1" max="100" step="1" value="85"></label><label>JPG/BMP background<input id="image-background" type="color" value="#ffffff"></label></div><p>Keep proportions and never enlarge. Quality applies to JPG, WebP and AVIF.</p></fieldset><div id="format-wheel" class="format-wheel"></div><p class="muted">Choose a format. Escape closes this menu.</p></form></dialog>
+  <script src="renderer.js"></script>
+</body>
+</html>

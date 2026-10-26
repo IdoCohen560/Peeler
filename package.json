@@ -1,0 +1,113 @@
+{
+  "name": "peeler",
+  "version": "0.2.0",
+  "description": "An independent, offline, open-source desktop file converter.",
+  "main": "src/desktop/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "convert": "node src/cli.cjs",
+    "test": "node --test tests/*.test.cjs",
+    "test:desktop": "playwright test",
+    "pack": "electron-builder --config electron-builder.config.cjs --dir",
+    "dist": "electron-builder --config electron-builder.config.cjs",
+    "start:window": "electron . --window",
+    "notices": "node scripts/collect-notices.cjs",
+    "prepack": "npm run icons && npm run notices",
+    "icons": "node scripts/build-icons.cjs",
+    "predist": "npm run icons && npm run notices",
+    "test:formats": "node scripts/check-conversions.cjs",
+    "test:fixtures": "node scripts/fetch-test-fixtures.cjs"
+  },
+  "keywords": [],
+  "author": {
+    "name": "IdoCohen560",
+    "url": "https://github.com/IdoCohen560"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.13",
+    "bmp-js": "^0.1.0",
+    "csv-parse": "^7.0.3",
+    "csv-stringify": "^6.9.0",
+    "docx": "^9.14.0",
+    "exceljs": "^4.4.0",
+    "fast-xml-parser": "^5.11.2",
+    "ffmpeg-static": "^5.3.0",
+    "heic-decode": "2.1.0",
+    "html-to-text": "^10.0.1",
+    "jszip": "^3.10.2",
+    "libarchive-wasm": "1.2.0",
+    "mammoth": "^1.13.0",
+    "marked": "^18.1.2",
+    "pdfjs-dist": "^6.4.299",
+    "pdfkit": "^0.20.2",
+    "pptxgenjs": "^4.0.1",
+    "rtf-parser": "1.3.3",
+    "sharp": "^0.35.5",
+    "tar-stream": "^3.2.2",
+    "uiohook-napi": "^1.5.5",
+    "yauzl": "^3.4.0"
+  },
+  "devDependencies": {
+    "@fontsource/geist": "^5.3.0",
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.5",
+    "electron": "^45.0.0",
+    "electron-builder": "^26.18.0",
+    "png2icons": "^2.0.1"
+  },
+  "build": {
+    "appId": "org.peeler.converter",
+    "productName": "Peeler",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json",
+      "LICENSE",
+      "THIRD_PARTY_NOTICES.md",
+      "THIRD_PARTY_LICENSES.txt"
+    ],
+    "asarUnpack": [
+      "node_modules/sharp/**/*",
+      "node_modules/@img/**/*",
+      "node_modules/ffmpeg-static/**/*",
+      "node_modules/@napi-rs/**/*",
+      "node_modules/uiohook-napi/**/*"
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "assets/branding/peeler.ico"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.utilities",
+      "icon": "assets/branding/peeler.icns"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Utility",
+      "icon": "assets/branding/peeler-512.png"
+    },
+    "npmRebuild": false,
+    "executableName": "peeler",
+    "icon": "assets/branding/peeler-512.png",
+    "artifactName": "peeler-${version}-${os}-${arch}.${ext}"
+  },
+  "overrides": {
+    "exceljs": {
+      "uuid": "^11.1.1"
+    },
+    "pptxgenjs": {
+      "image-size": "^2.0.4"
+    }
+  }
+}

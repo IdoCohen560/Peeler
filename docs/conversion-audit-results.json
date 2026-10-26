@@ -1,0 +1,4005 @@
+{
+  "checkedAt": "2026-10-26T17:36:59.390Z",
+  "platform": "win32",
+  "architecture": "x64",
+  "node": "v24.22.1",
+  "directory": ".tmp\\conversion-audit-5KqUkP",
+  "passed": 258,
+  "failed": 0,
+  "referencePassed": 235,
+  "referenceTotal": 275,
+  "referenceNotImplemented": 40,
+  "unsupported": [
+    {
+      "extension": "pages",
+      "correctlyUnavailable": true
+    },
+    {
+      "extension": "rtfd",
+      "correctlyUnavailable": true
+    },
+    {
+      "extension": "textClipping",
+      "correctlyUnavailable": true
+    }
+  ],
+  "results": [
+    {
+      "category": "Images",
+      "source": "image.jpg",
+      "inputFormat": "jpg",
+      "target": "png",
+      "durationMs": 115,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-0\\image.png"
+    },
+    {
+      "category": "Images",
+      "source": "image.jpg",
+      "inputFormat": "jpg",
+      "target": "webp",
+      "durationMs": 114,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-1\\image.webp"
+    },
+    {
+      "category": "Images",
+      "source": "image.jpg",
+      "inputFormat": "jpg",
+      "target": "tiff",
+      "durationMs": 106,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-3\\image.tiff"
+    },
+    {
+      "category": "Images",
+      "source": "image.jpg",
+      "inputFormat": "jpg",
+      "target": "avif",
+      "durationMs": 111,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-2\\image.avif"
+    },
+    {
+      "category": "Images",
+      "source": "image.jpg",
+      "inputFormat": "jpg",
+      "target": "bmp",
+      "durationMs": 104,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-4\\image.bmp"
+    },
+    {
+      "category": "Images",
+      "source": "image.jpeg",
+      "inputFormat": "jpeg",
+      "target": "png",
+      "durationMs": 103,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-6\\image.png"
+    },
+    {
+      "category": "Images",
+      "source": "image.jpg",
+      "inputFormat": "jpg",
+      "target": "pdf",
+      "durationMs": 349,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-5\\image.pdf"
+    },
+    {
+      "category": "Images",
+      "source": "image.jpeg",
+      "inputFormat": "jpeg",
+      "target": "webp",
+      "durationMs": 153,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-7\\image.webp"
+    },
+    {
+      "category": "Images",
+      "source": "image.jpeg",
+      "inputFormat": "jpeg",
+      "target": "tiff",
+      "durationMs": 100,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-9\\image.tiff"
+    },
+    {
+      "category": "Images",
+      "source": "image.jpeg",
+      "inputFormat": "jpeg",
+      "target": "avif",
+      "durationMs": 107,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-8\\image.avif"
+    },
+    {
+      "category": "Images",
+      "source": "image.jpeg",
+      "inputFormat": "jpeg",
+      "target": "bmp",
+      "durationMs": 102,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-10\\image.bmp"
+    },
+    {
+      "category": "Images",
+      "source": "image.png",
+      "inputFormat": "png",
+      "target": "jpg",
+      "durationMs": 98,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-12\\image.jpg"
+    },
+    {
+      "category": "Images",
+      "source": "image.jpeg",
+      "inputFormat": "jpeg",
+      "target": "pdf",
+      "durationMs": 223,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-11\\image.pdf"
+    },
+    {
+      "category": "Images",
+      "source": "image.png",
+      "inputFormat": "png",
+      "target": "webp",
+      "durationMs": 103,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-13\\image.webp"
+    },
+    {
+      "category": "Images",
+      "source": "image.png",
+      "inputFormat": "png",
+      "target": "avif",
+      "durationMs": 105,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-14\\image.avif"
+    },
+    {
+      "category": "Images",
+      "source": "image.png",
+      "inputFormat": "png",
+      "target": "tiff",
+      "durationMs": 102,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-15\\image.tiff"
+    },
+    {
+      "category": "Images",
+      "source": "image.png",
+      "inputFormat": "png",
+      "target": "bmp",
+      "durationMs": 101,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-16\\image.bmp"
+    },
+    {
+      "category": "Images",
+      "source": "image.webp",
+      "inputFormat": "webp",
+      "target": "png",
+      "durationMs": 96,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-18\\image.png"
+    },
+    {
+      "category": "Images",
+      "source": "image.png",
+      "inputFormat": "png",
+      "target": "pdf",
+      "durationMs": 216,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-17\\image.pdf"
+    },
+    {
+      "category": "Images",
+      "source": "image.webp",
+      "inputFormat": "webp",
+      "target": "jpg",
+      "durationMs": 99,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-19\\image.jpg"
+    },
+    {
+      "category": "Images",
+      "source": "image.webp",
+      "inputFormat": "webp",
+      "target": "tiff",
+      "durationMs": 98,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-21\\image.tiff"
+    },
+    {
+      "category": "Images",
+      "source": "image.webp",
+      "inputFormat": "webp",
+      "target": "avif",
+      "durationMs": 103,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-20\\image.avif"
+    },
+    {
+      "category": "Images",
+      "source": "image.webp",
+      "inputFormat": "webp",
+      "target": "bmp",
+      "durationMs": 103,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-22\\image.bmp"
+    },
+    {
+      "category": "Images",
+      "source": "image.tiff",
+      "inputFormat": "tiff",
+      "target": "png",
+      "durationMs": 104,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-24\\image.png"
+    },
+    {
+      "category": "Images",
+      "source": "image.webp",
+      "inputFormat": "webp",
+      "target": "pdf",
+      "durationMs": 223,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-23\\image.pdf"
+    },
+    {
+      "category": "Images",
+      "source": "image.tiff",
+      "inputFormat": "tiff",
+      "target": "jpg",
+      "durationMs": 103,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-25\\image.jpg"
+    },
+    {
+      "category": "Images",
+      "source": "image.tiff",
+      "inputFormat": "tiff",
+      "target": "webp",
+      "durationMs": 100,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-26\\image.webp"
+    },
+    {
+      "category": "Images",
+      "source": "image.tiff",
+      "inputFormat": "tiff",
+      "target": "avif",
+      "durationMs": 107,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-27\\image.avif"
+    },
+    {
+      "category": "Images",
+      "source": "image.tiff",
+      "inputFormat": "tiff",
+      "target": "bmp",
+      "durationMs": 102,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-28\\image.bmp"
+    },
+    {
+      "category": "Images",
+      "source": "image.tif",
+      "inputFormat": "tif",
+      "target": "png",
+      "durationMs": 105,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-30\\image.png"
+    },
+    {
+      "category": "Images",
+      "source": "image.tif",
+      "inputFormat": "tif",
+      "target": "jpg",
+      "durationMs": 110,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-31\\image.jpg"
+    },
+    {
+      "category": "Images",
+      "source": "image.tiff",
+      "inputFormat": "tiff",
+      "target": "pdf",
+      "durationMs": 232,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-29\\image.pdf"
+    },
+    {
+      "category": "Images",
+      "source": "image.tif",
+      "inputFormat": "tif",
+      "target": "webp",
+      "durationMs": 103,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-32\\image.webp"
+    },
+    {
+      "category": "Images",
+      "source": "image.tif",
+      "inputFormat": "tif",
+      "target": "avif",
+      "durationMs": 104,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-33\\image.avif"
+    },
+    {
+      "category": "Images",
+      "source": "image.tif",
+      "inputFormat": "tif",
+      "target": "bmp",
+      "durationMs": 104,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-34\\image.bmp"
+    },
+    {
+      "category": "Images",
+      "source": "image.avif",
+      "inputFormat": "avif",
+      "target": "png",
+      "durationMs": 109,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-36\\image.png"
+    },
+    {
+      "category": "Images",
+      "source": "image.tif",
+      "inputFormat": "tif",
+      "target": "pdf",
+      "durationMs": 225,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-35\\image.pdf"
+    },
+    {
+      "category": "Images",
+      "source": "image.avif",
+      "inputFormat": "avif",
+      "target": "jpg",
+      "durationMs": 108,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-37\\image.jpg"
+    },
+    {
+      "category": "Images",
+      "source": "image.avif",
+      "inputFormat": "avif",
+      "target": "webp",
+      "durationMs": 107,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-38\\image.webp"
+    },
+    {
+      "category": "Images",
+      "source": "image.avif",
+      "inputFormat": "avif",
+      "target": "tiff",
+      "durationMs": 110,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-39\\image.tiff"
+    },
+    {
+      "category": "Images",
+      "source": "image.avif",
+      "inputFormat": "avif",
+      "target": "bmp",
+      "durationMs": 113,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-40\\image.bmp"
+    },
+    {
+      "category": "Images",
+      "source": "image.svg",
+      "inputFormat": "svg",
+      "target": "png",
+      "durationMs": 107,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-42\\image.png"
+    },
+    {
+      "category": "Images",
+      "source": "image.avif",
+      "inputFormat": "avif",
+      "target": "pdf",
+      "durationMs": 230,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-41\\image.pdf"
+    },
+    {
+      "category": "Images",
+      "source": "image.svg",
+      "inputFormat": "svg",
+      "target": "jpg",
+      "durationMs": 107,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-43\\image.jpg"
+    },
+    {
+      "category": "Images",
+      "source": "image.svg",
+      "inputFormat": "svg",
+      "target": "webp",
+      "durationMs": 107,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-44\\image.webp"
+    },
+    {
+      "category": "Images",
+      "source": "image.svg",
+      "inputFormat": "svg",
+      "target": "avif",
+      "durationMs": 111,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-45\\image.avif"
+    },
+    {
+      "category": "Images",
+      "source": "image.svg",
+      "inputFormat": "svg",
+      "target": "tiff",
+      "durationMs": 126,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-46\\image.tiff"
+    },
+    {
+      "category": "Images",
+      "source": "image.svg",
+      "inputFormat": "svg",
+      "target": "bmp",
+      "durationMs": 121,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-47\\image.bmp"
+    },
+    {
+      "category": "Images",
+      "source": "image.bmp",
+      "inputFormat": "bmp",
+      "target": "png",
+      "durationMs": 96,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-49\\image.png"
+    },
+    {
+      "category": "Images",
+      "source": "image.bmp",
+      "inputFormat": "bmp",
+      "target": "jpg",
+      "durationMs": 101,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-50\\image.jpg"
+    },
+    {
+      "category": "Images",
+      "source": "image.svg",
+      "inputFormat": "svg",
+      "target": "pdf",
+      "durationMs": 237,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-48\\image.pdf"
+    },
+    {
+      "category": "Images",
+      "source": "image.bmp",
+      "inputFormat": "bmp",
+      "target": "webp",
+      "durationMs": 100,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-51\\image.webp"
+    },
+    {
+      "category": "Images",
+      "source": "image.bmp",
+      "inputFormat": "bmp",
+      "target": "avif",
+      "durationMs": 108,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-52\\image.avif"
+    },
+    {
+      "category": "Images",
+      "source": "image.bmp",
+      "inputFormat": "bmp",
+      "target": "tiff",
+      "durationMs": 99,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-53\\image.tiff"
+    },
+    {
+      "category": "Images",
+      "source": "image.bmp",
+      "inputFormat": "bmp",
+      "target": "pdf",
+      "durationMs": 228,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-54\\image.pdf"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.mp3",
+      "inputFormat": "mp3",
+      "target": "m4a",
+      "durationMs": 197,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-55\\audio.m4a"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.mp3",
+      "inputFormat": "mp3",
+      "target": "wav",
+      "durationMs": 177,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-56\\audio.wav"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.mp3",
+      "inputFormat": "mp3",
+      "target": "flac",
+      "durationMs": 183,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-57\\audio.flac"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.mp3",
+      "inputFormat": "mp3",
+      "target": "ogg",
+      "durationMs": 193,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-58\\audio.ogg"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.mp3",
+      "inputFormat": "mp3",
+      "target": "opus",
+      "durationMs": 184,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-59\\audio.opus"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.mp3",
+      "inputFormat": "mp3",
+      "target": "aiff",
+      "durationMs": 178,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-60\\audio.aiff"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.mp3",
+      "inputFormat": "mp3",
+      "target": "wma",
+      "durationMs": 178,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-61\\audio.wma"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.m4a",
+      "inputFormat": "m4a",
+      "target": "mp3",
+      "durationMs": 179,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-62\\audio.mp3"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.m4a",
+      "inputFormat": "m4a",
+      "target": "wav",
+      "durationMs": 178,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-63\\audio.wav"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.m4a",
+      "inputFormat": "m4a",
+      "target": "flac",
+      "durationMs": 173,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-64\\audio.flac"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.m4a",
+      "inputFormat": "m4a",
+      "target": "ogg",
+      "durationMs": 183,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-65\\audio.ogg"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.m4a",
+      "inputFormat": "m4a",
+      "target": "opus",
+      "durationMs": 179,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-66\\audio.opus"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.m4a",
+      "inputFormat": "m4a",
+      "target": "aiff",
+      "durationMs": 173,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-67\\audio.aiff"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.m4a",
+      "inputFormat": "m4a",
+      "target": "wma",
+      "durationMs": 172,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-68\\audio.wma"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wav",
+      "inputFormat": "wav",
+      "target": "mp3",
+      "durationMs": 168,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-69\\audio.mp3"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wav",
+      "inputFormat": "wav",
+      "target": "m4a",
+      "durationMs": 201,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-70\\audio.m4a"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wav",
+      "inputFormat": "wav",
+      "target": "flac",
+      "durationMs": 184,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-71\\audio.flac"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wav",
+      "inputFormat": "wav",
+      "target": "opus",
+      "durationMs": 175,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-73\\audio.opus"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wav",
+      "inputFormat": "wav",
+      "target": "ogg",
+      "durationMs": 185,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-72\\audio.ogg"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wav",
+      "inputFormat": "wav",
+      "target": "aiff",
+      "durationMs": 180,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-74\\audio.aiff"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wav",
+      "inputFormat": "wav",
+      "target": "wma",
+      "durationMs": 180,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-75\\audio.wma"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.flac",
+      "inputFormat": "flac",
+      "target": "mp3",
+      "durationMs": 187,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-76\\audio.mp3"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.flac",
+      "inputFormat": "flac",
+      "target": "m4a",
+      "durationMs": 204,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-77\\audio.m4a"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.flac",
+      "inputFormat": "flac",
+      "target": "wav",
+      "durationMs": 186,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-78\\audio.wav"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.flac",
+      "inputFormat": "flac",
+      "target": "ogg",
+      "durationMs": 191,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-79\\audio.ogg"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.flac",
+      "inputFormat": "flac",
+      "target": "opus",
+      "durationMs": 192,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-80\\audio.opus"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.flac",
+      "inputFormat": "flac",
+      "target": "aiff",
+      "durationMs": 192,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-81\\audio.aiff"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.flac",
+      "inputFormat": "flac",
+      "target": "wma",
+      "durationMs": 179,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-82\\audio.wma"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.ogg",
+      "inputFormat": "ogg",
+      "target": "mp3",
+      "durationMs": 178,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-83\\audio.mp3"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.ogg",
+      "inputFormat": "ogg",
+      "target": "m4a",
+      "durationMs": 192,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-84\\audio.m4a"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.ogg",
+      "inputFormat": "ogg",
+      "target": "wav",
+      "durationMs": 180,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-85\\audio.wav"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.ogg",
+      "inputFormat": "ogg",
+      "target": "flac",
+      "durationMs": 178,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-86\\audio.flac"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.ogg",
+      "inputFormat": "ogg",
+      "target": "opus",
+      "durationMs": 176,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-87\\audio.opus"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.ogg",
+      "inputFormat": "ogg",
+      "target": "aiff",
+      "durationMs": 182,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-88\\audio.aiff"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.ogg",
+      "inputFormat": "ogg",
+      "target": "wma",
+      "durationMs": 175,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-89\\audio.wma"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.opus",
+      "inputFormat": "opus",
+      "target": "mp3",
+      "durationMs": 176,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-90\\audio.mp3"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.opus",
+      "inputFormat": "opus",
+      "target": "m4a",
+      "durationMs": 196,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-91\\audio.m4a"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.opus",
+      "inputFormat": "opus",
+      "target": "wav",
+      "durationMs": 213,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-92\\audio.wav"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.opus",
+      "inputFormat": "opus",
+      "target": "flac",
+      "durationMs": 222,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-93\\audio.flac"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.opus",
+      "inputFormat": "opus",
+      "target": "ogg",
+      "durationMs": 228,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-94\\audio.ogg"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.opus",
+      "inputFormat": "opus",
+      "target": "aiff",
+      "durationMs": 294,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-95\\audio.aiff"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.opus",
+      "inputFormat": "opus",
+      "target": "wma",
+      "durationMs": 205,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-96\\audio.wma"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.aiff",
+      "inputFormat": "aiff",
+      "target": "mp3",
+      "durationMs": 199,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-97\\audio.mp3"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.aiff",
+      "inputFormat": "aiff",
+      "target": "m4a",
+      "durationMs": 238,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-98\\audio.m4a"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.aiff",
+      "inputFormat": "aiff",
+      "target": "wav",
+      "durationMs": 212,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-99\\audio.wav"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.aiff",
+      "inputFormat": "aiff",
+      "target": "flac",
+      "durationMs": 496,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-100\\audio.flac"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.aiff",
+      "inputFormat": "aiff",
+      "target": "ogg",
+      "durationMs": 560,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-101\\audio.ogg"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.aiff",
+      "inputFormat": "aiff",
+      "target": "opus",
+      "durationMs": 181,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-102\\audio.opus"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.aiff",
+      "inputFormat": "aiff",
+      "target": "wma",
+      "durationMs": 188,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-103\\audio.wma"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wma",
+      "inputFormat": "wma",
+      "target": "mp3",
+      "durationMs": 198,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-104\\audio.mp3"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wma",
+      "inputFormat": "wma",
+      "target": "m4a",
+      "durationMs": 236,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-105\\audio.m4a"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wma",
+      "inputFormat": "wma",
+      "target": "wav",
+      "durationMs": 224,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-106\\audio.wav"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wma",
+      "inputFormat": "wma",
+      "target": "flac",
+      "durationMs": 223,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-107\\audio.flac"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wma",
+      "inputFormat": "wma",
+      "target": "ogg",
+      "durationMs": 217,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-108\\audio.ogg"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wma",
+      "inputFormat": "wma",
+      "target": "opus",
+      "durationMs": 187,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-109\\audio.opus"
+    },
+    {
+      "category": "Audio",
+      "source": "audio.wma",
+      "inputFormat": "wma",
+      "target": "aiff",
+      "durationMs": 185,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-110\\audio.aiff"
+    },
+    {
+      "category": "Video",
+      "source": "video.mp4",
+      "inputFormat": "mp4",
+      "target": "mov",
+      "durationMs": 190,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-111\\video.mov"
+    },
+    {
+      "category": "Video",
+      "source": "video.mp4",
+      "inputFormat": "mp4",
+      "target": "mkv",
+      "durationMs": 196,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-112\\video.mkv"
+    },
+    {
+      "category": "Video",
+      "source": "video.mp4",
+      "inputFormat": "mp4",
+      "target": "webm",
+      "durationMs": 186,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-113\\video.webm"
+    },
+    {
+      "category": "Video",
+      "source": "video.mp4",
+      "inputFormat": "mp4",
+      "target": "avi",
+      "durationMs": 183,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-114\\video.avi"
+    },
+    {
+      "category": "Video",
+      "source": "video.mp4",
+      "inputFormat": "mp4",
+      "target": "wmv",
+      "durationMs": 180,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-115\\video.wmv"
+    },
+    {
+      "category": "Video",
+      "source": "video.mp4",
+      "inputFormat": "mp4",
+      "target": "gif",
+      "durationMs": 178,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-116\\video.gif"
+    },
+    {
+      "category": "Video",
+      "source": "video.mp4",
+      "inputFormat": "mp4",
+      "target": "mp3",
+      "durationMs": 173,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-117\\video.mp3"
+    },
+    {
+      "category": "Video",
+      "source": "video.mov",
+      "inputFormat": "mov",
+      "target": "mp4",
+      "durationMs": 202,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-118\\video.mp4"
+    },
+    {
+      "category": "Video",
+      "source": "video.mov",
+      "inputFormat": "mov",
+      "target": "mkv",
+      "durationMs": 204,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-119\\video.mkv"
+    },
+    {
+      "category": "Video",
+      "source": "video.mov",
+      "inputFormat": "mov",
+      "target": "webm",
+      "durationMs": 209,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-120\\video.webm"
+    },
+    {
+      "category": "Video",
+      "source": "video.mov",
+      "inputFormat": "mov",
+      "target": "avi",
+      "durationMs": 187,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-121\\video.avi"
+    },
+    {
+      "category": "Video",
+      "source": "video.mov",
+      "inputFormat": "mov",
+      "target": "wmv",
+      "durationMs": 183,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-122\\video.wmv"
+    },
+    {
+      "category": "Video",
+      "source": "video.mov",
+      "inputFormat": "mov",
+      "target": "gif",
+      "durationMs": 177,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-123\\video.gif"
+    },
+    {
+      "category": "Video",
+      "source": "video.mov",
+      "inputFormat": "mov",
+      "target": "mp3",
+      "durationMs": 178,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-124\\video.mp3"
+    },
+    {
+      "category": "Video",
+      "source": "video.mkv",
+      "inputFormat": "mkv",
+      "target": "mp4",
+      "durationMs": 192,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-125\\video.mp4"
+    },
+    {
+      "category": "Video",
+      "source": "video.mkv",
+      "inputFormat": "mkv",
+      "target": "mov",
+      "durationMs": 189,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-126\\video.mov"
+    },
+    {
+      "category": "Video",
+      "source": "video.mkv",
+      "inputFormat": "mkv",
+      "target": "webm",
+      "durationMs": 193,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-127\\video.webm"
+    },
+    {
+      "category": "Video",
+      "source": "video.mkv",
+      "inputFormat": "mkv",
+      "target": "avi",
+      "durationMs": 189,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-128\\video.avi"
+    },
+    {
+      "category": "Video",
+      "source": "video.mkv",
+      "inputFormat": "mkv",
+      "target": "wmv",
+      "durationMs": 191,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-129\\video.wmv"
+    },
+    {
+      "category": "Video",
+      "source": "video.mkv",
+      "inputFormat": "mkv",
+      "target": "gif",
+      "durationMs": 175,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-130\\video.gif"
+    },
+    {
+      "category": "Video",
+      "source": "video.mkv",
+      "inputFormat": "mkv",
+      "target": "mp3",
+      "durationMs": 183,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-131\\video.mp3"
+    },
+    {
+      "category": "Video",
+      "source": "video.webm",
+      "inputFormat": "webm",
+      "target": "mp4",
+      "durationMs": 190,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-132\\video.mp4"
+    },
+    {
+      "category": "Video",
+      "source": "video.webm",
+      "inputFormat": "webm",
+      "target": "mov",
+      "durationMs": 181,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-133\\video.mov"
+    },
+    {
+      "category": "Video",
+      "source": "video.webm",
+      "inputFormat": "webm",
+      "target": "mkv",
+      "durationMs": 184,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-134\\video.mkv"
+    },
+    {
+      "category": "Video",
+      "source": "video.webm",
+      "inputFormat": "webm",
+      "target": "avi",
+      "durationMs": 193,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-135\\video.avi"
+    },
+    {
+      "category": "Video",
+      "source": "video.webm",
+      "inputFormat": "webm",
+      "target": "wmv",
+      "durationMs": 191,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-136\\video.wmv"
+    },
+    {
+      "category": "Video",
+      "source": "video.webm",
+      "inputFormat": "webm",
+      "target": "gif",
+      "durationMs": 172,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-137\\video.gif"
+    },
+    {
+      "category": "Video",
+      "source": "video.webm",
+      "inputFormat": "webm",
+      "target": "mp3",
+      "durationMs": 171,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-138\\video.mp3"
+    },
+    {
+      "category": "Video",
+      "source": "video.avi",
+      "inputFormat": "avi",
+      "target": "mp4",
+      "durationMs": 206,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-139\\video.mp4"
+    },
+    {
+      "category": "Video",
+      "source": "video.avi",
+      "inputFormat": "avi",
+      "target": "mov",
+      "durationMs": 209,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-140\\video.mov"
+    },
+    {
+      "category": "Video",
+      "source": "video.avi",
+      "inputFormat": "avi",
+      "target": "mkv",
+      "durationMs": 194,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-141\\video.mkv"
+    },
+    {
+      "category": "Video",
+      "source": "video.avi",
+      "inputFormat": "avi",
+      "target": "webm",
+      "durationMs": 191,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-142\\video.webm"
+    },
+    {
+      "category": "Video",
+      "source": "video.avi",
+      "inputFormat": "avi",
+      "target": "wmv",
+      "durationMs": 182,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-143\\video.wmv"
+    },
+    {
+      "category": "Video",
+      "source": "video.avi",
+      "inputFormat": "avi",
+      "target": "gif",
+      "durationMs": 179,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-144\\video.gif"
+    },
+    {
+      "category": "Video",
+      "source": "video.avi",
+      "inputFormat": "avi",
+      "target": "mp3",
+      "durationMs": 186,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-145\\video.mp3"
+    },
+    {
+      "category": "Video",
+      "source": "video.wmv",
+      "inputFormat": "wmv",
+      "target": "mp4",
+      "durationMs": 208,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-146\\video.mp4"
+    },
+    {
+      "category": "Video",
+      "source": "video.wmv",
+      "inputFormat": "wmv",
+      "target": "mov",
+      "durationMs": 213,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-147\\video.mov"
+    },
+    {
+      "category": "Video",
+      "source": "video.wmv",
+      "inputFormat": "wmv",
+      "target": "mkv",
+      "durationMs": 215,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-148\\video.mkv"
+    },
+    {
+      "category": "Video",
+      "source": "video.wmv",
+      "inputFormat": "wmv",
+      "target": "webm",
+      "durationMs": 246,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-149\\video.webm"
+    },
+    {
+      "category": "Video",
+      "source": "video.wmv",
+      "inputFormat": "wmv",
+      "target": "avi",
+      "durationMs": 241,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-150\\video.avi"
+    },
+    {
+      "category": "Video",
+      "source": "video.wmv",
+      "inputFormat": "wmv",
+      "target": "gif",
+      "durationMs": 200,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-151\\video.gif"
+    },
+    {
+      "category": "Video",
+      "source": "video.wmv",
+      "inputFormat": "wmv",
+      "target": "mp3",
+      "durationMs": 193,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-152\\video.mp3"
+    },
+    {
+      "category": "Video",
+      "source": "video.gif",
+      "inputFormat": "gif",
+      "target": "mp4",
+      "durationMs": 229,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-153\\video.mp4"
+    },
+    {
+      "category": "Video",
+      "source": "video.gif",
+      "inputFormat": "gif",
+      "target": "mov",
+      "durationMs": 179,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-154\\video.mov"
+    },
+    {
+      "category": "Video",
+      "source": "video.gif",
+      "inputFormat": "gif",
+      "target": "mkv",
+      "durationMs": 177,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-155\\video.mkv"
+    },
+    {
+      "category": "Video",
+      "source": "video.gif",
+      "inputFormat": "gif",
+      "target": "webm",
+      "durationMs": 179,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-156\\video.webm"
+    },
+    {
+      "category": "Video",
+      "source": "video.gif",
+      "inputFormat": "gif",
+      "target": "avi",
+      "durationMs": 176,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-157\\video.avi"
+    },
+    {
+      "category": "Video",
+      "source": "video.gif",
+      "inputFormat": "gif",
+      "target": "wmv",
+      "durationMs": 177,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-158\\video.wmv"
+    },
+    {
+      "category": "Documents",
+      "source": "document.txt",
+      "inputFormat": "txt",
+      "target": "html",
+      "durationMs": 194,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-160\\document.html"
+    },
+    {
+      "category": "Documents",
+      "source": "document.txt",
+      "inputFormat": "txt",
+      "target": "md",
+      "durationMs": 235,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-159\\document.md"
+    },
+    {
+      "category": "Documents",
+      "source": "document.txt",
+      "inputFormat": "txt",
+      "target": "pdf",
+      "durationMs": 404,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-162\\document.pdf"
+    },
+    {
+      "category": "Documents",
+      "source": "document.txt",
+      "inputFormat": "txt",
+      "target": "docx",
+      "durationMs": 432,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-161\\document.docx"
+    },
+    {
+      "category": "Documents",
+      "source": "document.txt",
+      "inputFormat": "txt",
+      "target": "epub",
+      "durationMs": 179,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-163\\document.epub"
+    },
+    {
+      "category": "Documents",
+      "source": "document.txt",
+      "inputFormat": "txt",
+      "target": "jpg",
+      "durationMs": 671,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-165\\document.jpg.zip"
+    },
+    {
+      "category": "Documents",
+      "source": "document.txt",
+      "inputFormat": "txt",
+      "target": "png",
+      "durationMs": 1043,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-164\\document.png.zip"
+    },
+    {
+      "category": "Documents",
+      "source": "document.md",
+      "inputFormat": "md",
+      "target": "txt",
+      "durationMs": 263,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-166\\document.txt"
+    },
+    {
+      "category": "Documents",
+      "source": "document.md",
+      "inputFormat": "md",
+      "target": "html",
+      "durationMs": 193,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-167\\document.html"
+    },
+    {
+      "category": "Documents",
+      "source": "document.md",
+      "inputFormat": "md",
+      "target": "docx",
+      "durationMs": 252,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-168\\document.docx"
+    },
+    {
+      "category": "Documents",
+      "source": "document.md",
+      "inputFormat": "md",
+      "target": "pdf",
+      "durationMs": 283,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-169\\document.pdf"
+    },
+    {
+      "category": "Documents",
+      "source": "document.md",
+      "inputFormat": "md",
+      "target": "epub",
+      "durationMs": 225,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-170\\document.epub"
+    },
+    {
+      "category": "Documents",
+      "source": "document.md",
+      "inputFormat": "md",
+      "target": "jpg",
+      "durationMs": 618,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-172\\document.jpg.zip"
+    },
+    {
+      "category": "Documents",
+      "source": "document.html",
+      "inputFormat": "html",
+      "target": "txt",
+      "durationMs": 197,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-173\\document.txt"
+    },
+    {
+      "category": "Documents",
+      "source": "document.md",
+      "inputFormat": "md",
+      "target": "png",
+      "durationMs": 955,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-171\\document.png.zip"
+    },
+    {
+      "category": "Documents",
+      "source": "document.html",
+      "inputFormat": "html",
+      "target": "md",
+      "durationMs": 223,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-174\\document.md"
+    },
+    {
+      "category": "Documents",
+      "source": "document.html",
+      "inputFormat": "html",
+      "target": "docx",
+      "durationMs": 249,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-175\\document.docx"
+    },
+    {
+      "category": "Documents",
+      "source": "document.html",
+      "inputFormat": "html",
+      "target": "pdf",
+      "durationMs": 244,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-176\\document.pdf"
+    },
+    {
+      "category": "Documents",
+      "source": "document.html",
+      "inputFormat": "html",
+      "target": "epub",
+      "durationMs": 179,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-177\\document.epub"
+    },
+    {
+      "category": "Documents",
+      "source": "document.html",
+      "inputFormat": "html",
+      "target": "jpg",
+      "durationMs": 587,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-179\\document.jpg.zip"
+    },
+    {
+      "category": "Documents",
+      "source": "document.rtf",
+      "inputFormat": "rtf",
+      "target": "txt",
+      "durationMs": 209,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-180\\document.txt"
+    },
+    {
+      "category": "Documents",
+      "source": "document.html",
+      "inputFormat": "html",
+      "target": "png",
+      "durationMs": 900,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-178\\document.png.zip"
+    },
+    {
+      "category": "Documents",
+      "source": "document.rtf",
+      "inputFormat": "rtf",
+      "target": "md",
+      "durationMs": 196,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-181\\document.md"
+    },
+    {
+      "category": "Documents",
+      "source": "document.rtf",
+      "inputFormat": "rtf",
+      "target": "html",
+      "durationMs": 171,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-182\\document.html"
+    },
+    {
+      "category": "Documents",
+      "source": "document.rtf",
+      "inputFormat": "rtf",
+      "target": "docx",
+      "durationMs": 261,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-183\\document.docx"
+    },
+    {
+      "category": "Documents",
+      "source": "document.rtf",
+      "inputFormat": "rtf",
+      "target": "epub",
+      "durationMs": 178,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-185\\document.epub"
+    },
+    {
+      "category": "Documents",
+      "source": "document.rtf",
+      "inputFormat": "rtf",
+      "target": "pdf",
+      "durationMs": 11716,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-184\\document.pdf"
+    },
+    {
+      "category": "Documents",
+      "source": "document.rtf",
+      "inputFormat": "rtf",
+      "target": "png",
+      "durationMs": 12253,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-186\\document.png.zip"
+    },
+    {
+      "category": "Documents",
+      "source": "document.docx",
+      "inputFormat": "docx",
+      "target": "txt",
+      "durationMs": 218,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-188\\document.txt"
+    },
+    {
+      "category": "Documents",
+      "source": "document.docx",
+      "inputFormat": "docx",
+      "target": "md",
+      "durationMs": 211,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-189\\document.md"
+    },
+    {
+      "category": "Documents",
+      "source": "document.docx",
+      "inputFormat": "docx",
+      "target": "html",
+      "durationMs": 213,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-190\\document.html"
+    },
+    {
+      "category": "Documents",
+      "source": "document.rtf",
+      "inputFormat": "rtf",
+      "target": "jpg",
+      "durationMs": 9478,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-187\\document.jpg.zip"
+    },
+    {
+      "category": "Documents",
+      "source": "document.docx",
+      "inputFormat": "docx",
+      "target": "epub",
+      "durationMs": 221,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-192\\document.epub"
+    },
+    {
+      "category": "Documents",
+      "source": "document.docx",
+      "inputFormat": "docx",
+      "target": "pdf",
+      "durationMs": 9049,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-191\\document.pdf"
+    },
+    {
+      "category": "Documents",
+      "source": "document.docx",
+      "inputFormat": "docx",
+      "target": "png",
+      "durationMs": 9598,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-193\\document.png.zip"
+    },
+    {
+      "category": "EPUB",
+      "source": "book.epub",
+      "inputFormat": "epub",
+      "target": "txt",
+      "durationMs": 163,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-195\\book.txt"
+    },
+    {
+      "category": "EPUB",
+      "source": "book.epub",
+      "inputFormat": "epub",
+      "target": "md",
+      "durationMs": 162,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-196\\book.md"
+    },
+    {
+      "category": "EPUB",
+      "source": "book.epub",
+      "inputFormat": "epub",
+      "target": "html",
+      "durationMs": 171,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-197\\book.html"
+    },
+    {
+      "category": "Documents",
+      "source": "document.docx",
+      "inputFormat": "docx",
+      "target": "jpg",
+      "durationMs": 9245,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-194\\document.jpg.zip"
+    },
+    {
+      "category": "EPUB",
+      "source": "book.epub",
+      "inputFormat": "epub",
+      "target": "docx",
+      "durationMs": 249,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-198\\book.docx"
+    },
+    {
+      "category": "EPUB",
+      "source": "book.epub",
+      "inputFormat": "epub",
+      "target": "pdf",
+      "durationMs": 241,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-199\\book.pdf"
+    },
+    {
+      "category": "PDF",
+      "source": "pages.pdf",
+      "inputFormat": "pdf",
+      "target": "txt",
+      "durationMs": 348,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-200\\pages.txt"
+    },
+    {
+      "category": "PDF",
+      "source": "pages.pdf",
+      "inputFormat": "pdf",
+      "target": "md",
+      "durationMs": 347,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-201\\pages.md"
+    },
+    {
+      "category": "PDF",
+      "source": "pages.pdf",
+      "inputFormat": "pdf",
+      "target": "docx",
+      "durationMs": 398,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-202\\pages.docx"
+    },
+    {
+      "category": "PDF",
+      "source": "pages.pdf",
+      "inputFormat": "pdf",
+      "target": "epub",
+      "durationMs": 352,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-203\\pages.epub"
+    },
+    {
+      "category": "PDF",
+      "source": "pages.pdf",
+      "inputFormat": "pdf",
+      "target": "jpg",
+      "durationMs": 507,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-205\\pages.jpg.zip"
+    },
+    {
+      "category": "PDF",
+      "source": "pages.pdf",
+      "inputFormat": "pdf",
+      "target": "png",
+      "durationMs": 871,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-204\\pages.png.zip"
+    },
+    {
+      "category": "PDF",
+      "source": "pages.pdf",
+      "inputFormat": "pdf",
+      "target": "pptx",
+      "durationMs": 483,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-206\\pages.pptx"
+    },
+    {
+      "category": "Slides",
+      "source": "slides.pptx",
+      "inputFormat": "pptx",
+      "target": "pdf",
+      "durationMs": 9060,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-207\\slides.pdf"
+    },
+    {
+      "category": "Slides",
+      "source": "slides.pptx",
+      "inputFormat": "pptx",
+      "target": "png",
+      "durationMs": 9656,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-208\\slides.png.zip"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.xlsx",
+      "inputFormat": "xlsx",
+      "target": "ods",
+      "durationMs": 445,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-210\\sheet.ods"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.xlsx",
+      "inputFormat": "xlsx",
+      "target": "csv",
+      "durationMs": 430,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-211\\sheet.csv"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.xlsx",
+      "inputFormat": "xlsx",
+      "target": "tsv",
+      "durationMs": 417,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-212\\sheet.tsv"
+    },
+    {
+      "category": "Slides",
+      "source": "slides.pptx",
+      "inputFormat": "pptx",
+      "target": "jpg",
+      "durationMs": 9483,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-209\\slides.jpg.zip"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.csv",
+      "inputFormat": "csv",
+      "target": "xlsx",
+      "durationMs": 438,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-214\\sheet.xlsx"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.csv",
+      "inputFormat": "csv",
+      "target": "ods",
+      "durationMs": 412,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-215\\sheet.ods"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.csv",
+      "inputFormat": "csv",
+      "target": "tsv",
+      "durationMs": 392,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-216\\sheet.tsv"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.xlsx",
+      "inputFormat": "xlsx",
+      "target": "pdf",
+      "durationMs": 8832,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-213\\sheet.pdf"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.csv",
+      "inputFormat": "csv",
+      "target": "pdf",
+      "durationMs": 486,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-217\\sheet.pdf"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.tsv",
+      "inputFormat": "tsv",
+      "target": "xlsx",
+      "durationMs": 425,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-218\\sheet.xlsx"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.tsv",
+      "inputFormat": "tsv",
+      "target": "ods",
+      "durationMs": 403,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-219\\sheet.ods"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.tsv",
+      "inputFormat": "tsv",
+      "target": "csv",
+      "durationMs": 391,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-220\\sheet.csv"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.tsv",
+      "inputFormat": "tsv",
+      "target": "pdf",
+      "durationMs": 478,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-221\\sheet.pdf"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.ods",
+      "inputFormat": "ods",
+      "target": "xlsx",
+      "durationMs": 430,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-222\\sheet.xlsx"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.ods",
+      "inputFormat": "ods",
+      "target": "tsv",
+      "durationMs": 402,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-224\\sheet.tsv"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.ods",
+      "inputFormat": "ods",
+      "target": "csv",
+      "durationMs": 413,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-223\\sheet.csv"
+    },
+    {
+      "category": "Slides",
+      "source": "legacy.ppt",
+      "inputFormat": "ppt",
+      "target": "pdf",
+      "durationMs": 8799,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-226\\legacy.pdf"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "sheet.ods",
+      "inputFormat": "ods",
+      "target": "pdf",
+      "durationMs": 8844,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-225\\sheet.pdf"
+    },
+    {
+      "category": "Slides",
+      "source": "legacy.ppt",
+      "inputFormat": "ppt",
+      "target": "jpg",
+      "durationMs": 9167,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-228\\legacy.jpg.zip"
+    },
+    {
+      "category": "Slides",
+      "source": "legacy.ppt",
+      "inputFormat": "ppt",
+      "target": "png",
+      "durationMs": 9554,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-227\\legacy.png.zip"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "legacy.xls",
+      "inputFormat": "xls",
+      "target": "ods",
+      "durationMs": 8817,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-230\\legacy.ods"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "legacy.xls",
+      "inputFormat": "xls",
+      "target": "xlsx",
+      "durationMs": 9186,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-229\\legacy.xlsx"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "legacy.xls",
+      "inputFormat": "xls",
+      "target": "tsv",
+      "durationMs": 8978,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-232\\legacy.tsv"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "legacy.xls",
+      "inputFormat": "xls",
+      "target": "csv",
+      "durationMs": 9005,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-231\\legacy.csv"
+    },
+    {
+      "category": "Images",
+      "source": "phone.heic",
+      "inputFormat": "heic",
+      "target": "png",
+      "durationMs": 1064,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-234\\phone.png"
+    },
+    {
+      "category": "Images",
+      "source": "phone.heic",
+      "inputFormat": "heic",
+      "target": "jpg",
+      "durationMs": 249,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-235\\phone.jpg"
+    },
+    {
+      "category": "Images",
+      "source": "phone.heic",
+      "inputFormat": "heic",
+      "target": "webp",
+      "durationMs": 327,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-236\\phone.webp"
+    },
+    {
+      "category": "Images",
+      "source": "phone.heic",
+      "inputFormat": "heic",
+      "target": "avif",
+      "durationMs": 1130,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-237\\phone.avif"
+    },
+    {
+      "category": "Images",
+      "source": "phone.heic",
+      "inputFormat": "heic",
+      "target": "tiff",
+      "durationMs": 245,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-238\\phone.tiff"
+    },
+    {
+      "category": "Images",
+      "source": "phone.heic",
+      "inputFormat": "heic",
+      "target": "bmp",
+      "durationMs": 282,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-239\\phone.bmp"
+    },
+    {
+      "category": "Images",
+      "source": "phone.heic",
+      "inputFormat": "heic",
+      "target": "pdf",
+      "durationMs": 544,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-240\\phone.pdf"
+    },
+    {
+      "category": "Subtitles",
+      "source": "captions.srt",
+      "inputFormat": "srt",
+      "target": "vtt",
+      "durationMs": 90,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-241\\captions.vtt"
+    },
+    {
+      "category": "Subtitles",
+      "source": "captions.srt",
+      "inputFormat": "srt",
+      "target": "txt",
+      "durationMs": 88,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-242\\captions.txt"
+    },
+    {
+      "category": "Subtitles",
+      "source": "captions.vtt",
+      "inputFormat": "vtt",
+      "target": "srt",
+      "durationMs": 88,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-243\\captions.srt"
+    },
+    {
+      "category": "Subtitles",
+      "source": "captions.vtt",
+      "inputFormat": "vtt",
+      "target": "txt",
+      "durationMs": 88,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-244\\captions.txt"
+    },
+    {
+      "category": "Archives",
+      "source": "archive.zip",
+      "inputFormat": "zip",
+      "target": "tar",
+      "durationMs": 129,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-245\\archive.tar"
+    },
+    {
+      "category": "Archives",
+      "source": "archive.zip",
+      "inputFormat": "zip",
+      "target": "gz",
+      "durationMs": 128,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-246\\archive.tar.gz"
+    },
+    {
+      "category": "Archives",
+      "source": "archive.tar",
+      "inputFormat": "tar",
+      "target": "zip",
+      "durationMs": 135,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-247\\archive.zip"
+    },
+    {
+      "category": "Archives",
+      "source": "archive.tar",
+      "inputFormat": "tar",
+      "target": "gz",
+      "durationMs": 127,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-248\\archive.tar.gz"
+    },
+    {
+      "category": "Archives",
+      "source": "archive.tar.gz",
+      "inputFormat": "gz",
+      "target": "zip",
+      "durationMs": 129,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-249\\archive.zip"
+    },
+    {
+      "category": "Archives",
+      "source": "archive.tar.gz",
+      "inputFormat": "gz",
+      "target": "tar",
+      "durationMs": 124,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-250\\archive.tar"
+    },
+    {
+      "category": "Archives",
+      "source": "archive.tgz",
+      "inputFormat": "tgz",
+      "target": "zip",
+      "durationMs": 129,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-251\\archive.zip"
+    },
+    {
+      "category": "Archives",
+      "source": "archive.tgz",
+      "inputFormat": "tgz",
+      "target": "tar",
+      "durationMs": 126,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-252\\archive.tar"
+    },
+    {
+      "category": "Archives",
+      "source": "single.txt.gz",
+      "inputFormat": "gz-single-stream",
+      "target": "zip",
+      "durationMs": 128,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-253\\single.txt.zip"
+    },
+    {
+      "category": "Archives",
+      "source": "single.txt.gz",
+      "inputFormat": "gz-single-stream",
+      "target": "tar",
+      "durationMs": 126,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-254\\single.txt.tar"
+    },
+    {
+      "category": "Archives",
+      "source": "download.rar",
+      "inputFormat": "rar",
+      "target": "zip",
+      "durationMs": 145,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-255\\download.zip"
+    },
+    {
+      "category": "Archives",
+      "source": "download.rar",
+      "inputFormat": "rar",
+      "target": "tar",
+      "durationMs": 138,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-256\\download.tar"
+    },
+    {
+      "category": "Archives",
+      "source": "download.rar",
+      "inputFormat": "rar",
+      "target": "gz",
+      "durationMs": 139,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-257\\download.tar.gz"
+    },
+    {
+      "category": "Spreadsheets",
+      "source": "legacy.xls",
+      "inputFormat": "xls",
+      "target": "pdf",
+      "durationMs": 9026,
+      "status": "passed",
+      "output": ".tmp\\conversion-audit-5KqUkP\\case-233\\legacy.pdf"
+    }
+  ],
+  "referenceCoverage": [
+    {
+      "category": "Images",
+      "input": "jpg",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "jpg",
+      "target": "webp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "jpg",
+      "target": "heic",
+      "status": "not implemented"
+    },
+    {
+      "category": "Images",
+      "input": "jpg",
+      "target": "tiff",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "jpg",
+      "target": "avif",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "jpg",
+      "target": "bmp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "jpg",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "png",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "png",
+      "target": "webp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "png",
+      "target": "heic",
+      "status": "not implemented"
+    },
+    {
+      "category": "Images",
+      "input": "png",
+      "target": "tiff",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "png",
+      "target": "avif",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "png",
+      "target": "bmp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "png",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "webp",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "webp",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "webp",
+      "target": "heic",
+      "status": "not implemented"
+    },
+    {
+      "category": "Images",
+      "input": "webp",
+      "target": "tiff",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "webp",
+      "target": "avif",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "webp",
+      "target": "bmp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "webp",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "heic",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "heic",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "heic",
+      "target": "webp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "heic",
+      "target": "tiff",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "heic",
+      "target": "avif",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "heic",
+      "target": "bmp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "heic",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "tiff",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "tiff",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "tiff",
+      "target": "webp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "tiff",
+      "target": "heic",
+      "status": "not implemented"
+    },
+    {
+      "category": "Images",
+      "input": "tiff",
+      "target": "avif",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "tiff",
+      "target": "bmp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "tiff",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "svg",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "svg",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "svg",
+      "target": "webp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "svg",
+      "target": "heic",
+      "status": "not implemented"
+    },
+    {
+      "category": "Images",
+      "input": "svg",
+      "target": "tiff",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "svg",
+      "target": "avif",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "svg",
+      "target": "bmp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "svg",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "avif",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "avif",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "avif",
+      "target": "webp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "avif",
+      "target": "heic",
+      "status": "not implemented"
+    },
+    {
+      "category": "Images",
+      "input": "avif",
+      "target": "tiff",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "avif",
+      "target": "bmp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "avif",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "bmp",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "bmp",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "bmp",
+      "target": "webp",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "bmp",
+      "target": "heic",
+      "status": "not implemented"
+    },
+    {
+      "category": "Images",
+      "input": "bmp",
+      "target": "tiff",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "bmp",
+      "target": "avif",
+      "status": "passed"
+    },
+    {
+      "category": "Images",
+      "input": "bmp",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mp4",
+      "target": "mov",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mp4",
+      "target": "mkv",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mp4",
+      "target": "webm",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mp4",
+      "target": "avi",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mp4",
+      "target": "wmv",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mp4",
+      "target": "gif",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mp4",
+      "target": "mp3",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mov",
+      "target": "mp4",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mov",
+      "target": "mkv",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mov",
+      "target": "webm",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mov",
+      "target": "avi",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mov",
+      "target": "wmv",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mov",
+      "target": "gif",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mov",
+      "target": "mp3",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mkv",
+      "target": "mp4",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mkv",
+      "target": "mov",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mkv",
+      "target": "webm",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mkv",
+      "target": "avi",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mkv",
+      "target": "wmv",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mkv",
+      "target": "gif",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "mkv",
+      "target": "mp3",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "webm",
+      "target": "mp4",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "webm",
+      "target": "mov",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "webm",
+      "target": "mkv",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "webm",
+      "target": "avi",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "webm",
+      "target": "wmv",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "webm",
+      "target": "gif",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "webm",
+      "target": "mp3",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "avi",
+      "target": "mp4",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "avi",
+      "target": "mov",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "avi",
+      "target": "mkv",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "avi",
+      "target": "webm",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "avi",
+      "target": "wmv",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "avi",
+      "target": "gif",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "avi",
+      "target": "mp3",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "wmv",
+      "target": "mp4",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "wmv",
+      "target": "mov",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "wmv",
+      "target": "mkv",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "wmv",
+      "target": "webm",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "wmv",
+      "target": "avi",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "wmv",
+      "target": "gif",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "wmv",
+      "target": "mp3",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "gif",
+      "target": "mp4",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "gif",
+      "target": "mov",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "gif",
+      "target": "mkv",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "gif",
+      "target": "webm",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "gif",
+      "target": "avi",
+      "status": "passed"
+    },
+    {
+      "category": "Video",
+      "input": "gif",
+      "target": "wmv",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "mp3",
+      "target": "m4a",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "mp3",
+      "target": "wav",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "mp3",
+      "target": "flac",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "mp3",
+      "target": "ogg",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "mp3",
+      "target": "opus",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "mp3",
+      "target": "aiff",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "mp3",
+      "target": "wma",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "m4a",
+      "target": "mp3",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "m4a",
+      "target": "wav",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "m4a",
+      "target": "flac",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "m4a",
+      "target": "ogg",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "m4a",
+      "target": "opus",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "m4a",
+      "target": "aiff",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "m4a",
+      "target": "wma",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wav",
+      "target": "mp3",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wav",
+      "target": "m4a",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wav",
+      "target": "flac",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wav",
+      "target": "ogg",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wav",
+      "target": "opus",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wav",
+      "target": "aiff",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wav",
+      "target": "wma",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "flac",
+      "target": "mp3",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "flac",
+      "target": "m4a",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "flac",
+      "target": "wav",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "flac",
+      "target": "ogg",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "flac",
+      "target": "opus",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "flac",
+      "target": "aiff",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "flac",
+      "target": "wma",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "ogg",
+      "target": "mp3",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "ogg",
+      "target": "m4a",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "ogg",
+      "target": "wav",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "ogg",
+      "target": "flac",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "ogg",
+      "target": "opus",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "ogg",
+      "target": "aiff",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "ogg",
+      "target": "wma",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "opus",
+      "target": "mp3",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "opus",
+      "target": "m4a",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "opus",
+      "target": "wav",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "opus",
+      "target": "flac",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "opus",
+      "target": "ogg",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "opus",
+      "target": "aiff",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "opus",
+      "target": "wma",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "aiff",
+      "target": "mp3",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "aiff",
+      "target": "m4a",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "aiff",
+      "target": "wav",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "aiff",
+      "target": "flac",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "aiff",
+      "target": "ogg",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "aiff",
+      "target": "opus",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "aiff",
+      "target": "wma",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wma",
+      "target": "mp3",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wma",
+      "target": "m4a",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wma",
+      "target": "wav",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wma",
+      "target": "flac",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wma",
+      "target": "ogg",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wma",
+      "target": "opus",
+      "status": "passed"
+    },
+    {
+      "category": "Audio",
+      "input": "wma",
+      "target": "aiff",
+      "status": "passed"
+    },
+    {
+      "category": "PDF",
+      "input": "pdf",
+      "target": "docx",
+      "status": "passed"
+    },
+    {
+      "category": "PDF",
+      "input": "pdf",
+      "target": "pages",
+      "status": "not implemented"
+    },
+    {
+      "category": "PDF",
+      "input": "pdf",
+      "target": "pptx",
+      "status": "passed"
+    },
+    {
+      "category": "PDF",
+      "input": "pdf",
+      "target": "xlsx",
+      "status": "not implemented"
+    },
+    {
+      "category": "PDF",
+      "input": "pdf",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "PDF",
+      "input": "pdf",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "PDF",
+      "input": "pdf",
+      "target": "epub",
+      "status": "passed"
+    },
+    {
+      "category": "PDF",
+      "input": "pdf",
+      "target": "txt",
+      "status": "passed"
+    },
+    {
+      "category": "PDF",
+      "input": "pdf",
+      "target": "md",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "docx",
+      "target": "pages",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "docx",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "docx",
+      "target": "txt",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "docx",
+      "target": "md",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "docx",
+      "target": "html",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "docx",
+      "target": "epub",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "docx",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "docx",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "pages",
+      "target": "docx",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "pages",
+      "target": "pdf",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "pages",
+      "target": "txt",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "pages",
+      "target": "md",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "pages",
+      "target": "html",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "pages",
+      "target": "epub",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "pages",
+      "target": "png",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "pages",
+      "target": "jpg",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "md",
+      "target": "docx",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "md",
+      "target": "pages",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "md",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "md",
+      "target": "txt",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "md",
+      "target": "html",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "md",
+      "target": "epub",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "md",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "md",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "txt",
+      "target": "docx",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "txt",
+      "target": "pages",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "txt",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "txt",
+      "target": "md",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "txt",
+      "target": "html",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "txt",
+      "target": "epub",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "txt",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "txt",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "rtf",
+      "target": "docx",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "rtf",
+      "target": "pages",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "rtf",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "rtf",
+      "target": "txt",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "rtf",
+      "target": "md",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "rtf",
+      "target": "html",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "rtf",
+      "target": "epub",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "rtf",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "rtf",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "Documents",
+      "input": "rtfd",
+      "target": "docx",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "rtfd",
+      "target": "pages",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "rtfd",
+      "target": "pdf",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "rtfd",
+      "target": "txt",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "rtfd",
+      "target": "md",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "rtfd",
+      "target": "html",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "rtfd",
+      "target": "epub",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "rtfd",
+      "target": "png",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "rtfd",
+      "target": "jpg",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "textClipping",
+      "target": "docx",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "textClipping",
+      "target": "pages",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "textClipping",
+      "target": "pdf",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "textClipping",
+      "target": "txt",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "textClipping",
+      "target": "md",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "textClipping",
+      "target": "html",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "textClipping",
+      "target": "epub",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "textClipping",
+      "target": "png",
+      "status": "not implemented"
+    },
+    {
+      "category": "Documents",
+      "input": "textClipping",
+      "target": "jpg",
+      "status": "not implemented"
+    },
+    {
+      "category": "Slides",
+      "input": "ppt",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Slides",
+      "input": "ppt",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "Slides",
+      "input": "ppt",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "Slides",
+      "input": "pptx",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Slides",
+      "input": "pptx",
+      "target": "jpg",
+      "status": "passed"
+    },
+    {
+      "category": "Slides",
+      "input": "pptx",
+      "target": "png",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "xlsx",
+      "target": "ods",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "xlsx",
+      "target": "csv",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "xlsx",
+      "target": "tsv",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "xlsx",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "xls",
+      "target": "xlsx",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "xls",
+      "target": "ods",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "xls",
+      "target": "csv",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "xls",
+      "target": "tsv",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "xls",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "ods",
+      "target": "xlsx",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "ods",
+      "target": "csv",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "ods",
+      "target": "tsv",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "ods",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "csv",
+      "target": "xlsx",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "csv",
+      "target": "ods",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "csv",
+      "target": "tsv",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "csv",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "tsv",
+      "target": "xlsx",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "tsv",
+      "target": "ods",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "tsv",
+      "target": "csv",
+      "status": "passed"
+    },
+    {
+      "category": "Spreadsheets",
+      "input": "tsv",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "EPUB",
+      "input": "epub",
+      "target": "pdf",
+      "status": "passed"
+    },
+    {
+      "category": "EPUB",
+      "input": "epub",
+      "target": "docx",
+      "status": "passed"
+    },
+    {
+      "category": "EPUB",
+      "input": "epub",
+      "target": "pages",
+      "status": "not implemented"
+    },
+    {
+      "category": "EPUB",
+      "input": "epub",
+      "target": "txt",
+      "status": "passed"
+    },
+    {
+      "category": "EPUB",
+      "input": "epub",
+      "target": "md",
+      "status": "passed"
+    },
+    {
+      "category": "EPUB",
+      "input": "epub",
+      "target": "html",
+      "status": "passed"
+    },
+    {
+      "category": "Subtitles",
+      "input": "srt",
+      "target": "vtt",
+      "status": "passed"
+    },
+    {
+      "category": "Subtitles",
+      "input": "srt",
+      "target": "txt",
+      "status": "passed"
+    },
+    {
+      "category": "Subtitles",
+      "input": "vtt",
+      "target": "srt",
+      "status": "passed"
+    },
+    {
+      "category": "Subtitles",
+      "input": "vtt",
+      "target": "txt",
+      "status": "passed"
+    },
+    {
+      "category": "Archives",
+      "input": "zip",
+      "target": "tar",
+      "status": "passed"
+    },
+    {
+      "category": "Archives",
+      "input": "zip",
+      "target": "gz",
+      "status": "passed"
+    },
+    {
+      "category": "Archives",
+      "input": "tar",
+      "target": "zip",
+      "status": "passed"
+    },
+    {
+      "category": "Archives",
+      "input": "tar",
+      "target": "gz",
+      "status": "passed"
+    },
+    {
+      "category": "Archives",
+      "input": "gz",
+      "target": "zip",
+      "status": "passed"
+    },
+    {
+      "category": "Archives",
+      "input": "gz",
+      "target": "tar",
+      "status": "passed"
+    },
+    {
+      "category": "Archives",
+      "input": "rar",
+      "target": "zip",
+      "status": "passed"
+    },
+    {
+      "category": "Archives",
+      "input": "rar",
+      "target": "tar",
+      "status": "passed"
+    },
+    {
+      "category": "Archives",
+      "input": "rar",
+      "target": "gz",
+      "status": "passed"
+    }
+  ],
+  "limits": "Small generated fixtures; validates content/decodability and source preservation, not all complex real-world files or faithful office layout. Windows execution does not establish macOS/Linux native behavior.",
+  "referenceNotTested": 0,
+  "officeEngineAvailable": true
+}

@@ -1,0 +1,529 @@
+{
+  "reviewed": "2026-10-26",
+  "source": "Peeler conversion requirements",
+  "evidence": "Public website format labels and client-side demo capability declarations; not tests of the native Mac app.",
+  "status": "Reference requirements only. This file does not enable runtime capabilities in Peeler.",
+  "categories": [
+    {
+      "category": "Images",
+      "inputs": [
+        "jpg",
+        "png",
+        "webp",
+        "heic",
+        "tiff",
+        "svg",
+        "avif",
+        "bmp"
+      ],
+      "notes": [
+        "SVG is input only.",
+        "Image-to-PDF export is included."
+      ],
+      "conversions": {
+        "jpg": [
+          "png",
+          "webp",
+          "heic",
+          "tiff",
+          "avif",
+          "bmp",
+          "pdf"
+        ],
+        "png": [
+          "jpg",
+          "webp",
+          "heic",
+          "tiff",
+          "avif",
+          "bmp",
+          "pdf"
+        ],
+        "webp": [
+          "jpg",
+          "png",
+          "heic",
+          "tiff",
+          "avif",
+          "bmp",
+          "pdf"
+        ],
+        "heic": [
+          "jpg",
+          "png",
+          "webp",
+          "tiff",
+          "avif",
+          "bmp",
+          "pdf"
+        ],
+        "tiff": [
+          "jpg",
+          "png",
+          "webp",
+          "heic",
+          "avif",
+          "bmp",
+          "pdf"
+        ],
+        "svg": [
+          "jpg",
+          "png",
+          "webp",
+          "heic",
+          "tiff",
+          "avif",
+          "bmp",
+          "pdf"
+        ],
+        "avif": [
+          "jpg",
+          "png",
+          "webp",
+          "heic",
+          "tiff",
+          "bmp",
+          "pdf"
+        ],
+        "bmp": [
+          "jpg",
+          "png",
+          "webp",
+          "heic",
+          "tiff",
+          "avif",
+          "pdf"
+        ]
+      }
+    },
+    {
+      "category": "Video",
+      "inputs": [
+        "mp4",
+        "mov",
+        "mkv",
+        "webm",
+        "avi",
+        "wmv",
+        "gif"
+      ],
+      "notes": [
+        "Video containers can export GIF or MP3.",
+        "GIF inputs export video containers; the demo does not offer GIF-to-MP3."
+      ],
+      "conversions": {
+        "mp4": [
+          "mov",
+          "mkv",
+          "webm",
+          "avi",
+          "wmv",
+          "gif",
+          "mp3"
+        ],
+        "mov": [
+          "mp4",
+          "mkv",
+          "webm",
+          "avi",
+          "wmv",
+          "gif",
+          "mp3"
+        ],
+        "mkv": [
+          "mp4",
+          "mov",
+          "webm",
+          "avi",
+          "wmv",
+          "gif",
+          "mp3"
+        ],
+        "webm": [
+          "mp4",
+          "mov",
+          "mkv",
+          "avi",
+          "wmv",
+          "gif",
+          "mp3"
+        ],
+        "avi": [
+          "mp4",
+          "mov",
+          "mkv",
+          "webm",
+          "wmv",
+          "gif",
+          "mp3"
+        ],
+        "wmv": [
+          "mp4",
+          "mov",
+          "mkv",
+          "webm",
+          "avi",
+          "gif",
+          "mp3"
+        ],
+        "gif": [
+          "mp4",
+          "mov",
+          "mkv",
+          "webm",
+          "avi",
+          "wmv"
+        ]
+      }
+    },
+    {
+      "category": "Audio",
+      "inputs": [
+        "mp3",
+        "m4a",
+        "wav",
+        "flac",
+        "ogg",
+        "opus",
+        "aiff",
+        "wma"
+      ],
+      "notes": [
+        "Audio visualization to MP4 is a separate editing tool."
+      ],
+      "conversions": {
+        "mp3": [
+          "m4a",
+          "wav",
+          "flac",
+          "ogg",
+          "opus",
+          "aiff",
+          "wma"
+        ],
+        "m4a": [
+          "mp3",
+          "wav",
+          "flac",
+          "ogg",
+          "opus",
+          "aiff",
+          "wma"
+        ],
+        "wav": [
+          "mp3",
+          "m4a",
+          "flac",
+          "ogg",
+          "opus",
+          "aiff",
+          "wma"
+        ],
+        "flac": [
+          "mp3",
+          "m4a",
+          "wav",
+          "ogg",
+          "opus",
+          "aiff",
+          "wma"
+        ],
+        "ogg": [
+          "mp3",
+          "m4a",
+          "wav",
+          "flac",
+          "opus",
+          "aiff",
+          "wma"
+        ],
+        "opus": [
+          "mp3",
+          "m4a",
+          "wav",
+          "flac",
+          "ogg",
+          "aiff",
+          "wma"
+        ],
+        "aiff": [
+          "mp3",
+          "m4a",
+          "wav",
+          "flac",
+          "ogg",
+          "opus",
+          "wma"
+        ],
+        "wma": [
+          "mp3",
+          "m4a",
+          "wav",
+          "flac",
+          "ogg",
+          "opus",
+          "aiff"
+        ]
+      }
+    },
+    {
+      "category": "PDF",
+      "inputs": [
+        "pdf"
+      ],
+      "notes": [
+        "The site specifies all-page image exports at 300 DPI.",
+        "Scanned-document text conversion uses local OCR according to the category descriptions.",
+        "Editable office reconstruction and layout fidelity require separate implementation work."
+      ],
+      "conversions": {
+        "pdf": [
+          "docx",
+          "pages",
+          "pptx",
+          "xlsx",
+          "jpg",
+          "png",
+          "epub",
+          "txt",
+          "md"
+        ]
+      }
+    },
+    {
+      "category": "Documents",
+      "inputs": [
+        "docx",
+        "pages",
+        "md",
+        "txt",
+        "rtf",
+        "rtfd",
+        "textClipping"
+      ],
+      "notes": [
+        "RTF, RTFD, and Finder text clippings are input only.",
+        "HTML is an output in the demo; no HTML-input conversion route is defined."
+      ],
+      "conversions": {
+        "docx": [
+          "pages",
+          "pdf",
+          "txt",
+          "md",
+          "html",
+          "epub",
+          "png",
+          "jpg"
+        ],
+        "pages": [
+          "docx",
+          "pdf",
+          "txt",
+          "md",
+          "html",
+          "epub",
+          "png",
+          "jpg"
+        ],
+        "md": [
+          "docx",
+          "pages",
+          "pdf",
+          "txt",
+          "html",
+          "epub",
+          "png",
+          "jpg"
+        ],
+        "txt": [
+          "docx",
+          "pages",
+          "pdf",
+          "md",
+          "html",
+          "epub",
+          "png",
+          "jpg"
+        ],
+        "rtf": [
+          "docx",
+          "pages",
+          "pdf",
+          "txt",
+          "md",
+          "html",
+          "epub",
+          "png",
+          "jpg"
+        ],
+        "rtfd": [
+          "docx",
+          "pages",
+          "pdf",
+          "txt",
+          "md",
+          "html",
+          "epub",
+          "png",
+          "jpg"
+        ],
+        "textClipping": [
+          "docx",
+          "pages",
+          "pdf",
+          "txt",
+          "md",
+          "html",
+          "epub",
+          "png",
+          "jpg"
+        ]
+      }
+    },
+    {
+      "category": "Slides",
+      "inputs": [
+        "ppt",
+        "pptx"
+      ],
+      "notes": [
+        "PPT is input only.",
+        "PDF-to-PPTX belongs to the PDF input category."
+      ],
+      "conversions": {
+        "ppt": [
+          "pdf",
+          "jpg",
+          "png"
+        ],
+        "pptx": [
+          "pdf",
+          "jpg",
+          "png"
+        ]
+      }
+    },
+    {
+      "category": "Spreadsheets",
+      "inputs": [
+        "xlsx",
+        "xls",
+        "ods",
+        "csv",
+        "tsv"
+      ],
+      "notes": [
+        "XLS is input only.",
+        "PDF-to-XLSX belongs to the PDF input category."
+      ],
+      "conversions": {
+        "xlsx": [
+          "ods",
+          "csv",
+          "tsv",
+          "pdf"
+        ],
+        "xls": [
+          "xlsx",
+          "ods",
+          "csv",
+          "tsv",
+          "pdf"
+        ],
+        "ods": [
+          "xlsx",
+          "csv",
+          "tsv",
+          "pdf"
+        ],
+        "csv": [
+          "xlsx",
+          "ods",
+          "tsv",
+          "pdf"
+        ],
+        "tsv": [
+          "xlsx",
+          "ods",
+          "csv",
+          "pdf"
+        ]
+      }
+    },
+    {
+      "category": "EPUB",
+      "inputs": [
+        "epub"
+      ],
+      "notes": [
+        "EPUB is its own category on the website.",
+        "PDF-to-EPUB offers reflowable-text or fixed-page approaches according to the category descriptions."
+      ],
+      "conversions": {
+        "epub": [
+          "pdf",
+          "docx",
+          "pages",
+          "txt",
+          "md",
+          "html"
+        ]
+      }
+    },
+    {
+      "category": "Subtitles",
+      "inputs": [
+        "srt",
+        "vtt"
+      ],
+      "notes": [
+        "Interchange preserves cue timing; plain-text export removes subtitle timing."
+      ],
+      "conversions": {
+        "srt": [
+          "vtt",
+          "txt"
+        ],
+        "vtt": [
+          "srt",
+          "txt"
+        ]
+      }
+    },
+    {
+      "category": "Archives",
+      "inputs": [
+        "zip",
+        "tar",
+        "gz",
+        "rar"
+      ],
+      "notes": [
+        "RAR is input only.",
+        "The demo labels gz as GZIP and gives generated outputs a .tar.gz suffix.",
+        "Extraction is a separate tool; single-stream gzip versus tar.gz semantics need native-app validation."
+      ],
+      "conversions": {
+        "zip": [
+          "tar",
+          "gz"
+        ],
+        "tar": [
+          "zip",
+          "gz"
+        ],
+        "gz": [
+          "zip",
+          "tar"
+        ],
+        "rar": [
+          "zip",
+          "tar",
+          "gz"
+        ]
+      }
+    }
+  ],
+  "observedDemoPathCount": 275
+}

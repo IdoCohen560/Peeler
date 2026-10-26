@@ -1,0 +1,1 @@
+Fixtures from https://github.com/libarchive/libarchive/tree/d7ef15893a5ed68d475e157acfd1f9c0784f296b/libarchive/test . Original uuencoded data retained. See COPYING for upstream licenses. Used only as conversion/safety test inputs.

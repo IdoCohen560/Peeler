@@ -1,0 +1,9 @@
+node_modules/
+dist/
+research/
+.taste-skill/inspect/
+test-results/
+playwright-report/
+.tmp/
+*.log
+tools/

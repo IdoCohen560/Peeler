@@ -1,0 +1,76 @@
+name: Verify Peeler on Windows, Linux and macOS
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            name: windows-x64
+            executable: dist/win-unpacked/peeler.exe
+          - os: ubuntu-24.04
+            name: linux-x64
+            executable: dist/linux-unpacked/peeler
+          - os: macos-15-intel
+            name: macos-intel
+            executable: dist/mac/Peeler.app/Contents/MacOS/peeler
+          - os: macos-latest
+            name: macos-apple-silicon
+            executable: dist/mac-arm64/Peeler.app/Contents/MacOS/peeler
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run test:fixtures
+      - name: Provision project-local Office engine on Windows
+        if: runner.os == 'Windows'
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-office.ps1
+      - name: Provision project-local media engine on Windows
+        if: runner.os == 'Windows'
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-media.ps1
+      - name: Provision Office engine on Linux
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice
+      - name: Provision Office engine on macOS
+        if: runner.os == 'macOS'
+        run: brew install --cask libreoffice
+      - run: npm test
+      - run: npm run test:formats
+      - run: npm run test:desktop
+        if: runner.os != 'Linux'
+      - run: xvfb-run --auto-servernum npm run test:desktop
+        if: runner.os == 'Linux'
+      - run: npm run pack
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      - name: Test the packaged application
+        run: npm run test:desktop
+        if: runner.os != 'Linux'
+        env:
+          PEELER_EXECUTABLE: ${{ github.workspace }}/${{ matrix.executable }}
+      - name: Test the packaged application under X11
+        run: xvfb-run --auto-servernum npm run test:desktop
+        if: runner.os == 'Linux'
+        env:
+          PEELER_EXECUTABLE: ${{ github.workspace }}/${{ matrix.executable }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: checks-${{ matrix.name }}
+          path: |
+            test-results/**/*.png
+            test-results/**/*.md
+            test-results/**/*.json
+            !test-results/**/profile/**
+            .tmp/conversion-audit-latest.json
+          include-hidden-files: true
+          retention-days: 7

@@ -1,0 +1,18 @@
+# Third-party notices
+
+Peeler's original code is MIT licensed. Third-party libraries, native engines, fonts and test fixtures retain their own licenses and attribution as described below.
+
+- Electron: MIT; Chromium, Node.js, and other bundled components have additional notices included with Electron distributions. Retain the distribution's license files.
+- Sharp: Apache-2.0; its prebuilt libvips dependency and codecs carry their own licenses, including LGPL obligations. Retain the license/notice files from sharp and @img packages and review binary redistribution before a public release.
+- Geist fonts: SIL Open Font License 1.1. The full license is bundled in `src/renderer/fonts/OFL.txt`.
+- electron-builder and Playwright: MIT and Apache-2.0 respectively; development tools, not app runtime dependencies.
+- Windows media engine: Gyan FFmpeg 9.0.2, GPLv3, running as a separate process. Its LICENSE and README (source revision, configuration, external library versions) accompany the binary under resources/ffmpeg. The npm ffmpeg-static fallback still contains 6.1.1 here and remains a maintenance gate for other platforms. Matching corresponding source and codec/library redistribution obligations must be completed before public distribution. See [Gyan builds](https://www.gyan.dev/ffmpeg/builds/), [ffmpeg-static](https://github.com/eugeneware/ffmpeg-static), and [FFmpeg](https://ffmpeg.org/).
+- LibreOffice 26.8.1.1: MPL-2.0 with additional bundled component licenses/notices retained in the extracted engine. The suite runs only for individual conversion jobs. Its inclusion does not change Peeler's original source license. See docs/OFFICE_ENGINE.md for pinned package provenance and remaining redistribution work.
+- heic-decode is ISC; libheif-js and its WebAssembly codec distribution carry LGPL terms. Retain the package license texts, check included libheif/libde265 sources and exact build versions, and provide corresponding source/replacement rights as required before public distribution.
+- libarchive-wasm's wrapper is MIT; its embedded libarchive reports 3.7.7 and includes separately licensed compression libraries. The wrapper's npm license label is not a complete notice or security audit for the WebAssembly binary. Source/build provenance and component notices remain release gates. The libarchive test fixtures retain upstream COPYING and provenance under tests/fixtures/libarchive.
+- rtf-parser: MIT, used for content-oriented RTF text import. It does not provide an Office layout renderer.
+- PDF.js: Apache-2.0; @napi-rs/canvas: MIT, with native Skia and other component notices in its distribution. PDF.js includes Liberation Sans and Foxit standard-font licenses under its standard_fonts directory. Text PDF exports use its bundled Liberation Sans font.
+- PDFKit, Mammoth, docx, marked, html-to-text, JSZip, fast-xml-parser, ExcelJS, csv-parse, csv-stringify, yauzl, tar-stream, bmp-js, PptxGenJS, and uiohook-napi carry their upstream package licenses. The native input hook includes libuiohook notices that must be retained.
+- Specifically, uiohook-napi's JavaScript/native wrapper is MIT; the included libuiohook source headers identify LGPL-3.0-or-later. Preserve those headers/source and address its native redistribution obligations along with FFmpeg before a public release.
+
+`THIRD_PARTY_LICENSES.txt` collects installed production package license texts and identifiers; `npm run notices` regenerates it. The packaged dependency distributions retain their own additional notices. It is not a substitute for corresponding-source compliance for native codec binaries. OCR and other future engines need their own review. MIT licensing of this repository does not change third-party licenses.
