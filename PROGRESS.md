@@ -96,3 +96,8 @@ Final checks after the fixes: all 19 core/gesture regressions passed; all 219 cu
 
 Both Intel and Apple silicon Mac jobs passed in remote CI. Linux quit integration now passes; its remaining desktop failures reported native worker exits after the Sharp/Electron Linux warning. Moved Sharp loading/cache setup into image jobs so PDF and Office workers do not load conflicting libvips/GLib symbols. Worker crashes now report exit signal/code and desktop failures identify the input row. Windows regression verification: all 26 core tests and all 10 development desktop cases passed. Remote Linux verification remains pending for this change.
 
+
+## 2026-10-26 - asynchronous close verification and bounded Linux provisioning
+
+Latest remote Windows and Apple silicon jobs passed all checks including packaged tests. Intel Mac passed all 258 conversions but exposed a timing race in the close-window test: page.close can resolve before BrowserWindow destruction finishes. The assertion now polls the same required zero-window/ready state; five repeated Windows runs passed. Linux dependency provisioning stalled, so CI now installs only the Writer/Calc/Impress components used by Peeler, omits optional recommended packages, and bounds network retries/timeouts and the installation step. No conversion or platform test is disabled.
+

@@ -62,7 +62,7 @@ test('closing the optional window keeps the host alive and --quit stops it', asy
   let exited = false; app.once('close', () => { exited = true; });
   try {
     const page = await app.firstWindow(); await page.close();
-    expect(await app.evaluate(({ app, BrowserWindow }) => app.isReady() && BrowserWindow.getAllWindows().length === 0)).toBe(true);
+    await expect.poll(() => app.evaluate(({ app, BrowserWindow }) => app.isReady() && BrowserWindow.getAllWindows().length === 0)).toBe(true);
     const closed = app.waitForEvent('close');
     // Match Playwright's Linux launch flags for the second test process only.
     const peer = require('node:child_process').spawn(process.env.PEELER_EXECUTABLE || require('electron'), [...(process.platform === 'linux' ? ['--no-sandbox'] : []), ...(process.env.PEELER_EXECUTABLE ? [] : [path.join(__dirname, '..')]), '--quit'], { env: { ...env, PEELER_TEST_PROFILE: testInfo.outputPath('profile') }, windowsHide: true, stdio: ['ignore', 'ignore', 'pipe'] });
