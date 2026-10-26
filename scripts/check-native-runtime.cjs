@@ -16,6 +16,9 @@ const code = `
 const result = spawnSync(electron, ['-e', code], { env, stdio: 'inherit', timeout: 30000 });
 if (result.status !== 0) {
   console.error(`Native runtime failed: ${result.signal || result.error?.message || result.status}`);
-  if (process.platform === 'linux') spawnSync('gdb', ['--batch', '-ex', 'run', '-ex', 'bt 16', '--args', electron, '-e', code], { env, stdio: 'inherit', timeout: 30000 });
+  if (process.platform === 'linux') {
+    const trace = spawnSync('gdb', ['--batch', '-ex', 'run', '-ex', 'bt 16', '--args', electron, '-e', code], { env, stdio: 'inherit', timeout: 30000 });
+    if (trace.error) console.error(trace.error.message);
+  }
   process.exitCode = 1;
 }

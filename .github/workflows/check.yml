@@ -31,6 +31,13 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Prepare native crash diagnostics on Linux
+        if: runner.os == 'Linux'
+        timeout-minutes: 5
+        run: |
+          printf 'https://archive.ubuntu.com/ubuntu/\tpriority:1\nhttps://security.ubuntu.com/ubuntu/\tpriority:2\nhttp://azure.archive.ubuntu.com/ubuntu/\tpriority:3\n' | sudo tee /etc/apt/apt-mirrors.txt > /dev/null
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 update
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y --no-install-recommends gdb
       - name: Verify native libraries under the Electron runtime
         run: node scripts/check-native-runtime.cjs
       - run: npm run test:fixtures
@@ -44,9 +51,6 @@ jobs:
         if: runner.os == 'Linux'
         timeout-minutes: 10
         run: |
-          # The runner's Azure mirror can trickle downloads without timing out.
-          printf 'https://archive.ubuntu.com/ubuntu/\tpriority:1\nhttps://security.ubuntu.com/ubuntu/\tpriority:2\nhttp://azure.archive.ubuntu.com/ubuntu/\tpriority:3\n' | sudo tee /etc/apt/apt-mirrors.txt > /dev/null
-          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 update
           sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y --no-install-recommends libreoffice-writer libreoffice-calc libreoffice-impress
       - name: Provision Office engine on macOS
         if: runner.os == 'macOS'
