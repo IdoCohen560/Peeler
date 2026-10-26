@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-10-26 - Linux CI follow-up
+
+User asked about failed macOS/Linux pushes. Verified those platform files were present remotely: the failures were Actions verification jobs, not missing uploads. Windows and Apple silicon jobs passed; Intel Mac progressed past the refreshed Office setup into packaging. Linux core/conversion checks passed but three desktop cases failed.
+
+Confirmed from installed Playwright source that its Linux launcher adds --no-sandbox, while the separately spawned quit peer omitted that test-only flag; aligned the peer launch without changing the shipped app's sandbox settings. Added bounded peer stderr/signal diagnostics and per-file conversion errors to desktop failure reports. Headless Office jobs on Linux now explicitly select the software backend and clear inherited desktop displays; Office errors retain bounded engine diagnostics even when the engine exits without creating a file. Added branch/ref concurrency so newer verification runs cancel obsolete runs for the same ref. These changes require fresh remote Linux verification; no failed test was disabled or relabeled as passing.
+
 ## 2026-10-26 - Windows preview uploaded and repository verified
 
 Published the complete 797,323,781-byte Windows development app/resources ZIP and SHA256SUMS.txt at https://github.com/IdoCohen560/Peeler/releases/tag/v0.2.0-dev.1. Archive integrity passed before upload; local SHA-256 is 2d6c27c0856dae71944955bff52b877bba2c4e0f8d3616b10a640ef8f2651e29. All ten packaged desktop cases passed again after the branding/package metadata cleanup. This is a marked development prerelease, not a claim of finished product readiness.

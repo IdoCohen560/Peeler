@@ -39,8 +39,11 @@ async function officeExport(input, format, work, { signal, onProgress } = {}) {
   const family = ['ppt', 'pptx'].includes(extension) ? 'impress' : ['xls', 'xlsx', 'ods'].includes(extension) ? 'calc' : 'writer';
   const filter = format === 'pdf' ? `pdf:${family}_pdf_Export` : ({ xlsx: 'xlsx:Calc MS Excel 2007 XML', xls: 'xls:MS Excel 97', ppt: 'ppt:MS PowerPoint 97' })[format] || format;
   onProgress?.({ phase: 'Rendering with Office engine' });
+  let diagnostic = '';
   await new Promise((resolve, reject) => {
-    const child = spawn(engine, [`-env:UserInstallation=${pathToFileURL(profile).href}`, '--headless', '--nologo', '--nodefault', '--norestore', '--convert-to', filter, '--outdir', out, source], { windowsHide: true, shell: false, detached: process.platform !== 'win32' });
+    // Desktop display settings must not select a GUI backend for a headless job.
+    const env = { ...process.env, ...(process.platform === 'linux' ? { SAL_USE_VCLPLUGIN: 'svp', DISPLAY: '', WAYLAND_DISPLAY: '' } : {}) };
+    const child = spawn(engine, [`-env:UserInstallation=${pathToFileURL(profile).href}`, '--headless', '--nologo', '--nodefault', '--norestore', '--convert-to', filter, '--outdir', out, source], { windowsHide: true, shell: false, detached: process.platform !== 'win32', env });
     const terminate = () => {
       if (!child.pid) return;
       if (process.platform === 'win32') spawnSync('taskkill', ['/PID', String(child.pid), '/T', '/F'], { windowsHide: true, stdio: 'ignore', timeout: 1000 });
@@ -48,7 +51,6 @@ async function officeExport(input, format, work, { signal, onProgress } = {}) {
     };
     signal?.addEventListener('abort', terminate, { once: true }); process.once('exit', terminate);
     if (signal?.aborted) terminate();
-    let diagnostic = '';
     for (const stream of [child.stdout, child.stderr]) stream.on('data', chunk => { diagnostic = (diagnostic + chunk.toString()).slice(-4000); });
     child.on('error', reject);
     child.on('close', code => {
@@ -59,7 +61,7 @@ async function officeExport(input, format, work, { signal, onProgress } = {}) {
   });
   const result = path.join(out, `source.${format}`);
   const stat = await fsp.stat(result).catch(() => null);
-  if (!stat?.isFile() || !stat.size) throw new Error('Office could not convert this file. It may be damaged, protected, or unsupported.');
+  if (!stat?.isFile() || !stat.size) throw new Error(`Office could not convert this file. ${diagnostic.trim().slice(-1000) || 'It may be damaged, protected, or unsupported.'}`);
   if (stat.size > 200_000_000) throw new Error('Office output exceeds the 200 MB limit.');
   return result;
 }

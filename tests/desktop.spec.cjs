@@ -6,6 +6,10 @@ async function launchApp(env, testInfo, extraArgs = []) {
   await fs.mkdir(profile, { recursive: true });
   return electron.launch({ args: [...(process.env.PEELER_EXECUTABLE ? [] : [path.join(__dirname, '..')]), ...extraArgs], ...(process.env.PEELER_EXECUTABLE ? { executablePath: process.env.PEELER_EXECUTABLE } : {}), env: { ...env, PEELER_TEST_PROFILE: profile, PEELER_WORK_ROOT: env.PEELER_WORK_ROOT || path.join(__dirname, '../.tmp/jobs') } });
 }
+async function expectOutputs(page, count, timeout = 30000) {
+  try { await expect(page.getByRole('button', { name: 'Show file' })).toHaveCount(count, { timeout }); }
+  catch (error) { throw new Error(`${error.message}\nConversion errors: ${(await page.locator('.file-state.error').allTextContents()).join('; ') || 'No per-file error was reported.'}`); }
+}
 test('Quit Peeler button exits the entire background app', async ({}, testInfo) => {
   const env = { ...process.env, PEELER_SHOW_WINDOW: '1', PEELER_DISABLE_HOOK: '1' }; delete env.ELECTRON_RUN_AS_NODE;
   const app = await launchApp(env, testInfo);
@@ -60,8 +64,10 @@ test('closing the optional window keeps the host alive and --quit stops it', asy
     const page = await app.firstWindow(); await page.close();
     expect(await app.evaluate(({ app, BrowserWindow }) => app.isReady() && BrowserWindow.getAllWindows().length === 0)).toBe(true);
     const closed = app.waitForEvent('close');
-    const peer = require('node:child_process').spawn(process.env.PEELER_EXECUTABLE || require('electron'), [...(process.env.PEELER_EXECUTABLE ? [] : [path.join(__dirname, '..')]), '--quit'], { env: { ...env, PEELER_TEST_PROFILE: testInfo.outputPath('profile') }, windowsHide: true, stdio: 'ignore' });
-    await new Promise((resolve, reject) => { peer.on('error', reject); peer.on('exit', code => code === 0 ? resolve() : reject(new Error(`Quit command exited ${code}`))); });
+    // Match Playwright's Linux launch flags for the second test process only.
+    const peer = require('node:child_process').spawn(process.env.PEELER_EXECUTABLE || require('electron'), [...(process.platform === 'linux' ? ['--no-sandbox'] : []), ...(process.env.PEELER_EXECUTABLE ? [] : [path.join(__dirname, '..')]), '--quit'], { env: { ...env, PEELER_TEST_PROFILE: testInfo.outputPath('profile') }, windowsHide: true, stdio: ['ignore', 'ignore', 'pipe'] });
+    let diagnostic = ''; peer.stderr.on('data', chunk => { diagnostic = (diagnostic + chunk.toString()).slice(-2000); });
+    await new Promise((resolve, reject) => { peer.on('error', reject); peer.on('exit', (code, signal) => code === 0 ? resolve() : reject(new Error(`Quit command exited ${code}, signal ${signal}: ${diagnostic}`))); });
     await closed;
   } finally { if (!exited) await app.close(); }
 });
@@ -151,7 +157,7 @@ test('all ten categories convert through the desktop IPC and worker boundary', a
     await page.keyboard.press('Escape'); await expect(page.locator('#format-dialog')).not.toBeVisible();
     await expect(page.getByRole('button', { name: 'Convert files', exact: true })).toBeInViewport();
     await page.getByRole('button', { name: 'Convert files', exact: true }).click();
-    await expect(page.getByRole('button', { name: 'Show file' })).toHaveCount(10, { timeout: 30000 });
+    await expectOutputs(page, 10);
     await expect(page.locator('.file-state.error')).toHaveCount(0);
     await expect(page.locator('#summary')).toHaveText('10 converted · 0 ready');
     expect(await fs.readFile(path.join(directory, 'report.txt'), 'utf8')).toContain('Desktop PDF fixture');
@@ -237,7 +243,7 @@ test('Office and RAR engines work through the packaged conversion boundary', asy
     await page.getByRole('button', { name: 'Add files', exact: true }).click();
     await page.getByRole('button', { name: 'Output format for slides.pptx' }).click(); await expect(page.locator('#format-note')).toContainText('Office rendering');
     await page.getByRole('button', { name: 'PNG pages (ZIP)', exact: true }).click();
-    await page.getByRole('button', { name: 'Convert files', exact: true }).click(); await expect(page.getByRole('button', { name: 'Show file' })).toHaveCount(2, { timeout: 60000 });
+    await page.getByRole('button', { name: 'Convert files', exact: true }).click(); await expectOutputs(page, 2, 60000);
     await expect(page.locator('.file-state.error')).toHaveCount(0);
     const pages = await require('../src/core/archives.cjs').readZip(await fs.readFile(path.join(directory, 'slides.png.zip'))); expect(pages.length).toBe(1);
     const files = await require('../src/core/archives.cjs').readZip(await fs.readFile(path.join(directory, 'download.zip'))); expect(files[0].name).toBe('test.bin'); expect(files[0].data.length).toBe(1200);
