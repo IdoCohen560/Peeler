@@ -1,5 +1,11 @@
 # Progress
 
+## 2026-10-26 - public repository publication and distribution choice
+
+Published https://github.com/IdoCohen560/Peeler as a public repository. Verified GitHub's API reports IdoCohen560 as both author and committer, with no co-author trailers, and verified every one of the 138 tracked project files matches the remote tree. The initial public source history contains no retired branding in file contents, filenames or commit messages. All old history remains private in the ignored local backup bundle. No force push was used.
+
+The user selected project files in Git and large builds as Release downloads. Rebuilt the Windows package with current Peeler-only notices/license/package metadata and prepared the complete app/resources archive separately. Credentials, local Git internals, temporary test profiles and reproducible installed dependencies remain out of the public source tree. The first four-host GitHub CI run started; an Intel Mac Office install failed because runner Homebrew metadata referenced a removed old download, so the workflow now explicitly refreshes metadata before installing the cask. CI results remain separate from native manual validation.
+
 ## 2026-10-26 - GitHub ownership and Peeler-only public source
 
 User requested a public repository under IdoCohen560 with sole commit attribution, then requested removal of the previous product name from all published project content and filenames. Authenticated the actual GitHub account through Git Credential Manager's device flow and verified the API identity before creating IdoCohen560/Peeler. Configured only this repository's author/committer identity and GitHub credential username; the no-reply address avoids exposing the supplied Gmail address in public commits.

@@ -6,7 +6,7 @@ The Git repository contains Peeler's complete source project: desktop host, conv
 
 Commit author and committer identity is `IdoCohen560`, using GitHub's account-linked no-reply email. Third-party component/license notices remain intact. Local credential stores, Git internals and private history backups are not project source and must never be published.
 
-Generated directories have separate roles:
+The owner selected all project files in Git and large built applications as Release downloads. Generated directories have separate roles:
 
 | Directory | Purpose |
 | --- | --- |
