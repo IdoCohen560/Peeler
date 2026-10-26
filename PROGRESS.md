@@ -91,3 +91,8 @@ Exit hardening: six desktop cases now pass in development, including quitting du
 User requested checking all types/conversions. Added a reproducible two-worker matrix checker with independent output decoders/content checks, unchanged-source assertions, all advertised source-to-target combinations, aliases, and archive variants. Initial result: 217 passed and 2 PDF image dimension failures; corrected floating-point ceiling noise and reran all 219 checks successfully. Coverage matches 198 reference paths; 77 reference paths remain unimplemented. Added full JSON and readable results, plus the check to each CI host.
 
 Final checks after the fixes: all 19 core/gesture regressions passed; all 219 current-capability conversion checks passed; all six desktop cases passed against the rebuilt peeler.exe. Reviewed the persistent-choice screenshot and all six responsive inspection renderings, with zero inspection failures. The running app remains closed at the user's request. No macOS/Linux remote jobs were run or claimed as passed.
+
+## 2026-10-26 - isolate Linux native image libraries
+
+Both Intel and Apple silicon Mac jobs passed in remote CI. Linux quit integration now passes; its remaining desktop failures reported native worker exits after the Sharp/Electron Linux warning. Moved Sharp loading/cache setup into image jobs so PDF and Office workers do not load conflicting libvips/GLib symbols. Worker crashes now report exit signal/code and desktop failures identify the input row. Windows regression verification: all 26 core tests and all 10 development desktop cases passed. Remote Linux verification remains pending for this change.
+

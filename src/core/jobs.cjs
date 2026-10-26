@@ -30,9 +30,9 @@ function runJob(job, { signal, onProgress, timeoutMs = 300000 } = {}) {
       if (message.type === 'result') child.result = message;
     });
     child.on('error', error => finish(error));
-    child.on('exit', code => {
+    child.on('exit', (code, signal) => {
       const result = child.result;
-      finish(reason ? new Error(reason) : result?.error ? new Error(result.error) : code !== 0 || !result ? new Error(`Conversion engine exited unexpectedly. ${diagnostic}`) : null, result?.value);
+      finish(reason ? new Error(reason) : result?.error ? new Error(result.error) : code !== 0 || !result ? new Error(`Conversion engine exited unexpectedly (${signal || `exit ${code}`}). ${diagnostic}`) : null, result?.value);
     });
     child.send({ type: 'run', job });
   });

@@ -1,12 +1,13 @@
 'use strict';
 const fs = require('node:fs/promises');
 const path = require('node:path');
-const sharp = require('sharp'); sharp.cache({ files: 0 });
 async function runAdapter(job, options = {}) {
   const { input, format, temporary, category, operation } = job;
   const extension = path.extname(input).slice(1).toLowerCase();
   if (['Audio', 'Video'].includes(category)) return require('./media.cjs').convertMedia(job, options);
   if (category === 'Images') {
+    // Keep libvips out of PDF/Office workers: Electron's Linux GLib symbols can conflict.
+    const sharp = require('sharp'); sharp.cache({ files: 0 });
     let image;
     if (extension === 'heic') {
       const images = await require('heic-decode').all({ buffer: await fs.readFile(input) });

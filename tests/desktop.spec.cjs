@@ -8,7 +8,7 @@ async function launchApp(env, testInfo, extraArgs = []) {
 }
 async function expectOutputs(page, count, timeout = 30000) {
   try { await expect(page.getByRole('button', { name: 'Show file' })).toHaveCount(count, { timeout }); }
-  catch (error) { throw new Error(`${error.message}\nConversion errors: ${(await page.locator('.file-state.error').allTextContents()).join('; ') || 'No per-file error was reported.'}`); }
+  catch (error) { throw new Error(`${error.message}\nConversion errors: ${(await page.locator('.file-row').filter({ has: page.locator('.file-state.error') }).allTextContents()).join('; ') || 'No per-file error was reported.'}`); }
 }
 test('Quit Peeler button exits the entire background app', async ({}, testInfo) => {
   const env = { ...process.env, PEELER_SHOW_WINDOW: '1', PEELER_DISABLE_HOOK: '1' }; delete env.ELECTRON_RUN_AS_NODE;
