@@ -31,6 +31,8 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Verify native libraries under the Electron runtime
+        run: node scripts/check-native-runtime.cjs
       - run: npm run test:fixtures
       - name: Provision project-local Office engine on Windows
         if: runner.os == 'Windows'

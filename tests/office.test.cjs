@@ -74,6 +74,6 @@ test('Office cancellation removes its process tree and working profile', { skip:
   for (let i = 0; i < 30; i++) slides.addSlide().addText(`Page ${i}`, { x: 1, y: 1, w: 5, h: 1 });
   const original = await slides.write({ outputType: 'nodebuffer' }); await fs.writeFile(input, original);
   const controller = new AbortController(); let started = false;
-  const promise = convert({ input, target: 'pdf', signal: controller.signal, onProgress: progress => { if (progress.phase.includes('Office')) { started = true; setTimeout(() => controller.abort(), 500); } } });
+  const promise = convert({ input, target: 'pdf', signal: controller.signal, onProgress: progress => { if (progress.phase.includes('Office')) { started = true; controller.abort(); } } });
   await assert.rejects(promise, /cancelled/); assert(started); assert.deepEqual(await fs.readFile(input), original); assert.deepEqual(await fs.readdir(dir), ['large.pptx']);
 });

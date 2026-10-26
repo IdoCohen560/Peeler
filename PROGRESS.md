@@ -104,3 +104,6 @@ Latest remote Windows and Apple silicon jobs passed all checks including package
 
 Linux provisioning diagnosis: the cancelled runner log shows Azure's Ubuntu mirror taking more than five minutes for a 20 MB package, with continued small transfers preventing ordinary connection timeouts. CI now prefers Ubuntu's official HTTPS archive/security mirrors and retains Azure as fallback; signed-package verification remains enabled. This addresses the observed runner bottleneck without changing users' machines.
 
+
+Focused Linux diagnosis: the new row/signal diagnostics identify PDF text extraction and Office PDF-to-PNG rendering as SIGTRAP crashes even without Sharp loaded. Added a direct Electron native canvas/PDF.js probe before lengthy provisioning, with a Linux gdb backtrace on failure. Windows probe passes. Also corrected Office cancellation regression timing to abort on rendering progress rather than after an arbitrary 500 ms delay; its targeted Windows check passes.
+
