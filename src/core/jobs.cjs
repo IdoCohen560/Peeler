@@ -4,7 +4,9 @@ const path = require('node:path');
 function runJob(job, { signal, onProgress, timeoutMs = 300000 } = {}) {
   return new Promise((resolve, reject) => {
     if (signal?.aborted) return reject(new Error('Conversion cancelled.'));
-    const child = fork(path.join(__dirname, 'worker.cjs'), [], { execPath: process.execPath, execArgv: ['--max-old-space-size=768'], env: { ...process.env, ELECTRON_RUN_AS_NODE: '1' }, windowsHide: true, detached: process.platform !== 'win32', stdio: ['ignore', 'ignore', 'pipe', 'ipc'] });
+    // Linux canvas system-font discovery traps under Electron; PDF.js uses embedded/bundled fonts.
+    const env = { ...process.env, ELECTRON_RUN_AS_NODE: '1', ...(process.platform === 'linux' ? { DISABLE_SYSTEM_FONTS_LOAD: '1' } : {}) };
+    const child = fork(path.join(__dirname, 'worker.cjs'), [], { execPath: process.execPath, execArgv: ['--max-old-space-size=768'], env, windowsHide: true, detached: process.platform !== 'win32', stdio: ['ignore', 'ignore', 'pipe', 'ipc'] });
     let settled = false, reason, forced, diagnostic = '';
     child.stderr.on('data', chunk => { diagnostic = (diagnostic + chunk.toString()).slice(-2000); });
     const finish = (error, result) => {

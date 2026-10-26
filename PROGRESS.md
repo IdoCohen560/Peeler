@@ -107,3 +107,6 @@ Linux provisioning diagnosis: the cancelled runner log shows Azure's Ubuntu mirr
 
 Focused Linux diagnosis: the new row/signal diagnostics identify PDF text extraction and Office PDF-to-PNG rendering as SIGTRAP crashes even without Sharp loaded. Added a direct Electron native canvas/PDF.js probe before lengthy provisioning, with a Linux gdb backtrace on failure. Windows probe passes. Also corrected Office cancellation regression timing to abort on rendering progress rather than after an arbitrary 500 ms delay; its targeted Windows check passes.
 
+
+Linux native root cause isolated: canvas import SIGTRAP occurs during automatic system-font discovery under Electron. The otherwise identical probe passes with DISABLE_SYSTEM_FONTS_LOAD=1 (run 40384738454). Applied this flag to Linux conversion workers only; PDF.js already uses embedded fonts and bundled standard fonts with useSystemFonts=false. Native smoke verification now matches the actual worker environment on each OS. Full Linux desktop/package validation is required next; the direct import probe alone is not claimed as complete verification.
+
