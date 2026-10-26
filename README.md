@@ -2,7 +2,7 @@
 
 Peeler is a free, offline, open-source file converter for Windows, Linux, and macOS. It runs in the background and keeps original files unchanged. The Windows executable is `peeler.exe`. Original source is MIT licensed and maintained by [IdoCohen560](https://github.com/IdoCohen560).
 
-**Status: working development build, not full feature parity.** Verified locally on Windows. Automated Apple silicon CI has passed; Linux desktop checks need fixes and native file-manager workflows still need platform validation. See [GitHub Actions](https://github.com/IdoCohen560/Peeler/actions) for current results.
+**Status: working development build, not full feature parity.** Automated builds and packaged-app tests have passed on Windows, Linux X11, Intel Mac and Apple silicon across the recorded CI runs. Physical file-manager dragging and native permissions still need platform validation. See [the validation record](docs/VALIDATION.md) and [GitHub Actions](https://github.com/IdoCohen560/Peeler/actions) for evidence and current results.
 
 [Download the Windows development preview](https://github.com/IdoCohen560/Peeler/releases/tag/v0.2.0-dev.1). Extract the complete ZIP and keep `peeler.exe` beside its resources. The release includes a SHA-256 checksum and is not a finished stable release.
 

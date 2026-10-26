@@ -4,12 +4,16 @@ Environment: Windows 11, Node 24.22.1, npm 11.19.1, Electron 45.0.0. Exact depen
 
 ## Latest implementation checkpoint
 
+- Remote Linux X11 verification passed on commit `251b8c3`: 26 core tests, 258 conversions, all nine applicable desktop tests in development and again against the packaged Linux app. The Windows-specific hook integration case is intentionally excluded on other hosts; physical X11 dragging remains a manual gate. [Linux job and logs](https://github.com/IdoCohen560/Peeler/actions/runs/40384978490/job/121791132586).
+- Windows, Intel Mac and Apple silicon previously passed complete host builds and packaged tests in [run 40377368612](https://github.com/IdoCohen560/Peeler/actions/runs/40377368612). The latest four-host rerun is [40384978490](https://github.com/IdoCohen560/Peeler/actions/runs/40384978490); check its individual jobs for current status. Linux's earlier desktop failures are fixed, not skipped: quit-peer launch flags, asynchronous window destruction, and native canvas system-font discovery were addressed.
+- Linux conversion workers disable automatic native canvas system-font discovery, which traps under Electron. PDF.js already uses embedded and bundled standard fonts (`useSystemFonts: false`). The native-runtime smoke check runs under the same per-platform environment before conversions; CI captures a Linux debugger backtrace if it fails.
+
 - 26 core/gesture/engine/recovery tests passed after the Office, HEIC/RTF/ODS/RAR, FFmpeg 9.0.2 and image-options changes.
 - 258 conversion checks passed across 47 fixtures: 235/275 reference routes verified; 40 unavailable, zero available-but-untested routes in this Windows run. See CONVERSION_TEST_RESULTS.md and the committed JSON snapshot.
 - Ten desktop cases passed against the rebuilt Windows executable: output folder persistence/reset, image options, staged-wheel options handoff, bundled Office/RAR workers, exits/cancellation, ten-category coverage and host-crash recovery. The actual host was killed during Office work; its marked workspace was recovered on restart without changing the source or publishing output. Nine non-crash cases also passed in development; the crash case was verified against the packaged executable.
 - Office geometry and embedded DOCX images are checked through rendered pixels; ODS values/whitespace are independently read through Office. RAR bytes match a separate Windows tar/libarchive decode. These extend, rather than replace, the earlier content fixtures.
 - Source lint: zero failures/warnings. Browser inspection at 1440/768/390: zero failures, one intentional 41px drop-target spacing warning. Impeccable's live Electron CDP scan found only the retained Geist face and the bordered drop target inside the workspace; paragraph stragglers were corrected with pretty wrapping. The nested region distinguishes the actual file drop target; it is not an ornamental card.
-- Windows Office/media setup used pinned package-manager downloads and hash checks, with project-local extraction and no system installation. Non-Windows CI requests engines but has not run remotely.
+- Windows Office/media setup used pinned package-manager downloads and hash checks, with project-local extraction and no system installation. Remote Linux CI provisions Writer/Calc/Impress from signed Ubuntu packages; both Mac architectures provision LibreOffice through refreshed Homebrew metadata.
 
 The earlier table below is historical evidence for the foundation, not the current test count. Remaining readiness gates are in RELEASE_READINESS.md.
 

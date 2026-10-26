@@ -110,3 +110,8 @@ Focused Linux diagnosis: the new row/signal diagnostics identify PDF text extrac
 
 Linux native root cause isolated: canvas import SIGTRAP occurs during automatic system-font discovery under Electron. The otherwise identical probe passes with DISABLE_SYSTEM_FONTS_LOAD=1 (run 40384738454). Applied this flag to Linux conversion workers only; PDF.js already uses embedded fonts and bundled standard fonts with useSystemFonts=false. Native smoke verification now matches the actual worker environment on each OS. Full Linux desktop/package validation is required next; the direct import probe alone is not claimed as complete verification.
 
+
+## 2026-10-26 - Linux verification passed and cross-platform source confirmed
+
+Run 40384978490 on 251b8c3 completed the Linux job successfully: all 26 core cases, 258 conversion checks, nine applicable development desktop cases, packaging, and nine applicable packaged-app cases passed. The Windows-only native-hook case remains correctly excluded on Linux/Mac. The failing PDF extraction and Office page-image workers now pass without disabling their tests. Updated README, validation evidence and readiness gates with direct remote links, retaining the requirement for physical native drag/permission checks. Intel Mac/Apple silicon/Windows previously passed complete packaged checks; their latest reruns are still monitored independently. Source was never missing remotely: the original red checks were CI verification failures. All fixes are committed and pushed solely as IdoCohen560, with no co-author trailers.
+
