@@ -13,7 +13,7 @@ const code = `
     console.log('Native runtime ready');
   })().catch(error => { console.error(error); process.exitCode = 1; });
 `;
-const result = spawnSync(electron, ['-e', code], { env, stdio: 'inherit', timeout: 30000 });
+const result = spawnSync(electron, ['-e', code], { env: { ...env, DISABLE_SYSTEM_FONTS_LOAD: '1' }, stdio: 'inherit', timeout: 30000 });
 if (result.status !== 0) {
   console.error(`Native runtime failed: ${result.signal || result.error?.message || result.status}`);
   if (process.platform === 'linux') {
