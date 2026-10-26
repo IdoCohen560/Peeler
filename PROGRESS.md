@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-10-26 - Windows preview uploaded and repository verified
+
+Published the complete 797,323,781-byte Windows development app/resources ZIP and SHA256SUMS.txt at https://github.com/IdoCohen560/Peeler/releases/tag/v0.2.0-dev.1. Archive integrity passed before upload; local SHA-256 is 2d6c27c0856dae71944955bff52b877bba2c4e0f8d3616b10a640ef8f2651e29. All ten packaged desktop cases passed again after the branding/package metadata cleanup. This is a marked development prerelease, not a claim of finished product readiness.
+
+Verified all 138 tracked project files are present remotely, scanned every tracked file's bytes for retired branding with zero matches, and verified GitHub author/committer profiles and the contributors list identify only IdoCohen560. No co-author credits were introduced. The user's selected distribution split keeps all project source/assets/docs/scripts in Git, built application resources in Releases, and generated caches/dependencies/private credentials and history backups local.
+
+The first Apple silicon CI job completed successfully. Linux core/conversion checks passed, but three desktop cases failed (quit peer, ten-category batch and Office/RAR integration); those are open cross-platform work rather than hidden successes. Windows/Intel Mac jobs were still running during publication. Current CI links and readiness limits are visible in README and docs/RELEASE_READINESS.md.
+
 ## 2026-10-26 - public repository publication and distribution choice
 
 Published https://github.com/IdoCohen560/Peeler as a public repository. Verified GitHub's API reports IdoCohen560 as both author and committer, with no co-author trailers, and verified every one of the 138 tracked project files matches the remote tree. The initial public source history contains no retired branding in file contents, filenames or commit messages. All old history remains private in the ignored local backup bundle. No force push was used.

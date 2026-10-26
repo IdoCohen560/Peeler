@@ -8,6 +8,8 @@ Commit author and committer identity is `IdoCohen560`, using GitHub's account-li
 
 The owner selected all project files in Git and large built applications as Release downloads. Generated directories have separate roles:
 
+The complete Windows app/resources ZIP and SHA256SUMS.txt are published in [the development release](https://github.com/IdoCohen560/Peeler/releases/tag/v0.2.0-dev.1). The source tree contains every tracked project file, including assets, tests and historical prototypes; installed dependencies and engine downloads remain reproducible from the lockfile/setup scripts.
+
 | Directory | Purpose |
 | --- | --- |
 | `node_modules/` | Installed dependencies; reconstruct with `npm ci`. |
