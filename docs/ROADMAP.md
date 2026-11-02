@@ -16,6 +16,8 @@ Background tray host, lazy radial overlay, optional picker, local conversion ada
 6. Upgrade document/slides/sheets adapters from text/value conversion to measured layout fidelity; add missing office formats and assess Pages import/export separately. See the office-engine proof in PARITY_PLAN.md.
 7. Extend bounded archive repacking with RAR input. Traversal/link rejection and expanded-size/entry-count bounds already exist; extend adversarial fixtures and engine-specific limits.
 
+Track editing actions independently from format conversion. The per-category comparison with Tangerine's published tools catalog, plus Peeler's current gaps, is in [TOOL_PARITY_PLAN.md](TOOL_PARITY_PLAN.md#tangerine-tool-catalog-comparison). Start with a verified image crop/composition slice, then PDF page operations and media controls; add general metadata editing and target-size compression across supported formats where the format allows it.
+
 ## Native workflow
 
 8. Manually validate the initial radial menu and native drag state machine in Explorer and on native macOS/X11. Improve source identification and drag fallback before claiming parity.
@@ -23,7 +25,18 @@ Background tray host, lazy radial overlay, optional picker, local conversion ada
 10. Implement platform-specific global gestures and file actions, including a shelf. Keep Linux Wayland fallback explicit. Sharing adapters must disclose availability.
 11. Add advanced editors and permanent redaction only after preview, undo, export, and failure behavior are tested.
 
-The editing operations to implement by file category, current coverage, and acceptance gates are tracked in [TOOL_PARITY_PLAN.md](TOOL_PARITY_PLAN.md). Conversion routes and editing tools are separate parity measures.
+The complete category-by-category reference actions, Peeler status, shortcuts, and acceptance gates are tracked in [TOOL_PARITY_PLAN.md](TOOL_PARITY_PLAN.md). Conversion routes and editing tools are separate parity measures.
+
+### Category actions to add
+
+- **Images:** target-size compression, metadata editing, photo adjustments, annotations, composited backgrounds, crop, permanent redaction, multi-image PDF, and collage.
+- **Video:** compression/metadata, mute, trim, crop, speed, frame export, split, join, and permanent redaction.
+- **Audio:** compression/metadata, loudness normalization, waveform video, trim, channel conversion, and bleep ranges.
+- **PDF:** compression/metadata, split, merge, page organization, OCR, and table reconstruction.
+- **Archives:** safe extract-to-folder workflow.
+- **Documents, Slides, Spreadsheets, EPUB, and Subtitles:** close remaining conversion/fidelity gaps; the reference category showcase does not display separate editing wheels for these categories.
+
+Build and verify these actions as file-type-aware flows. Actions can differ between a single file and a multi-file selection. Use the modifier keys in the parity plan for each OS; Linux Wayland uses the tray picker until global drag capture is available.
 
 ## Next: file actions
 

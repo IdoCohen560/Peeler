@@ -35,7 +35,7 @@ The background drag wheel is implemented with an initial Windows/X11 hook adapte
 
 ### Editing-tool coverage
 
-Peeler supports image resize/quality/background options and metadata removal today. The other conversion categories do not yet have the editing tools shown on Tangerine's site. See the [tool parity plan](TOOL_PARITY_PLAN.md) for a category-by-category inventory, delivery order, and acceptance checks. Format conversion support in a category does not imply that category's editing tools are implemented.
+Peeler currently exposes image resize/quality/background options and metadata removal, but does not implement Tangerine's video, audio, PDF, or archive tools. Tangerine's category showcase presents format conversions for Documents, Slides, Spreadsheets, EPUB, and Subtitles without a separate tools wheel for those categories. Peeler's conversion routes and tool/action gaps are mapped separately in the [category parity plan](TOOL_PARITY_PLAN.md).
 
 ## Input bounds
 
