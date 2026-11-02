@@ -56,6 +56,21 @@ test('image size and quality choices reach the conversion worker', async ({}, te
     expect((await require('sharp')(input).metadata()).width).toBe(100);
   } finally { await app.close(); }
 });
+test('image Tools wheel crops selected pixel bounds through the desktop queue', async ({}, testInfo) => {
+  const directory = testInfo.outputPath('image-crop'); await fs.mkdir(directory, { recursive: true }); const input = path.join(directory, 'quadrants.png');
+  await require('sharp')({ create: { width: 50, height: 40, channels: 3, background: '#ff0000' } }).composite([{ input: { create: { width: 25, height: 20, channels: 3, background: '#0000ff' } }, left: 25, top: 20 }]).png().toFile(input);
+  const env = { ...process.env, PEELER_SHOW_WINDOW: '1', PEELER_DISABLE_HOOK: '1' }; delete env.ELECTRON_RUN_AS_NODE;
+  const app = await launchApp(env, testInfo);
+  try {
+    const page = await app.firstWindow(); await app.evaluate(({ dialog }, file) => { dialog.showOpenDialog = async () => ({ canceled: false, filePaths: [file] }); }, input);
+    await page.getByRole('button', { name: 'Add files', exact: true }).click(); await page.getByRole('button', { name: 'Output format for quadrants.png' }).click();
+    await page.getByRole('button', { name: 'Crop image', exact: true }).click();
+    await page.getByLabel('Left (px)').fill('25'); await page.getByLabel('Top (px)').fill('20'); await page.getByLabel('Width (px)', { exact: true }).fill('25'); await page.getByLabel('Height (px)', { exact: true }).fill('20');
+    await page.getByRole('button', { name: 'Save cropped copy', exact: true }).click(); await page.getByRole('button', { name: 'Convert files', exact: true }).click();
+    await expect(page.getByRole('button', { name: 'Show file' })).toHaveCount(1);
+    const output = await require('sharp')(path.join(directory, 'quadrants - cropped.png')).metadata(); expect(output.width).toBe(25); expect(output.height).toBe(20);
+  } finally { await app.close(); }
+});
 test('archive Tools wheel extracts into a new folder without changing the source', async ({}, testInfo) => {
   const directory = testInfo.outputPath('archive-tool'); await fs.mkdir(directory, { recursive: true });
   const input = path.join(directory, 'bundle.zip'), source = await require('../src/core/archives.cjs').writeArchive([{ name: 'folder/hello.txt', data: Buffer.from('Wheel extraction') }], 'zip');

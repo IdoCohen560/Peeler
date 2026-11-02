@@ -17,7 +17,7 @@ function render() {
     const row = document.createElement('div'); row.className = 'file-row';
     const identity = document.createElement('div'); identity.className = 'file-name'; identity.textContent = file.name; identity.title = file.name;
     const meta = document.createElement('span'); meta.className = 'file-meta'; meta.textContent = `${file.category} · ${bytes(file.bytes)}`; identity.append(meta);
-    const format = document.createElement('button'); format.className = 'file-format'; format.textContent = file.operation === 'strip-metadata' ? 'Clean metadata' : file.operation === 'extract-archive' ? 'Extract archive' : file.operation === 'mute-video' ? 'Mute video' : file.operation === 'normalize-audio' ? 'Normalize volume' : file.target ? `→ ${formatLabel(file, file.target)}` : 'Unavailable'; format.setAttribute('aria-label', `Output format for ${file.name}`); format.disabled = busy || !!file.output || (!file.targets.length && !file.tools.length);
+    const format = document.createElement('button'); format.className = 'file-format'; format.textContent = file.operation === 'strip-metadata' ? 'Clean metadata' : file.operation === 'extract-archive' ? 'Extract archive' : file.operation === 'mute-video' ? 'Mute video' : file.operation === 'normalize-audio' ? 'Normalize volume' : file.operation === 'crop-image' ? 'Crop image' : file.target ? `→ ${formatLabel(file, file.target)}` : 'Unavailable'; format.setAttribute('aria-label', `Output format for ${file.name}`); format.disabled = busy || !!file.output || (!file.targets.length && !file.tools.length);
     format.onclick = () => openFormats(file); format.onkeydown = event => { if (event.key === 'Shift') { event.preventDefault(); openFormats(file); } };
     const state = document.createElement('div'); state.className = `file-state${file.error ? ' error' : ''}`;
     if (file.output) { const reveal = document.createElement('button'); reveal.textContent = 'Show file'; reveal.onclick = () => bridge.reveal(file.output).catch(error => message(error.message)); state.append(reveal); }
@@ -42,6 +42,7 @@ function openFormats(file) {
   $('#format-file').textContent = file.name;
   $('#format-note').textContent = file.note || '';
   $('#image-options').hidden = file.category !== 'Images'; $('#image-options').disabled = file.category !== 'Images';
+  $('#crop-options').hidden = true; $('#crop-options').disabled = true;
   $('#image-width').value = file.imageOptions?.width || ''; $('#image-height').value = file.imageOptions?.height || '';
   $('#image-quality').value = file.imageOptions?.quality || 85; $('#image-background').value = file.imageOptions?.background || '#ffffff';
   $('#format-wheel').replaceChildren();
@@ -80,6 +81,21 @@ function openFormats(file) {
   if (file.tools.includes('normalize-audio')) {
     const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Normalize volume';
     button.onclick = () => { active.operation = 'normalize-audio'; active.target = file.name.split('.').pop().toLowerCase(); $('#format-dialog').close(); render(); };
+    $('#format-wheel').append(button);
+  }
+  if (file.tools.includes('crop-image')) {
+    const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Crop image';
+    button.onclick = () => {
+      $('#image-options').hidden = true; $('#crop-options').hidden = false; $('#crop-options').disabled = false; $('#format-wheel').replaceChildren();
+      const apply = document.createElement('button'); apply.type = 'button'; apply.textContent = 'Save cropped copy';
+      apply.onclick = () => {
+        if (!$('#format-dialog form').reportValidity()) return;
+        active.operation = 'crop-image'; active.target = file.name.split('.').pop().toLowerCase();
+        active.imageOptions = { crop: { left: Number($('#crop-left').value), top: Number($('#crop-top').value), width: Number($('#crop-width').value), height: Number($('#crop-height').value) } };
+        $('#format-dialog').close(); render();
+      };
+      $('#format-wheel').append(apply);
+    };
     $('#format-wheel').append(button);
   }
   $('#format-dialog').showModal();

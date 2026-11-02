@@ -27,7 +27,7 @@ function capabilities(file) {
   else if (['zip', 'tar', 'gz', 'tgz', 'rar'].includes(ext)) { category = 'Archives'; targets = ['zip', 'tar', 'gz']; tools = ['extract-archive']; note = 'Repack or safely extract regular files/folders, including RAR input. GZIP output is tar.gz. Links, encryption, unsafe paths, and archives over 200 MB expanded are rejected.'; }
   else if (['heic', 'pages', 'rtf', 'rtfd', 'textclipping', 'ppt', 'xls', 'rar'].includes(ext)) { note = 'This format belongs to the planned product scope but its import engine is not implemented yet.'; }
   const normalized = ({ jpeg: 'jpg', tif: 'tiff', tgz: 'gz' })[ext] || ext;
-  if (category === 'Images' && !['svg', 'heic'].includes(ext)) tools.push('optimize-image');
+  if (category === 'Images' && !['svg', 'heic'].includes(ext)) tools.push('optimize-image', 'crop-image');
   return { category, targets: targets.filter(target => target !== normalized), tools, note };
 }
 async function inspect(file) {
@@ -40,23 +40,24 @@ async function inspect(file) {
 }
 function validateImageOptions(value, category) {
   if (value === undefined) return {};
-  if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).some(key => !['width', 'height', 'quality', 'background'].includes(key))) throw new Error('Invalid image options.');
+  if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).some(key => !['width', 'height', 'quality', 'background', 'crop'].includes(key))) throw new Error('Invalid image options.');
   if (category !== 'Images' && Object.keys(value).length) throw new Error('Image options require an image input.');
   for (const key of ['width', 'height', 'quality']) if (value[key] !== undefined && (!Number.isInteger(value[key]) || value[key] < 1 || value[key] > (key === 'quality' ? 100 : 16384))) throw new Error(`${key} must be a whole number between 1 and ${key === 'quality' ? 100 : 16384}.`);
   if (value.background !== undefined && !/^#[0-9a-f]{6}$/i.test(value.background)) throw new Error('Choose a six-digit background color.');
+  if (value.crop !== undefined && (!value.crop || typeof value.crop !== 'object' || Array.isArray(value.crop) || Object.keys(value.crop).some(key => !['left', 'top', 'width', 'height'].includes(key)) || !Number.isInteger(value.crop.left) || value.crop.left < 0 || !Number.isInteger(value.crop.top) || value.crop.top < 0 || !Number.isInteger(value.crop.width) || value.crop.width < 1 || !Number.isInteger(value.crop.height) || value.crop.height < 1 || value.crop.left + value.crop.width > 16384 || value.crop.top + value.crop.height > 16384)) throw new Error('Crop bounds must be whole pixels inside the 16,384 pixel limit.');
   return { ...value };
 }
 async function convert({ input, target, operation = 'convert', outputDirectory, imageOptions, signal, onProgress }) {
   if (typeof input !== 'string' || typeof target !== 'string') throw new Error('Input and target are required.');
   if (signal?.aborted) throw new Error('Conversion cancelled.');
-  const info = await inspect(input), metadataOnly = operation === 'strip-metadata', imageCopy = operation === 'optimize-image', archiveExtract = operation === 'extract-archive', muteVideo = operation === 'mute-video', normalizeAudio = operation === 'normalize-audio';
+  const info = await inspect(input), metadataOnly = operation === 'strip-metadata', imageCopy = operation === 'optimize-image', cropImage = operation === 'crop-image', archiveExtract = operation === 'extract-archive', muteVideo = operation === 'mute-video', normalizeAudio = operation === 'normalize-audio';
   const validatedOptions = validateImageOptions(imageOptions, info.category);
-  if (!['convert', 'strip-metadata', 'optimize-image', 'extract-archive', 'mute-video', 'normalize-audio'].includes(operation)) throw new Error('Unsupported operation.');
-  if (metadataOnly || imageCopy || archiveExtract || muteVideo || normalizeAudio ? !info.tools.includes(operation) : !info.targets.includes(target)) throw new Error('Unsupported conversion.');
+  if (!['convert', 'strip-metadata', 'optimize-image', 'crop-image', 'extract-archive', 'mute-video', 'normalize-audio'].includes(operation)) throw new Error('Unsupported operation.');
+  if (metadataOnly || imageCopy || cropImage || archiveExtract || muteVideo || normalizeAudio ? !info.tools.includes(operation) : !info.targets.includes(target)) throw new Error('Unsupported conversion.');
   const ext = path.extname(input).slice(1).toLowerCase();
-  const format = metadataOnly || imageCopy || muteVideo || normalizeAudio ? ({ jpeg: 'jpg', tif: 'tiff' }[ext] || ext) : target;
+  const format = metadataOnly || imageCopy || cropImage || muteVideo || normalizeAudio ? ({ jpeg: 'jpg', tif: 'tiff' }[ext] || ext) : target;
   const directory = path.resolve(outputDirectory || path.dirname(info.path));
-  const base = path.basename(input).replace(/(?:\.tar\.gz|\.tgz|\.[^.]+)$/i, '') + (metadataOnly ? ' - clean' : imageCopy ? ' - edited' : archiveExtract ? ' - extracted' : muteVideo ? ' - muted' : normalizeAudio ? ' - normalized' : '');
+  const base = path.basename(input).replace(/(?:\.tar\.gz|\.tgz|\.[^.]+)$/i, '') + (metadataOnly ? ' - clean' : imageCopy ? ' - edited' : cropImage ? ' - cropped' : archiveExtract ? ' - extracted' : muteVideo ? ' - muted' : normalizeAudio ? ' - normalized' : '');
   if (archiveExtract) {
     const workDirectory = await allocateWorkspace();
     try {

@@ -4,7 +4,7 @@ This is the implemented scope, distinct from the reference website's 275-path re
 
 | Category | Inputs | Available outputs | Current fidelity |
 | --- | --- | --- | --- |
-| Images | JPG/JPEG, PNG, WebP, TIFF/TIF, AVIF, SVG, BMP, HEIC | PNG, JPG, WebP, AVIF, TIFF, BMP, PDF | One raster frame/page; metadata removed; default quality 85; optional size/quality and JPG/BMP background controls. HEIC: first decoded 8-bit image, no HDR/depth/sequence preservation |
+| Images | JPG/JPEG, PNG, WebP, TIFF/TIF, AVIF, SVG, BMP, HEIC | PNG, JPG, WebP, AVIF, TIFF, BMP, PDF | One raster frame/page; metadata removed; default quality 85; optional size/quality and JPG/BMP background controls; Tools wheel includes coordinate-based Crop. HEIC: first decoded 8-bit image, no HDR/depth/sequence preservation |
 | Video | MP4, MOV, MKV, WebM, AVI, WMV, GIF | MP4, MOV, MKV, WebM, AVI, WMV; GIF and MP3 from video containers | Re-encodes first video/audio streams; MP3 requires an audio track; GIF input cannot produce audio. Tools wheel includes **Mute video** for non-GIF files; it stream-copies the first video stream to a separate copy with audio removed. |
 | Audio | MP3, M4A, WAV, FLAC, OGG, Opus, AIFF, WMA | Other formats in the same list | Actual FFmpeg encoding; codec defaults explicit in media adapter. Tools wheel includes **Normalize volume**, using local FFmpeg loudness normalization and saving a separate copy. |
 | PDF | PDF | TXT, MD, DOCX, EPUB, PNG, JPG, PPTX | Text exports lose layout and require selectable text; PNG/JPG export every page at 300 DPI into a ZIP; PPTX contains rendered page images |
@@ -35,7 +35,7 @@ The background drag wheel is implemented with an initial Windows/X11 hook adapte
 
 ### Editing-tool coverage
 
-Peeler currently exposes image resize/quality/background options and metadata removal, video mute, audio volume normalization, and archive extraction. The other observed Tangerine video/audio/PDF/image tools are not yet implemented. Tangerine's category showcase presents format conversions for Documents, Slides, Spreadsheets, EPUB, and Subtitles without a separate tools wheel for those categories. Peeler's conversion routes and tool/action gaps are mapped separately in the [category parity plan](TOOL_PARITY_PLAN.md).
+Peeler currently exposes image resize/quality/background options, metadata removal, and coordinate-based crop; video mute; audio volume normalization; and archive extraction. The other observed Tangerine video/audio/PDF/image tools are not yet implemented. Tangerine's category showcase presents format conversions for Documents, Slides, Spreadsheets, EPUB, and Subtitles without a separate tools wheel for those categories. Peeler's conversion routes and tool/action gaps are mapped separately in the [category parity plan](TOOL_PARITY_PLAN.md).
 
 ## Input bounds
 

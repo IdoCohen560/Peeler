@@ -33,6 +33,10 @@ async function runAdapter(job, options = {}) {
     }
     image = image.rotate();
     const settings = job.imageOptions || {};
+    if (operation === 'crop-image') {
+      if (!settings.crop) throw new Error('Enter crop coordinates and dimensions.');
+      image = image.extract(settings.crop);
+    }
     if (settings.width || settings.height) image = image.resize({ width: settings.width, height: settings.height, fit: 'inside', withoutEnlargement: true });
     if (['jpg', 'bmp'].includes(format)) image = image.flatten({ background: settings.background || '#ffffff' });
     if (format === 'pdf') await fs.writeFile(temporary, await require('./pdf.cjs').imagePDF(await image.png().toBuffer()), { flag: 'wx' });

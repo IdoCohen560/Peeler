@@ -40,9 +40,9 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Tangerine tools for a selection:** Compress; Edit Metadata; Crop; Create PDF; Make a Collage. The site describes PDF creation as one page per selected image, and collage layouts as grid/row/column/featured with ordering and spacing controls. Actions vary by source type and selection size.
 
-**Peeler now:** The Formats wheel converts supported image inputs. The Tools wheel exposes metadata removal and image options. Proportional resize, lossy quality, and JPG/BMP background settings are available during conversion or for a same-format edited copy. Metadata removal re-encodes supported images.
+**Peeler now:** The Formats wheel converts supported image inputs. The Tools wheel exposes metadata removal, image options, and coordinate-based Crop for supported raster inputs. Crop uses left/top/width/height pixel bounds after orientation correction and saves a same-format copy; it does not yet provide a live drag preview or aspect presets. Proportional resize, lossy quality, and JPG/BMP background settings are available during conversion or for a same-format edited copy. Metadata removal re-encodes supported images.
 
-**Peeler planned:** Target-size/percentage compression; general metadata inspection/editing; photo/color/exposure editing; annotations; background composition; crop UI; permanent redaction; multi-image PDF creation; collage. Existing resize/quality controls do not provide exact-size compression. Add these as distinct Tools wheel actions: **Compress**, **Edit Metadata**, **Photo Adjust**, **Annotate**, **Background**, **Crop**, **Redact**, **Create PDF**, and **Collage**. Retain the existing **Remove Metadata** and **Resize / Quality** actions.
+**Peeler planned:** Target-size/percentage compression; general metadata inspection/editing; photo/color/exposure editing; annotations; background composition; crop UI; permanent redaction; multi-image PDF creation; collage. Existing resize/quality controls do not provide exact-size compression. Add these as distinct Tools wheel actions: **Compress**, **Edit Metadata**, **Photo Adjust**, **Annotate**, **Background**, **Redact**, **Create PDF**, and **Collage**. Upgrade the current coordinate entry into a visual crop editor with preview, presets, and exact-size constraints. Retain the existing **Remove Metadata** and **Resize / Quality** actions.
 
 ### Video
 
@@ -152,7 +152,7 @@ Windows/Linux parity requires platform equivalents rather than macOS service nam
 
 1. **Windows interaction proof:** run Explorer file and folder drags through modifier-down, wheel-open, modifier-up, staged drop, selection, cancellation, multi-select, high DPI, multi-monitor, and ordinary Ctrl-drag copy/move. Fix the OS-level workflow before broad feature work.
 2. **Linux X11 interaction proof:** validate the same flows in GNOME Files and Dolphin, and ensure startup/status/fallback behavior. Keep Wayland explicitly picker-based until a supported native mechanism is implemented.
-3. **Image vertical slice:** crop plus metadata display/removal and a crop UI with preview and safe export; then add target-size compression, adjustments, annotations, backgrounds, redaction, PDF creation, and collage.
+3. **Image vertical slice:** metadata display/removal and a visual crop UI with preview, presets, and safe export; then add target-size compression, adjustments, annotations, backgrounds, redaction, PDF creation, and collage. Coordinate-based cropping is implemented.
 4. **PDF slice:** metadata, compression, split/merge, page organization, then OCR, redaction, and table extraction with independently checked results.
 5. **Audio then video slices:** implement actions from the observed lists in small complete groups, sharing tested FFmpeg transforms where sensible; add preview, cancellation, audio/video sync and preservation checks before redaction.
 6. **Archive tools:** add a destination picker and deeper cancellation coverage for the implemented extraction action. Keep additional archive utilities as separate Peeler roadmap items.

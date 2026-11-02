@@ -73,3 +73,13 @@ test('image options preserve proportions, flatten transparency, and reject inval
   for (const imageOptions of [{ quality: 101 }, { width: -1 }, { width: 2.5 }, { width: 20000 }, { background: 'file:///private' }, { unknown: true }]) await assert.rejects(convert({ input, target: 'jpg', imageOptions }));
   assert.deepEqual(await fs.readFile(input), source);
 });
+test('image Tools wheel crops requested pixel bounds to a separate copy', async t => {
+  const directory = await fixture(t), input = path.join(directory, 'quadrants.png');
+  await sharp({ create: { width: 50, height: 40, channels: 3, background: '#ff0000' } }).composite([{ input: { create: { width: 25, height: 20, channels: 3, background: '#0000ff' } }, left: 25, top: 20 }]).png().toFile(input);
+  assert(capabilities(input).tools.includes('crop-image'));
+  const source = await fs.readFile(input), result = await convert({ input, target: 'png', operation: 'crop-image', imageOptions: { crop: { left: 25, top: 20, width: 25, height: 20 } } });
+  const cropped = await sharp(result.output).raw().toBuffer({ resolveWithObject: true });
+  assert.equal(cropped.info.width, 25); assert.equal(cropped.info.height, 20); assert.equal(cropped.data[2], 255); assert.match(result.output, /quadrants - cropped\.png$/);
+  await assert.rejects(convert({ input, target: 'png', operation: 'crop-image', imageOptions: { crop: { left: 45, top: 30, width: 10, height: 10 } } }));
+  assert.deepEqual(await fs.readFile(input), source);
+});

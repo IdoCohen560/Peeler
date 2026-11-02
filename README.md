@@ -45,7 +45,7 @@ Peeler runs in the tray or menu bar. Results are saved beside the originals or i
 | --- | --- |
 | File types | Images, video, audio, PDF, documents, slides, spreadsheets, EPUB, subtitles, and archives |
 | Conversions | 258 checks pass in the current Windows audit; 235 of 275 planned routes are verified |
-| File tools | Implemented tools are currently image-only: remove metadata and configure resize, quality, and background options. The other nine categories have conversion choices but no dedicated file tools yet. |
+| File tools | Current: image metadata removal, resize/quality, and coordinate crop; video mute; audio normalization; archive extraction. Most Tangerine tools remain unimplemented, and Peeler still has no file-actions wheel. |
 | Workflow | Background tray host, radial conversion menu, batch jobs, cancellation, progress where available, and per-file errors |
 | Privacy | Local processing; no uploads, accounts, telemetry, or conversion allowance |
 
@@ -72,13 +72,13 @@ Start dragging a file, tap the listed key, and drop it onto the wheel to stage t
 
 ![Peeler Images format wheel](docs/assets/peeler/categories/images-formats.png)
 
-![Peeler Images tools wheel: current and planned actions](docs/assets/peeler/categories/images-tools.png) ![Peeler Images tools wheel, more planned actions](docs/assets/peeler/categories/images-tools-2.png)
+![Peeler Images tools wheel: current crop, resize, metadata actions, and planned actions](docs/assets/peeler/categories/images-tools.png) ![Peeler Images tools wheel, more planned actions](docs/assets/peeler/categories/images-tools-2.png)
 
 **Tangerine actions:** Shift converts raster images to JPG, PNG, WebP, HEIC, TIFF, AVIF, BMP, or PDF (choices depend on the input). Command, for one image: Compress, Metadata, Edit Photo, Annotate, Add Background, Crop, Redact. For a selection: Compress, Metadata, Crop, Create PDF, Make a collage.
 
 **Peeler now:** Shift converts supported image inputs to available formats/PDF. Left Alt (Windows/Linux X11) or Command (macOS) opens image options or metadata removal. Resize, quality, and JPG/BMP background settings are available in conversion or a same-format edited copy; metadata removal re-encodes supported images.
 
-**Peeler planned:** Compress, Edit Metadata, Photo Adjust, Annotate, Background, Crop, Redact, Create PDF, and Collage. [Details](docs/TOOL_PARITY_PLAN.md#images)
+**Peeler planned:** Compress, Edit Metadata, Photo Adjust, Annotate, Background, Redact, Create PDF, and Collage; add a visual crop preview and aspect presets on top of the current coordinate-based Crop tool. [Details](docs/TOOL_PARITY_PLAN.md#images)
 
 </details>
 
