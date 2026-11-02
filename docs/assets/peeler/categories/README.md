@@ -2,4 +2,4 @@
 
 These PNGs are rendered from Peeler's own `src/renderer/wheel.html`, `wheel.js`, and `wheel.css` using sample file/menu data. They are Peeler UI previews, not Tangerine screenshots.
 
-Format wheels show the current format choices. Tools wheels list current image, video mute, and archive extraction actions plus planned actions for other file categories. An asterisk marks a roadmap concept; starred choices are not implemented and cannot be run in Peeler today. Categories with more than eight actions use a second wheel page. The sample menu bridge is mocked for rendering; no conversion or tool action is executed.
+Format wheels show the current format choices. Tools wheels list current image, video mute, audio normalization, and archive extraction actions plus planned actions for other file categories. An asterisk marks a roadmap concept; starred choices are not implemented and cannot be run in Peeler today. Categories with more than eight actions use a second wheel page. The sample menu bridge is mocked for rendering; no conversion or tool action is executed.

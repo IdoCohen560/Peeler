@@ -31,7 +31,7 @@ The complete category-by-category reference actions, Peeler status, shortcuts, a
 
 - **Images:** target-size compression, metadata editing, photo adjustments, annotations, composited backgrounds, crop, permanent redaction, multi-image PDF, and collage.
 - **Video:** compression/metadata, mute, trim, crop, speed, frame export, split, join, and permanent redaction.
-- **Audio:** compression/metadata, loudness normalization, waveform video, trim, channel conversion, and bleep ranges.
+- **Audio:** compression/metadata, adjustable loudness normalization, waveform video, trim, channel conversion, and bleep ranges.
 - **PDF:** compression/metadata, split, merge, page organization, OCR, and table reconstruction.
 - **Archives:** destination selection and stronger cancellation coverage for extract-to-folder.
 - **Documents, Slides, Spreadsheets, EPUB, and Subtitles:** close remaining conversion/fidelity gaps; the reference category showcase does not display separate editing wheels for these categories.

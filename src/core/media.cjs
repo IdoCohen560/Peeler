@@ -42,6 +42,11 @@ function runFFmpeg(args, { signal, onProgress } = {}) {
   });
 }
 async function convertMedia({ input, format, temporary, category }, options) {
+  if (options.operation === 'normalize-audio') {
+    if (!audio[format]) throw new Error('Normalization is unavailable for this audio format.');
+    await runFFmpeg(['-protocol_whitelist', 'file,pipe', '-i', input, '-map', '0:a:0', '-vn', '-af', 'loudnorm=I=-16:LRA=11:TP=-1.5', '-map_metadata', '-1', '-map_chapters', '-1', '-threads', '2', ...audio[format], temporary], options);
+    return;
+  }
   if (options.operation === 'mute-video') {
     const muxer = ({ mp4: 'mp4', mov: 'mov', mkv: 'matroska', webm: 'webm', avi: 'avi', wmv: 'asf' })[format];
     if (!muxer) throw new Error('Mute is unavailable for this video format.');

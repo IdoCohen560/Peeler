@@ -102,13 +102,13 @@ Start dragging a file, tap the listed key, and drop it onto the wheel to stage t
 
 ![Peeler Audio format wheel](docs/assets/peeler/categories/audio-formats.png)
 
-![Peeler Audio tools wheel: planned actions](docs/assets/peeler/categories/audio-tools.png)
+![Peeler Audio tools wheel: current Normalize volume action and planned actions](docs/assets/peeler/categories/audio-tools.png)
 
 **Tangerine actions:** Shift converts among MP3, M4A, WAV, FLAC, OGG, Opus, AIFF, and WMA. Command, for one recording: Compress, Metadata, Normalize Volume, Visualize, Trim, Convert Channels, Bleep. For a selection: Compress, Metadata, Normalize Volume.
 
-**Peeler now:** Shift converts the supported audio formats. No audio editing tools are implemented.
+**Peeler now:** Shift converts the supported audio formats. Left Alt opens **Normalize volume** to create a normalized copy.
 
-**Peeler planned:** Compress, Metadata, Normalize, Visualize, Trim, Channels, and Bleep. [Details](docs/TOOL_PARITY_PLAN.md#audio)
+**Peeler planned:** Compress, Metadata, Visualize, Trim, Channels, and Bleep. [Details](docs/TOOL_PARITY_PLAN.md#audio)
 
 </details>
 

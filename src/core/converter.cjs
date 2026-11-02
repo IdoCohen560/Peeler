@@ -14,6 +14,7 @@ function capabilities(file) {
   else if (audioFormats.includes(ext) || videoFormats.includes(ext)) {
     category = audioFormats.includes(ext) ? 'Audio' : 'Video';
     if (require('./media.cjs').available()) targets = category === 'Audio' ? audioFormats : ext === 'gif' ? videoFormats.filter(x => x !== 'gif') : [...videoFormats, 'mp3'];
+    if (category === 'Audio' && require('./media.cjs').available()) tools = ['normalize-audio'];
     if (category === 'Video' && ext !== 'gif' && require('./media.cjs').available()) tools = ['mute-video'];
     note = targets.length ? 'Re-encoded locally. Audio extraction requires an audio track; only the first video/audio stream is retained.' : 'FFmpeg is missing; reinstall app dependencies.';
   }
@@ -48,14 +49,14 @@ function validateImageOptions(value, category) {
 async function convert({ input, target, operation = 'convert', outputDirectory, imageOptions, signal, onProgress }) {
   if (typeof input !== 'string' || typeof target !== 'string') throw new Error('Input and target are required.');
   if (signal?.aborted) throw new Error('Conversion cancelled.');
-  const info = await inspect(input), metadataOnly = operation === 'strip-metadata', imageCopy = operation === 'optimize-image', archiveExtract = operation === 'extract-archive', muteVideo = operation === 'mute-video';
+  const info = await inspect(input), metadataOnly = operation === 'strip-metadata', imageCopy = operation === 'optimize-image', archiveExtract = operation === 'extract-archive', muteVideo = operation === 'mute-video', normalizeAudio = operation === 'normalize-audio';
   const validatedOptions = validateImageOptions(imageOptions, info.category);
-  if (!['convert', 'strip-metadata', 'optimize-image', 'extract-archive', 'mute-video'].includes(operation)) throw new Error('Unsupported operation.');
-  if (metadataOnly || imageCopy || archiveExtract || muteVideo ? !info.tools.includes(operation) : !info.targets.includes(target)) throw new Error('Unsupported conversion.');
+  if (!['convert', 'strip-metadata', 'optimize-image', 'extract-archive', 'mute-video', 'normalize-audio'].includes(operation)) throw new Error('Unsupported operation.');
+  if (metadataOnly || imageCopy || archiveExtract || muteVideo || normalizeAudio ? !info.tools.includes(operation) : !info.targets.includes(target)) throw new Error('Unsupported conversion.');
   const ext = path.extname(input).slice(1).toLowerCase();
-  const format = metadataOnly || imageCopy || muteVideo ? ({ jpeg: 'jpg', tif: 'tiff' }[ext] || ext) : target;
+  const format = metadataOnly || imageCopy || muteVideo || normalizeAudio ? ({ jpeg: 'jpg', tif: 'tiff' }[ext] || ext) : target;
   const directory = path.resolve(outputDirectory || path.dirname(info.path));
-  const base = path.basename(input).replace(/(?:\.tar\.gz|\.tgz|\.[^.]+)$/i, '') + (metadataOnly ? ' - clean' : imageCopy ? ' - edited' : archiveExtract ? ' - extracted' : muteVideo ? ' - muted' : '');
+  const base = path.basename(input).replace(/(?:\.tar\.gz|\.tgz|\.[^.]+)$/i, '') + (metadataOnly ? ' - clean' : imageCopy ? ' - edited' : archiveExtract ? ' - extracted' : muteVideo ? ' - muted' : normalizeAudio ? ' - normalized' : '');
   if (archiveExtract) {
     const workDirectory = await allocateWorkspace();
     try {

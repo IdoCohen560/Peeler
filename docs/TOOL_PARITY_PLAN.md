@@ -64,9 +64,9 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Tangerine tools for a selection:** Compress; Edit Metadata; Normalize Volume. Single-file trim is described as waveform/timecode-based and automatic silence removal applies to recording ends only; channel conversion supports mono/stereo and independent left/right levels; bleeping selects time ranges. Other tools depend on a single selected recording.
 
-**Peeler now:** Audio format conversion through the local FFmpeg worker. No audio editing tools are implemented.
+**Peeler now:** Audio format conversion through the local FFmpeg worker. The Tools wheel includes **Normalize Volume**, using FFmpeg loudnorm with a fixed local target and saving a separate copy.
 
-**Peeler planned:** Compression controls; metadata inspection/editing/removal; loudness normalization; waveform video; trim; channel conversion; bleep ranges. Add Tools wheel actions: **Compress**, **Metadata**, **Normalize**, **Visualize**, **Trim**, **Channels**, and **Bleep**.
+**Peeler planned:** Compression controls; metadata inspection/editing/removal; adjustable loudness controls; waveform video; trim; channel conversion; bleep ranges. Add Tools wheel actions: **Compress**, **Metadata**, **Visualize**, **Trim**, **Channels**, and **Bleep**.
 
 ### PDF
 

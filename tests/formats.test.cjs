@@ -121,6 +121,15 @@ test('audio actually encodes and decodes every offered output', async t => {
     await runFFmpeg(['-i', result.output, '-f', 'null', '-']);
   }
 });
+test('audio Tools wheel normalizes a separate playable copy', async t => {
+  const directory = await fixture(t), input = path.join(directory, 'quiet.wav');
+  await runFFmpeg(['-f', 'lavfi', '-i', 'sine=frequency=440:duration=0.5', '-af', 'volume=0.03', '-f', 'wav', input]);
+  assert(capabilities(input).tools.includes('normalize-audio'));
+  const source = await fs.readFile(input), result = await convert({ input, target: 'wav', operation: 'normalize-audio' });
+  await runFFmpeg(['-i', result.output, '-map', '0:a:0', '-f', 'null', '-']);
+  assert.match(result.output, /quiet - normalized\.wav$/);
+  assert.deepEqual(await fs.readFile(input), source);
+});
 test('video transcodes every offered container, exports GIF, and extracts real MP3', async t => {
   const directory = await fixture(t), input = path.join(directory, 'clip.mp4');
   await runFFmpeg(['-f', 'lavfi', '-i', 'testsrc=size=64x48:rate=6', '-f', 'lavfi', '-i', 'sine=frequency=440:sample_rate=44100', '-t', '0.5', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-f', 'mp4', input]);

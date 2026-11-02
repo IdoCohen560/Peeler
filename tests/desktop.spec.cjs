@@ -93,6 +93,23 @@ test('video Tools wheel creates a muted video copy', async ({}, testInfo) => {
     await expect(require('../src/core/media.cjs').runFFmpeg(['-i', output, '-map', '0:a:0', '-f', 'null', '-'])).rejects.toThrow();
   } finally { await app.close(); }
 });
+test('audio Tools wheel normalizes the recording through the desktop queue', async ({}, testInfo) => {
+  const directory = testInfo.outputPath('audio-tool'); await fs.mkdir(directory, { recursive: true });
+  const input = path.join(directory, 'quiet.wav');
+  await require('../src/core/media.cjs').runFFmpeg(['-f', 'lavfi', '-i', 'sine=frequency=440:duration=0.5', '-af', 'volume=0.03', '-f', 'wav', input]);
+  const env = { ...process.env, PEELER_SHOW_WINDOW: '1', PEELER_DISABLE_HOOK: '1' }; delete env.ELECTRON_RUN_AS_NODE;
+  const app = await launchApp(env, testInfo);
+  try {
+    const page = await app.firstWindow();
+    await app.evaluate(({ dialog }, file) => { dialog.showOpenDialog = async () => ({ canceled: false, filePaths: [file] }); }, input);
+    await page.getByRole('button', { name: 'Add files', exact: true }).click();
+    await page.getByRole('button', { name: 'Output format for quiet.wav' }).click();
+    await page.getByRole('button', { name: 'Normalize volume', exact: true }).click();
+    await page.getByRole('button', { name: 'Convert files', exact: true }).click();
+    await expect(page.getByRole('button', { name: 'Show file' })).toHaveCount(1);
+    await require('../src/core/media.cjs').runFFmpeg(['-i', path.join(directory, 'quiet - normalized.wav'), '-map', '0:a:0', '-f', 'null', '-']);
+  } finally { await app.close(); }
+});
 test('closing the optional window keeps the host alive and --quit stops it', async ({}, testInfo) => {
   const env = { ...process.env, PEELER_SHOW_WINDOW: '1', PEELER_DISABLE_HOOK: '1' }; delete env.ELECTRON_RUN_AS_NODE;
   const app = await launchApp(env, testInfo);
