@@ -1,6 +1,6 @@
 # Roadmap
 
-Current evidence: 235/275 reference routes have passing fixtures; 40 remain unimplemented. See [CONVERSION_TEST_RESULTS.md](CONVERSION_TEST_RESULTS.md), [PARITY_PLAN.md](PARITY_PLAN.md), and [RELEASE_READINESS.md](RELEASE_READINESS.md). Route counts alone do not establish fidelity or full product parity.
+Last Windows fixture audit: 235/275 reference routes passed; 40 were unavailable in that audit. A separate Linux reproduction on 2026-11-02, without Office or the optional HEIC fixture installed, passed 241 conversions, found 50 unavailable routes and left 7 HEIC-input routes untested. These are different environments; see [CONVERSION_TEST_RESULTS.md](CONVERSION_TEST_RESULTS.md), [PARITY_PLAN.md](PARITY_PLAN.md), and [RELEASE_READINESS.md](RELEASE_READINESS.md). Route counts alone do not establish fidelity or full product parity.
 
 ## Foundation (current milestone)
 
@@ -14,7 +14,7 @@ Background tray host, lazy radial overlay, optional picker, local conversion ada
 4. Maintain/update the bundled FFmpeg source and binary supply chain; extend tested conversions with trim, mute, normalize, and channel transforms before timelines and redaction.
 5. Add PDF merge/split/organize and optional local OCR/table reconstruction. Page rasterization and text extraction already have passing fixtures.
 6. Upgrade document/slides/sheets adapters from text/value conversion to measured layout fidelity; add missing office formats and assess Pages import/export separately. See the office-engine proof in PARITY_PLAN.md.
-7. Extend bounded archive repacking with RAR input. Traversal/link rejection and expanded-size/entry-count bounds already exist; extend adversarial fixtures and engine-specific limits.
+7. Extend bounded archive repacking with RAR input. Traversal/link rejection and expanded-size/entry-count bounds already exist; archive extraction is now available from the Tools wheel. Extend adversarial fixtures and engine-specific limits.
 
 Track editing actions independently from format conversion. The per-category comparison with Tangerine's public, simulated wheel demo, Peeler's current gaps, and evidence limits is in [TOOL_PARITY_PLAN.md](TOOL_PARITY_PLAN.md#evidence-and-limits). The Windows/Linux sequence starts with real Explorer and X11 file-manager validation, then a complete image slice, PDF operations, audio/video controls, and archive extraction. Tangerine's Control key is not adopted as Peeler's third-mode default until Windows/Linux native drag-copy conflicts are tested.
 
@@ -33,7 +33,7 @@ The complete category-by-category reference actions, Peeler status, shortcuts, a
 - **Video:** compression/metadata, mute, trim, crop, speed, frame export, split, join, and permanent redaction.
 - **Audio:** compression/metadata, loudness normalization, waveform video, trim, channel conversion, and bleep ranges.
 - **PDF:** compression/metadata, split, merge, page organization, OCR, and table reconstruction.
-- **Archives:** safe extract-to-folder workflow.
+- **Archives:** destination selection and stronger cancellation coverage for extract-to-folder.
 - **Documents, Slides, Spreadsheets, EPUB, and Subtitles:** close remaining conversion/fidelity gaps; the reference category showcase does not display separate editing wheels for these categories.
 
 Build and verify these actions as file-type-aware flows. Actions can differ between a single file and a multi-file selection. Use the modifier keys in the parity plan for each OS; Linux Wayland uses the tray picker until global drag capture is available.

@@ -52,9 +52,9 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Tangerine tools for a selection:** Compress; Edit Metadata; Remove Audio; Join. Joining accepts multiple clips and lets the user arrange playback order. Other tools depend on a single selected video.
 
-**Peeler now:** Format conversion and MP3 audio extraction through the local FFmpeg worker. No video editing tools are implemented.
+**Peeler now:** Format conversion and MP3 audio extraction through the local FFmpeg worker. The Tools wheel includes **Mute video** for non-GIF video; it copies the first video stream, removes audio, and saves a separate file.
 
-**Peeler planned:** Compression controls; metadata inspection/editing/removal; mute; trim; crop; speed changes; frame export; split; join; permanent time-scoped redaction. Add Tools wheel actions: **Compress**, **Metadata**, **Mute**, **Trim**, **Crop**, **Change Speed**, **Save Frames**, **Split**, **Join**, and **Redact**.
+**Peeler planned:** Compression controls; metadata inspection/editing/removal; trim; crop; speed changes; frame export; split; join; permanent time-scoped redaction. Add Tools wheel actions: **Compress**, **Metadata**, **Trim**, **Crop**, **Change Speed**, **Save Frames**, **Split**, **Join**, and **Redact**.
 
 ### Audio
 
@@ -138,7 +138,9 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Peeler now:** Convert ZIP, TAR, GZIP, and RAR input to supported archive outputs; reject unsafe paths, links, encryption, or expansion beyond configured bounds. No extraction-to-folder UI is implemented.
 
-**Peeler planned:** Safe extraction with destination choice, collision handling, cancellation, and archive safety checks. The observed reference tool is **Extract Archive**. **Inspect Contents**, **Test Archive**, **Create Archive**, and **Encrypt Archive** are additional Peeler roadmap ideas, not observed reference actions.
+**Peeler now:** **Extract Archive** appears in the Archives Tools wheel and writes regular files into a separate collision-safe folder. Extraction rejects unsafe paths, links, special files, encrypted entries, and Windows-invalid names, and respects the 200 MB / 10,000-entry bound.
+
+**Peeler planned:** Add a destination picker and deeper cancellation coverage. **Inspect Contents**, **Test Archive**, **Create Archive**, and **Encrypt Archive** are additional Peeler roadmap ideas, not observed reference actions.
 
 ## File actions
 
@@ -153,7 +155,7 @@ Windows/Linux parity requires platform equivalents rather than macOS service nam
 3. **Image vertical slice:** crop plus metadata display/removal and a crop UI with preview and safe export; then add target-size compression, adjustments, annotations, backgrounds, redaction, PDF creation, and collage.
 4. **PDF slice:** metadata, compression, split/merge, page organization, then OCR, redaction, and table extraction with independently checked results.
 5. **Audio then video slices:** implement actions from the observed lists in small complete groups, sharing tested FFmpeg transforms where sensible; add preview, cancellation, audio/video sync and preservation checks before redaction.
-6. **Archive extraction:** safe destination selection, path/link rejection, collision handling, cancellation, and expansion limits. Add additional archive utilities only as separate Peeler roadmap items.
+6. **Archive tools:** add a destination picker and deeper cancellation coverage for the implemented extraction action. Keep additional archive utilities as separate Peeler roadmap items.
 7. **Complete remaining conversion coverage and fidelity** for documents, slides, spreadsheets, EPUB, and subtitles. Keep new editor ideas in a separately labeled Peeler roadmap; do not imply they are reference parity requirements.
 8. **File actions and third mode:** settle a configurable Windows/Linux key after drag conflict tests, then deliver Copy Path and Terminal, followed by Move and native file Copy; build Float and per-platform Share adapters after their native UX and availability are proven.
 9. macOS permissions/runtime verification follows the Windows/Linux milestones.

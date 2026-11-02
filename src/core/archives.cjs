@@ -1,5 +1,6 @@
 'use strict';
 const path = require('node:path');
+const fs = require('node:fs/promises');
 const zlib = require('node:zlib');
 const { promisify } = require('node:util');
 const JSZip = require('jszip');
@@ -116,4 +117,28 @@ async function writeArchive(entries, format) {
   });
   return format === 'gz' ? promisify(zlib.gzip)(buffer) : buffer;
 }
-module.exports = { safeName, readZip, readTar, readArchive, writeArchive, MAX_BYTES };
+async function extractArchive(entries, destination, { signal, onProgress } = {}) {
+  const root = path.resolve(destination);
+  await fs.mkdir(root, { recursive: false });
+  try {
+    for (let index = 0; index < entries.length; index++) {
+      if (signal?.aborted) throw new Error('Extraction cancelled.');
+      const entry = entries[index], name = safeName(entry.name);
+      const parts = name.split('/').filter(Boolean);
+      if (process.platform === 'win32' && parts.some(part => /[<>:"|?*]/.test(part) || /[. ]$/.test(part) || /^(CON|PRN|AUX|NUL|COM[1-9]|LPT[1-9])(?:\.|$)/i.test(part))) throw new Error('Archive contains a name that Windows cannot safely extract.');
+      const output = path.resolve(root, ...parts);
+      if (output !== root && !output.startsWith(`${root}${path.sep}`)) throw new Error('Archive contains an unsafe path.');
+      if (entry.directory || name.endsWith('/')) await fs.mkdir(output, { recursive: true });
+      else {
+        await fs.mkdir(path.dirname(output), { recursive: true });
+        await fs.writeFile(output, entry.data, { flag: 'wx', mode: 0o600 });
+      }
+      onProgress?.({ phase: 'Extracting', current: index + 1, total: entries.length });
+    }
+    return root;
+  } catch (error) {
+    await fs.rm(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+    throw error;
+  }
+}
+module.exports = { safeName, readZip, readTar, readArchive, writeArchive, extractArchive, MAX_BYTES };

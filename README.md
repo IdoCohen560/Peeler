@@ -91,9 +91,9 @@ Start dragging a file, tap the listed key, and drop it onto the wheel to stage t
 
 **Tangerine actions:** Shift converts video among supported containers, exports GIF, or extracts MP3. Command, for one video: Compress, Metadata, Mute, Trim, Crop, Change Speed, Save Frames, Split, Redact. For a selection: Compress, Metadata, Mute, Join.
 
-**Peeler now:** Shift converts MP4, MOV, MKV, WebM, AVI, WMV, GIF, and audio extraction to MP3 when available. No video editing tools are implemented.
+**Peeler now:** Shift converts MP4, MOV, MKV, WebM, AVI, WMV, GIF, and audio extraction to MP3 when available. Left Alt opens **Mute video** for non-GIF video files.
 
-**Peeler planned:** Compress, Metadata, Mute, Trim, Crop, Change Speed, Save Frames, Split, Join, and Redact. [Details](docs/TOOL_PARITY_PLAN.md#video)
+**Peeler planned:** Compress, Metadata, Trim, Crop, Change Speed, Save Frames, Split, Join, and Redact. [Details](docs/TOOL_PARITY_PLAN.md#video)
 
 </details>
 
@@ -207,13 +207,13 @@ Start dragging a file, tap the listed key, and drop it onto the wheel to stage t
 
 ![Peeler Archives format wheel](docs/assets/peeler/categories/archives-formats.png)
 
-![Peeler Archives tools wheel: planned actions](docs/assets/peeler/categories/archives-tools.png)
+![Peeler Archives tools wheel: current Extract archive action and planned actions](docs/assets/peeler/categories/archives-tools.png)
 
 **Tangerine actions:** Shift converts archives to ZIP, TAR, or GZIP and imports RAR. Command extracts ZIP, TAR, GZIP, and RAR files beside the original.
 
-**Peeler now:** Shift converts ZIP, TAR, GZIP, and RAR input to supported archive outputs. Peeler does not yet extract an archive to a folder.
+**Peeler now:** Shift converts ZIP, TAR, GZIP, and RAR input to supported archive outputs. Left Alt opens **Extract archive** for ZIP/TAR/GZIP/RAR; files are extracted to a separate numbered folder with archive safety limits.
 
-**Peeler planned:** Extract Files, Inspect Contents, Test Archive, Create Archive, and Encrypt Archive, with destination choice, collision handling, cancellation, and archive safety checks. [Details](docs/TOOL_PARITY_PLAN.md#archives)
+**Peeler planned:** Add destination choice and fuller cancellation coverage. Inspect Contents, Test Archive, Create Archive, and Encrypt Archive are future Peeler ideas. [Details](docs/TOOL_PARITY_PLAN.md#archives)
 
 </details>
 

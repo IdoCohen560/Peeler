@@ -29,7 +29,7 @@ All ten categories are required for the intended product. These are target capab
 | Spreadsheets | XLSX, ODS, CSV, TSV; XLS input; PDF export |
 | EPUB | EPUB to PDF, DOCX, Pages, TXT, Markdown, HTML; PDF to EPUB |
 | Subtitles | SRT/VTT interchange and plain-text export |
-| Archives | ZIP/TAR/GZIP interchange; RAR extraction |
+| Archives | ZIP/TAR/GZIP interchange; RAR repacking and safe extraction |
 
 Current image operations process one raster image, auto-orient where supported, strip metadata, and default to quality 85. The optional converter now provides proportional maximum dimensions, lossy quality, and JPG/BMP background choices, reachable through More options after a wheel drop. HEIC input uses a separately tested decoder; HEIC output is still unavailable. Animated/multipage preservation, exact-size compression, and metadata retention settings remain unimplemented. Subtitle conversion drops cue identifiers/settings and skips VTT NOTE/STYLE/REGION blocks; it is not a full styling-preserving subtitle editor.
 
@@ -46,13 +46,13 @@ The reference demo defines 26 distinct tool identifiers. Peeler should implement
 | PDF | Split; organize pages; merge |
 | Archives | Extract |
 
-Only image metadata removal is included in the starter. It re-encodes the image; it is not lossless tag surgery. Future redaction must remove underlying content, including PDF text and image data, rather than merely adding a visual layer. OCR and face detection must run locally and remain optional.
+The current advanced tools are image metadata removal/options, video mute, and archive extraction. Image metadata removal re-encodes the image; it is not lossless tag surgery. Future redaction must remove underlying content, including PDF text and image data, rather than merely adding a visual layer. OCR and face detection must run locally and remain optional.
 
 Detailed editor requirements from the tools catalog: frame stepping and typed timecodes for video trims; first-clip canvas selection for joins; custom or evenly spaced split points; pitch preservation for speed changes; loudness range and peak controls for normalization; independent left/right gain and channel preview; silence trimming limited to recording boundaries; time-scoped video redaction; original-versus-bleep audio preview; and selectable page order before PDF merge. Image editors include correction controls, freehand/shape annotations, composited backgrounds, exact crop dimensions, and configurable collage layouts. These remain future acceptance cases, not controls in the starter.
 
 ## File actions
 
-Reference actions comprise system sharing (AirDrop on macOS), a floating shelf, clipboard file copy, move, path copy, and opening a containing directory in a terminal. None is implemented yet. Peeler can reveal completed outputs in the native file manager and supports a session output directory, but these do not implement the six actions. Peeler needs platform adapters: AirDrop is macOS-specific; Windows/Linux alternatives depend on available sharing facilities. A floating shelf should support drag-out and optional edge pinning. Actions must support folders and heterogeneous selections independently of conversion capability.
+Reference actions comprise system sharing (AirDrop on macOS), a floating shelf, clipboard file copy, move, path copy, and opening a containing directory in a terminal. None of the six file actions is implemented yet. Peeler can reveal completed outputs in the native file manager and supports a session output directory, but these do not implement the six actions. Peeler needs platform adapters: AirDrop is macOS-specific; Windows/Linux alternatives depend on available sharing facilities. A floating shelf should support drag-out and optional edge pinning. Actions must support folders and heterogeneous selections independently of conversion capability. Archive extraction is a separate file tool and is now implemented in the Tools wheel.
 
 ## Acceptance criteria
 

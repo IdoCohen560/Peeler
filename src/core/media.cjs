@@ -42,6 +42,12 @@ function runFFmpeg(args, { signal, onProgress } = {}) {
   });
 }
 async function convertMedia({ input, format, temporary, category }, options) {
+  if (options.operation === 'mute-video') {
+    const muxer = ({ mp4: 'mp4', mov: 'mov', mkv: 'matroska', webm: 'webm', avi: 'avi', wmv: 'asf' })[format];
+    if (!muxer) throw new Error('Mute is unavailable for this video format.');
+    await runFFmpeg(['-protocol_whitelist', 'file,pipe', '-i', input, '-map', '0:v:0', '-an', '-c:v', 'copy', '-map_metadata', '-1', '-map_chapters', '-1', '-f', muxer, temporary], options);
+    return;
+  }
   const args = ['-protocol_whitelist', 'file,pipe', '-i', input, '-map_metadata', '-1', '-map_chapters', '-1'];
   if (category === 'Audio' || format === 'mp3') args.push('-map', '0:a:0', '-vn', ...audio[format]);
   else { args.push('-map', '0:v:0', '-map', '0:a:0?', '-vf', 'scale=trunc(iw/2)*2:trunc(ih/2)*2', ...video[format]); }

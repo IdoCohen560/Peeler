@@ -101,6 +101,18 @@ test('archives preserve files across ZIP/TAR/GZIP and reject traversal and links
   const malicious = new JSZip(); malicious.file('link', 'target', { unixPermissions: 0o120777 });
   await assert.rejects(readZip(await malicious.generateAsync({ type: 'nodebuffer', platform: 'UNIX' })), /symbolic links/);
 });
+test('archive wheel extraction writes contents to a separate collision-safe folder', async t => {
+  const directory = await fixture(t), input = path.join(directory, 'files.zip');
+  const entries = [{ name: 'folder/', directory: true, data: Buffer.alloc(0) }, { name: 'folder/hello.txt', data: Buffer.from('Archive contents') }];
+  await fs.writeFile(input, await writeArchive(entries, 'zip'));
+  assert(capabilities(input).tools.includes('extract-archive'));
+  const original = await fs.readFile(input);
+  const first = await convert({ input, target: 'zip', operation: 'extract-archive' });
+  assert.equal(await fs.readFile(path.join(first.output, 'folder/hello.txt'), 'utf8'), 'Archive contents');
+  const second = await convert({ input, target: 'zip', operation: 'extract-archive' });
+  assert.match(second.output, /files - extracted \(2\)$/);
+  assert.deepEqual(await fs.readFile(input), original);
+});
 test('audio actually encodes and decodes every offered output', async t => {
   const directory = await fixture(t), input = path.join(directory, 'tone.wav');
   await runFFmpeg(['-f', 'lavfi', '-i', 'sine=frequency=440:duration=0.3', '-f', 'wav', input]);
@@ -116,6 +128,16 @@ test('video transcodes every offered container, exports GIF, and extracts real M
     const result = await convert({ input, target }); assert(result.bytes > 20);
     await runFFmpeg(['-i', result.output, '-f', 'null', '-']);
   }
+});
+test('video Tools wheel mute keeps the video stream and removes audio', async t => {
+  const directory = await fixture(t), input = path.join(directory, 'clip.mp4');
+  await runFFmpeg(['-f', 'lavfi', '-i', 'color=red:size=64x48:rate=6', '-f', 'lavfi', '-i', 'sine=frequency=440:sample_rate=44100', '-t', '0.5', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-f', 'mp4', input]);
+  assert(capabilities(input).tools.includes('mute-video'));
+  assert.equal(capabilities('animated.gif').tools.includes('mute-video'), false);
+  const source = await fs.readFile(input), result = await convert({ input, target: 'mp4', operation: 'mute-video' });
+  await runFFmpeg(['-i', result.output, '-map', '0:v:0', '-f', 'null', '-']);
+  await assert.rejects(runFFmpeg(['-i', result.output, '-map', '0:a:0', '-f', 'null', '-']));
+  assert.deepEqual(await fs.readFile(input), source);
 });
 test('SVG, BMP and image-to-PDF produce decodable outputs', async t => {
   const directory = await fixture(t), input = path.join(directory, 'drawing.svg');

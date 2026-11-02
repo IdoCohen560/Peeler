@@ -17,7 +17,7 @@ function render() {
     const row = document.createElement('div'); row.className = 'file-row';
     const identity = document.createElement('div'); identity.className = 'file-name'; identity.textContent = file.name; identity.title = file.name;
     const meta = document.createElement('span'); meta.className = 'file-meta'; meta.textContent = `${file.category} · ${bytes(file.bytes)}`; identity.append(meta);
-    const format = document.createElement('button'); format.className = 'file-format'; format.textContent = file.operation === 'strip-metadata' ? 'Clean metadata' : file.target ? `→ ${formatLabel(file, file.target)}` : 'Unavailable'; format.setAttribute('aria-label', `Output format for ${file.name}`); format.disabled = busy || !!file.output || !file.targets.length;
+    const format = document.createElement('button'); format.className = 'file-format'; format.textContent = file.operation === 'strip-metadata' ? 'Clean metadata' : file.operation === 'extract-archive' ? 'Extract archive' : file.operation === 'mute-video' ? 'Mute video' : file.target ? `→ ${formatLabel(file, file.target)}` : 'Unavailable'; format.setAttribute('aria-label', `Output format for ${file.name}`); format.disabled = busy || !!file.output || (!file.targets.length && !file.tools.length);
     format.onclick = () => openFormats(file); format.onkeydown = event => { if (event.key === 'Shift') { event.preventDefault(); openFormats(file); } };
     const state = document.createElement('div'); state.className = `file-state${file.error ? ' error' : ''}`;
     if (file.output) { const reveal = document.createElement('button'); reveal.textContent = 'Show file'; reveal.onclick = () => bridge.reveal(file.output).catch(error => message(error.message)); state.append(reveal); }
@@ -66,6 +66,16 @@ function openFormats(file) {
       active.imageOptions = { width: $('#image-width').value ? Number($('#image-width').value) : undefined, height: $('#image-height').value ? Number($('#image-height').value) : undefined, quality: Number($('#image-quality').value), background: $('#image-background').value };
       active.operation = 'optimize-image'; active.target = file.name.split('.').pop().toLowerCase(); $('#format-dialog').close(); render();
     }; $('#format-wheel').append(button);
+  }
+  if (file.tools.includes('extract-archive')) {
+    const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Extract archive';
+    button.onclick = () => { active.operation = 'extract-archive'; active.target = file.name.split('.').pop().toLowerCase(); $('#format-dialog').close(); render(); };
+    $('#format-wheel').append(button);
+  }
+  if (file.tools.includes('mute-video')) {
+    const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Mute video';
+    button.onclick = () => { active.operation = 'mute-video'; active.target = file.name.split('.').pop().toLowerCase(); $('#format-dialog').close(); render(); };
+    $('#format-wheel').append(button);
   }
   $('#format-dialog').showModal();
 }

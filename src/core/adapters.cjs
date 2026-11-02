@@ -4,7 +4,7 @@ const path = require('node:path');
 async function runAdapter(job, options = {}) {
   const { input, format, temporary, category, operation } = job;
   const extension = path.extname(input).slice(1).toLowerCase();
-  if (['Audio', 'Video'].includes(category)) return require('./media.cjs').convertMedia(job, options);
+  if (['Audio', 'Video'].includes(category)) return require('./media.cjs').convertMedia(job, { ...options, operation });
   if (category === 'Images') {
     // Keep libvips out of PDF/Office workers: Electron's Linux GLib symbols can conflict.
     const sharp = require('sharp'); sharp.cache({ files: 0 });
@@ -77,6 +77,7 @@ async function runAdapter(job, options = {}) {
   if (category === 'Archives') {
     const { readArchive, writeArchive } = require('./archives.cjs');
     const entries = await readArchive(await fs.readFile(input), extension === 'tgz' ? 'gz' : extension, path.basename(input));
+    if (operation === 'extract-archive') return require('./archives.cjs').extractArchive(entries, temporary, options);
     return fs.writeFile(temporary, await writeArchive(entries, format), { flag: 'wx' });
   }
   throw new Error(`No adapter for ${category}.`);

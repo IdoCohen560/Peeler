@@ -14,6 +14,7 @@ function capabilities(file) {
   else if (audioFormats.includes(ext) || videoFormats.includes(ext)) {
     category = audioFormats.includes(ext) ? 'Audio' : 'Video';
     if (require('./media.cjs').available()) targets = category === 'Audio' ? audioFormats : ext === 'gif' ? videoFormats.filter(x => x !== 'gif') : [...videoFormats, 'mp3'];
+    if (category === 'Video' && ext !== 'gif' && require('./media.cjs').available()) tools = ['mute-video'];
     note = targets.length ? 'Re-encoded locally. Audio extraction requires an audio track; only the first video/audio stream is retained.' : 'FFmpeg is missing; reinstall app dependencies.';
   }
   else if (ext === 'pdf') { category = 'PDF'; targets = ['txt', 'md', 'docx', 'epub', 'png', 'jpg', 'pptx']; note = 'Text exports require selectable text and do not preserve layout. PNG/JPG: all pages at 300 DPI in a ZIP. PPTX: page images, not editable slide objects. OCR is not included.'; }
@@ -22,7 +23,7 @@ function capabilities(file) {
   else if (['xlsx', 'ods', 'csv', 'tsv', 'xls'].includes(ext)) { category = 'Spreadsheets'; targets = ext === 'xls' && !require('./office.cjs').available() ? [] : ['xlsx', 'ods', 'csv', 'tsv', 'pdf']; note = !targets.length ? 'Legacy XLS requires the local Office engine. See docs/OFFICE_ENGINE.md.' : 'Values only for workbook/text exports. CSV/TSV require one sheet. Office PDF rendering is used when available for XLS/XLSX/ODS; fonts and formulas may differ.'; }
   else if (ext === 'epub') { category = 'EPUB'; targets = ['txt', 'md', 'html', 'docx', 'pdf']; note = 'Text in EPUB reading order. Images and book layout are not preserved; protected/encrypted books are not supported.'; }
   else if (['srt', 'vtt'].includes(ext)) { category = 'Subtitles'; targets = ['srt', 'vtt', 'txt']; note = 'Timed cues; styling and cue settings are not preserved.'; }
-  else if (['zip', 'tar', 'gz', 'tgz', 'rar'].includes(ext)) { category = 'Archives'; targets = ['zip', 'tar', 'gz']; note = 'Repack regular files/folders, including RAR input. GZIP output is tar.gz. Links, encryption, unsafe paths, and archives over 200 MB expanded are rejected.'; }
+  else if (['zip', 'tar', 'gz', 'tgz', 'rar'].includes(ext)) { category = 'Archives'; targets = ['zip', 'tar', 'gz']; tools = ['extract-archive']; note = 'Repack or safely extract regular files/folders, including RAR input. GZIP output is tar.gz. Links, encryption, unsafe paths, and archives over 200 MB expanded are rejected.'; }
   else if (['heic', 'pages', 'rtf', 'rtfd', 'textclipping', 'ppt', 'xls', 'rar'].includes(ext)) { note = 'This format belongs to the planned product scope but its import engine is not implemented yet.'; }
   const normalized = ({ jpeg: 'jpg', tif: 'tiff', tgz: 'gz' })[ext] || ext;
   if (category === 'Images' && !['svg', 'heic'].includes(ext)) tools.push('optimize-image');
@@ -47,14 +48,32 @@ function validateImageOptions(value, category) {
 async function convert({ input, target, operation = 'convert', outputDirectory, imageOptions, signal, onProgress }) {
   if (typeof input !== 'string' || typeof target !== 'string') throw new Error('Input and target are required.');
   if (signal?.aborted) throw new Error('Conversion cancelled.');
-  const info = await inspect(input), metadataOnly = operation === 'strip-metadata', imageCopy = operation === 'optimize-image';
+  const info = await inspect(input), metadataOnly = operation === 'strip-metadata', imageCopy = operation === 'optimize-image', archiveExtract = operation === 'extract-archive', muteVideo = operation === 'mute-video';
   const validatedOptions = validateImageOptions(imageOptions, info.category);
-  if (!['convert', 'strip-metadata', 'optimize-image'].includes(operation)) throw new Error('Unsupported operation.');
-  if (metadataOnly || imageCopy ? !info.tools.includes(operation) : !info.targets.includes(target)) throw new Error('Unsupported conversion.');
+  if (!['convert', 'strip-metadata', 'optimize-image', 'extract-archive', 'mute-video'].includes(operation)) throw new Error('Unsupported operation.');
+  if (metadataOnly || imageCopy || archiveExtract || muteVideo ? !info.tools.includes(operation) : !info.targets.includes(target)) throw new Error('Unsupported conversion.');
   const ext = path.extname(input).slice(1).toLowerCase();
-  const format = metadataOnly || imageCopy ? ({ jpeg: 'jpg', tif: 'tiff' }[ext] || ext) : target;
+  const format = metadataOnly || imageCopy || muteVideo ? ({ jpeg: 'jpg', tif: 'tiff' }[ext] || ext) : target;
   const directory = path.resolve(outputDirectory || path.dirname(info.path));
-  const base = path.basename(input).replace(/(?:\.tar\.gz|\.tgz|\.[^.]+)$/i, '') + (metadataOnly ? ' - clean' : imageCopy ? ' - edited' : '');
+  const base = path.basename(input).replace(/(?:\.tar\.gz|\.tgz|\.[^.]+)$/i, '') + (metadataOnly ? ' - clean' : imageCopy ? ' - edited' : archiveExtract ? ' - extracted' : muteVideo ? ' - muted' : '');
+  if (archiveExtract) {
+    const workDirectory = await allocateWorkspace();
+    try {
+      const temporary = path.join(workDirectory, 'extracted');
+      await runJob({ input: info.path, format, temporary, workDirectory, category: info.category, operation }, { signal, onProgress });
+      for (let index = 1; index <= 10000; index++) {
+        const candidate = path.join(directory, `${base}${index === 1 ? '' : ` (${index})`}`);
+        try { await fs.access(candidate); }
+        catch (error) {
+          if (error.code !== 'ENOENT') throw error;
+          const staging = path.join(directory, `.peeler-${require('node:crypto').randomUUID()}.tmp`);
+          try { await fs.cp(temporary, staging, { recursive: true, errorOnExist: true, force: false }); await fs.rename(staging, candidate); return { input: info.path, output: candidate, bytes: 0 }; }
+          catch (copyError) { await fs.rm(staging, { recursive: true, force: true }); if (copyError.code === 'EEXIST' || copyError.code === 'ENOTEMPTY') continue; throw copyError; }
+        }
+      }
+      throw new Error('Too many extracted folders with this name.');
+    } finally { await releaseWorkspace(workDirectory); }
+  }
   const suffix = ['PDF', 'Documents', 'Slides'].includes(info.category) && ['png', 'jpg'].includes(format) ? `${format}.zip` : format === 'gz' ? 'tar.gz' : format;
   const workDirectory = await allocateWorkspace(), temporary = path.join(workDirectory, 'result.tmp');
   let output;

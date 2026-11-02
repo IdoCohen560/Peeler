@@ -5,7 +5,7 @@ This is the implemented scope, distinct from the reference website's 275-path re
 | Category | Inputs | Available outputs | Current fidelity |
 | --- | --- | --- | --- |
 | Images | JPG/JPEG, PNG, WebP, TIFF/TIF, AVIF, SVG, BMP, HEIC | PNG, JPG, WebP, AVIF, TIFF, BMP, PDF | One raster frame/page; metadata removed; default quality 85; optional size/quality and JPG/BMP background controls. HEIC: first decoded 8-bit image, no HDR/depth/sequence preservation |
-| Video | MP4, MOV, MKV, WebM, AVI, WMV, GIF | MP4, MOV, MKV, WebM, AVI, WMV; GIF and MP3 from video containers | Re-encodes first video/audio streams; MP3 requires an audio track; GIF input cannot produce audio |
+| Video | MP4, MOV, MKV, WebM, AVI, WMV, GIF | MP4, MOV, MKV, WebM, AVI, WMV; GIF and MP3 from video containers | Re-encodes first video/audio streams; MP3 requires an audio track; GIF input cannot produce audio. Tools wheel includes **Mute video** for non-GIF files; it stream-copies the first video stream to a separate copy with audio removed. |
 | Audio | MP3, M4A, WAV, FLAC, OGG, Opus, AIFF, WMA | Other formats in the same list | Actual FFmpeg encoding; codec defaults explicit in media adapter |
 | PDF | PDF | TXT, MD, DOCX, EPUB, PNG, JPG, PPTX | Text exports lose layout and require selectable text; PNG/JPG export every page at 300 DPI into a ZIP; PPTX contains rendered page images |
 | Documents | DOCX, RTF, Markdown, TXT, HTML | TXT, Markdown, HTML, DOCX, PDF, EPUB, PNG/JPG page ZIPs | DOCX/RTF PDF/page images use Office rendering when available; other exports preserve text only. Missing fonts can change layout |
@@ -13,7 +13,7 @@ This is the implemented scope, distinct from the reference website's 275-path re
 | Spreadsheets | XLSX, ODS, CSV, TSV; XLS with Office | XLSX, ODS, CSV, TSV, PDF | Workbook/text exports preserve values and cached formula results, not formulas/styles. Office renders PDF from XLS/XLSX/ODS when available; fallback PDF is a text table. Multi-sheet CSV/TSV is rejected |
 | EPUB | EPUB | TXT, Markdown, HTML, DOCX, PDF | Text in spine/reading order. No book images/layout or DRM/encryption support |
 | Subtitles | SRT, VTT | Other subtitle format or TXT | Cue timing; not styling, identifiers, or settings |
-| Archives | ZIP, TAR, TAR.GZ, TGZ, GZIP, RAR | ZIP, TAR, TAR.GZ | Regular file contents/names and directories. No links, special files, encryption, or archive metadata preservation. RAR repacking uses WebAssembly libarchive |
+| Archives | ZIP, TAR, TAR.GZ, TGZ, GZIP, RAR | ZIP, TAR, TAR.GZ; extract to a new folder | Tools wheel includes **Extract archive**. Extraction/repacking accepts regular file contents/names and directories. No links, special files, encryption, or archive metadata preservation. Expanded data is bounded to 200 MB / 10,000 entries; Windows reserved or invalid filenames are rejected. RAR uses WebAssembly libarchive |
 
 Same-format conversions are hidden. JPEG/TIFF aliases and TGZ map to their canonical extensions. Output saves beside the input or in the chosen session destination, with collision-safe numbered names. Sources are not overwritten. PDF/document/slide page-image archives use `.png.zip` or `.jpg.zip` filenames. See OFFICE_ENGINE.md for setup and exact engine availability.
 
@@ -31,11 +31,11 @@ CLI example: `npm run convert -- "C:\path\clip.mov" mp4`. Optional third argumen
 
 HEIC encoding, Pages import/export, RTFD/text clippings, scanned-document OCR, editable PDF table/slide reconstruction, full Office fidelity and much of the reference tool inventory. Text-to-PDF uses bundled Liberation Sans; scripts absent from that font are not faithfully rendered. Video defaults do not preserve HDR/transparency or additional streams. The complete remaining reference gap is 40 routes; see CONVERSION_TEST_RESULTS.md and RELEASE_READINESS.md.
 
-The background drag wheel is implemented with an initial Windows/X11 hook adapter. Actual file-manager drag behavior, macOS permissions/runtime, and Linux runtime need native verification; Wayland capture is unavailable. File-manager extensions, sharing/shelf actions, advanced editors, settings, custom output folder UI, and signed releases remain future work. The source is portable, but this session verified Windows only.
+The background drag wheel is implemented with an initial Windows/X11 hook adapter. Actual file-manager drag behavior, macOS permissions/runtime, and Linux runtime need native verification; Wayland capture is unavailable. File-manager extensions, sharing/shelf actions, most advanced editors, settings, custom output folder UI, and signed releases remain future work. Archive extraction is available in the Tools wheel. The source is portable, but this session verified Windows only.
 
 ### Editing-tool coverage
 
-Peeler currently exposes image resize/quality/background options and metadata removal, but does not implement Tangerine's video, audio, PDF, or archive tools. Tangerine's category showcase presents format conversions for Documents, Slides, Spreadsheets, EPUB, and Subtitles without a separate tools wheel for those categories. Peeler's conversion routes and tool/action gaps are mapped separately in the [category parity plan](TOOL_PARITY_PLAN.md).
+Peeler currently exposes image resize/quality/background options and metadata removal, video mute, and archive extraction. The other observed Tangerine video/audio/PDF/image tools are not yet implemented. Tangerine's category showcase presents format conversions for Documents, Slides, Spreadsheets, EPUB, and Subtitles without a separate tools wheel for those categories. Peeler's conversion routes and tool/action gaps are mapped separately in the [category parity plan](TOOL_PARITY_PLAN.md).
 
 ## Input bounds
 

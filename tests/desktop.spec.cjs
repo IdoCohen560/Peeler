@@ -56,6 +56,43 @@ test('image size and quality choices reach the conversion worker', async ({}, te
     expect((await require('sharp')(input).metadata()).width).toBe(100);
   } finally { await app.close(); }
 });
+test('archive Tools wheel extracts into a new folder without changing the source', async ({}, testInfo) => {
+  const directory = testInfo.outputPath('archive-tool'); await fs.mkdir(directory, { recursive: true });
+  const input = path.join(directory, 'bundle.zip'), source = await require('../src/core/archives.cjs').writeArchive([{ name: 'folder/hello.txt', data: Buffer.from('Wheel extraction') }], 'zip');
+  await fs.writeFile(input, source);
+  const env = { ...process.env, PEELER_SHOW_WINDOW: '1', PEELER_DISABLE_HOOK: '1' }; delete env.ELECTRON_RUN_AS_NODE;
+  const app = await launchApp(env, testInfo);
+  try {
+    const page = await app.firstWindow();
+    await app.evaluate(({ dialog }, file) => { dialog.showOpenDialog = async () => ({ canceled: false, filePaths: [file] }); }, input);
+    await page.getByRole('button', { name: 'Add files', exact: true }).click();
+    await page.getByRole('button', { name: 'Output format for bundle.zip' }).click();
+    await page.getByRole('button', { name: 'Extract archive', exact: true }).click();
+    await page.getByRole('button', { name: 'Convert files', exact: true }).click();
+    await expect(page.getByRole('button', { name: 'Show file' })).toHaveCount(1);
+    expect(await fs.readFile(path.join(directory, 'bundle - extracted', 'folder', 'hello.txt'), 'utf8')).toBe('Wheel extraction');
+    expect(await fs.readFile(input)).toEqual(source);
+  } finally { await app.close(); }
+});
+test('video Tools wheel creates a muted video copy', async ({}, testInfo) => {
+  const directory = testInfo.outputPath('video-tool'); await fs.mkdir(directory, { recursive: true });
+  const input = path.join(directory, 'clip.mp4');
+  await require('../src/core/media.cjs').runFFmpeg(['-f', 'lavfi', '-i', 'color=red:size=64x48:rate=6', '-f', 'lavfi', '-i', 'sine=frequency=440:sample_rate=44100', '-t', '0.5', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-f', 'mp4', input]);
+  const env = { ...process.env, PEELER_SHOW_WINDOW: '1', PEELER_DISABLE_HOOK: '1' }; delete env.ELECTRON_RUN_AS_NODE;
+  const app = await launchApp(env, testInfo);
+  try {
+    const page = await app.firstWindow();
+    await app.evaluate(({ dialog }, file) => { dialog.showOpenDialog = async () => ({ canceled: false, filePaths: [file] }); }, input);
+    await page.getByRole('button', { name: 'Add files', exact: true }).click();
+    await page.getByRole('button', { name: 'Output format for clip.mp4' }).click();
+    await page.getByRole('button', { name: 'Mute video', exact: true }).click();
+    await page.getByRole('button', { name: 'Convert files', exact: true }).click();
+    await expect(page.getByRole('button', { name: 'Show file' })).toHaveCount(1);
+    const output = path.join(directory, 'clip - muted.mp4');
+    await require('../src/core/media.cjs').runFFmpeg(['-i', output, '-map', '0:v:0', '-f', 'null', '-']);
+    await expect(require('../src/core/media.cjs').runFFmpeg(['-i', output, '-map', '0:a:0', '-f', 'null', '-'])).rejects.toThrow();
+  } finally { await app.close(); }
+});
 test('closing the optional window keeps the host alive and --quit stops it', async ({}, testInfo) => {
   const env = { ...process.env, PEELER_SHOW_WINDOW: '1', PEELER_DISABLE_HOOK: '1' }; delete env.ELECTRON_RUN_AS_NODE;
   const app = await launchApp(env, testInfo);
