@@ -52,7 +52,7 @@ Detailed editor requirements from the tools catalog: frame stepping and typed ti
 
 ## File actions
 
-Reference actions comprise system sharing, a floating shelf, clipboard file copy, move, path copy, and opening a containing directory in a terminal. Peeler needs adapters: AirDrop is macOS-specific; Windows/Linux alternatives depend on available sharing facilities. A floating shelf should support drag-out and optional edge pinning. Actions must support folders and heterogeneous selections independently of conversion capability. Starter only implements revealing completed results in the native file manager.
+Reference actions comprise system sharing (AirDrop on macOS), a floating shelf, clipboard file copy, move, path copy, and opening a containing directory in a terminal. None is implemented yet. Peeler can reveal completed outputs in the native file manager and supports a session output directory, but these do not implement the six actions. Peeler needs platform adapters: AirDrop is macOS-specific; Windows/Linux alternatives depend on available sharing facilities. A floating shelf should support drag-out and optional edge pinning. Actions must support folders and heterogeneous selections independently of conversion capability.
 
 ## Acceptance criteria
 

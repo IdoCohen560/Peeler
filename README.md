@@ -45,6 +45,129 @@ Peeler runs in the tray or menu bar. Results are saved beside the originals or i
 
 Formats and fidelity vary by conversion route. Some routes and advanced tools are unfinished, and certain exports have known layout or fidelity limits. Check the [current support table](docs/CURRENT_SUPPORT.md) and [conversion matrix](docs/CONVERSION_MATRIX.md) for exact input/output details. Peeler explains known limits before processing. Feature counts and tools advertised by Tangerine are not Peeler capabilities unless they appear in Peeler's support documentation.
 
+### Explore by file type
+
+Choose a category to see its current conversions and tools. **Available** means Peeler implements it today; **Planned** links to work not yet in the app.
+
+<details>
+<summary>Images</summary>
+
+**Convert:** JPG, PNG, WebP, TIFF, AVIF, BMP, SVG, and HEIC inputs to supported image formats or PDF. See the [full support notes](docs/CURRENT_SUPPORT.md#peeler-02-current-working-support).
+
+**Available tools:** Resize; set lossy quality; choose JPG/BMP background; remove metadata. Tools save a separate image copy.
+
+**Planned:** Crop, color/exposure edits, annotations, background composition, collage, compression targets, and permanent redaction. [Tool plan](docs/TOOL_PARITY_PLAN.md#inventory)
+
+</details>
+
+<details>
+<summary>Video</summary>
+
+**Convert:** MP4, MOV, MKV, WebM, AVI, WMV, and GIF. Video containers can also export MP3 when an audio track is available.
+
+**Available tools:** No dedicated video editing tools yet.
+
+**Planned:** Mute, trim, crop, speed changes, join, frame export, split, and permanent redaction. [Tool plan](docs/TOOL_PARITY_PLAN.md#inventory)
+
+</details>
+
+<details>
+<summary>Audio</summary>
+
+**Convert:** MP3, M4A, WAV, FLAC, OGG, Opus, AIFF, and WMA.
+
+**Available tools:** No dedicated audio editing tools yet.
+
+**Planned:** Loudness normalization, trim, channel conversion, waveform video, and bleep ranges. [Tool plan](docs/TOOL_PARITY_PLAN.md#inventory)
+
+</details>
+
+<details>
+<summary>PDF</summary>
+
+**Convert:** PDF to text, Markdown, DOCX, EPUB, page images, and image-based PPTX. Text extraction requires selectable text; OCR is not available.
+
+**Available tools:** No dedicated PDF page editing tools yet.
+
+**Planned:** Merge, split, reorder, rotate, duplicate, and delete pages; local OCR and table reconstruction are later research items. [Tool plan](docs/TOOL_PARITY_PLAN.md#inventory)
+
+</details>
+
+<details>
+<summary>Documents</summary>
+
+**Convert:** DOCX, RTF, Markdown, TXT, and HTML to supported text/document formats, PDF, and page images. Layout fidelity varies by route and local Office engine availability.
+
+**Available tools:** No dedicated document editing tools yet.
+
+**Planned:** Inspect, edit, or remove supported document metadata and compression. [Tool plan](docs/TOOL_PARITY_PLAN.md#inventory)
+
+</details>
+
+<details>
+<summary>Slides</summary>
+
+**Convert:** PPT/PPTX to PDF and page images when the local Office engine is available. PPTX text-only PDF fallback is available without it.
+
+**Available tools:** No dedicated slide editing tools yet.
+
+**Planned:** Inspect/edit/remove supported metadata and compression. [Tool plan](docs/TOOL_PARITY_PLAN.md#inventory)
+
+</details>
+
+<details>
+<summary>Spreadsheets</summary>
+
+**Convert:** XLSX, ODS, CSV, and TSV; XLS input and PDF rendering use the local Office engine where required. Workbook export fidelity is documented in the [support table](docs/CURRENT_SUPPORT.md#peeler-02-current-working-support).
+
+**Available tools:** No dedicated spreadsheet editing tools yet.
+
+**Planned:** Inspect/edit/remove supported metadata and compression. [Tool plan](docs/TOOL_PARITY_PLAN.md#inventory)
+
+</details>
+
+<details>
+<summary>EPUB</summary>
+
+**Convert:** EPUB reading-order text to TXT, Markdown, HTML, DOCX, and PDF. Images, original book layout, and DRM-protected books are not supported.
+
+**Available tools:** No dedicated EPUB editing tools yet.
+
+**Planned:** Inspect/edit/remove supported metadata and compression. [Tool plan](docs/TOOL_PARITY_PLAN.md#inventory)
+
+</details>
+
+<details>
+<summary>Subtitles</summary>
+
+**Convert:** SRT and VTT between each other or to plain text. Styling and some cue settings are not preserved.
+
+**Available tools:** No dedicated subtitle editing tools yet.
+
+**Planned:** Inspect/edit cue metadata and settings, with richer cue editing. [Tool plan](docs/TOOL_PARITY_PLAN.md#inventory)
+
+</details>
+
+Archives are also supported for conversion. See [current support](docs/CURRENT_SUPPORT.md#peeler-02-current-working-support) for ZIP, TAR, GZIP, and RAR input details. Peeler’s complete editing [tool parity plan](docs/TOOL_PARITY_PLAN.md) tracks the remaining work by category.
+
+<details>
+<summary>File actions — planned</summary>
+
+Peeler does **not** currently include the six reference file actions below. It can reveal a completed output in the file manager and choose a session output folder; those controls do not provide these actions.
+
+| Reference action | Peeler status |
+| --- | --- |
+| AirDrop / system sharing | Not implemented; AirDrop is macOS-specific, and Windows/Linux sharing needs separate integrations. |
+| Float / drag-out shelf | Not implemented. |
+| Copy files to clipboard | Not implemented. |
+| Move files | Not implemented. |
+| Copy paths | Not implemented. |
+| Open in Terminal | Not implemented. |
+
+These planned native integrations are tracked separately from file conversion and editing in [PRODUCT_SPEC.md](docs/PRODUCT_SPEC.md#file-actions), the [roadmap](docs/ROADMAP.md#next-file-actions), and [release readiness](docs/RELEASE_READINESS.md).
+
+</details>
+
 ## Get started
 
 ### Download the preview
@@ -88,6 +211,7 @@ Automated builds and packaged-app checks have passed on Windows, Linux X11, Inte
 ## Project docs
 
 - [Current support and known limits](docs/CURRENT_SUPPORT.md)
+- [Editing-tool parity plan](docs/TOOL_PARITY_PLAN.md)
 - [Conversion matrix](docs/CONVERSION_MATRIX.md)
 - [Conversion audit results](docs/CONVERSION_TEST_RESULTS.md)
 - [Architecture and platform constraints](docs/ARCHITECTURE.md)

@@ -23,6 +23,21 @@ Background tray host, lazy radial overlay, optional picker, local conversion ada
 10. Implement platform-specific global gestures and file actions, including a shelf. Keep Linux Wayland fallback explicit. Sharing adapters must disclose availability.
 11. Add advanced editors and permanent redaction only after preview, undo, export, and failure behavior are tested.
 
+The editing operations to implement by file category, current coverage, and acceptance gates are tracked in [TOOL_PARITY_PLAN.md](TOOL_PARITY_PLAN.md). Conversion routes and editing tools are separate parity measures.
+
+## Next: file actions
+
+Peeler currently has no counterparts for the reference's six file actions. After validating native drag behavior on each platform, add these as platform-aware actions for files, folders, and mixed selections:
+
+1. **Copy Path** — copy one or more full paths as text, one path per line.
+2. **Terminal** — open the containing directory (or selected folder) in the platform's configured terminal.
+3. **Copy** — place selected files on the native file clipboard for paste into the file manager.
+4. **Move** — choose a destination and move files without overwriting existing files.
+5. **Share / AirDrop** — use each platform's native sharing UI; AirDrop is macOS-only and Windows/Linux need their own adapters.
+6. **Float** — build a small drag-out shelf, then add optional edge pinning after basic transfer behavior is proven.
+
+Each action must be optional when unsupported on a platform, avoid shell-string execution, handle mixed selections and failure/cancel states, and be verified with native file managers. See [PRODUCT_SPEC.md](PRODUCT_SPEC.md#file-actions) and [RELEASE_READINESS.md](RELEASE_READINESS.md).
+
 ## Release gate
 
 Test on real Windows, macOS, and Linux machines; test high-DPI/multiple displays and restricted folders; audit codec/dependency licenses; verify accessibility and network inactivity; produce unsigned development builds first, then reproducible signed releases where possible. Public release is not part of the foundation milestone.

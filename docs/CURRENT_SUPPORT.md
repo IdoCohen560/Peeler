@@ -33,6 +33,10 @@ HEIC encoding, Pages import/export, RTFD/text clippings, scanned-document OCR, e
 
 The background drag wheel is implemented with an initial Windows/X11 hook adapter. Actual file-manager drag behavior, macOS permissions/runtime, and Linux runtime need native verification; Wayland capture is unavailable. File-manager extensions, sharing/shelf actions, advanced editors, settings, custom output folder UI, and signed releases remain future work. The source is portable, but this session verified Windows only.
 
+### Editing-tool coverage
+
+Peeler supports image resize/quality/background options and metadata removal today. The other conversion categories do not yet have the editing tools shown on Tangerine's site. See the [tool parity plan](TOOL_PARITY_PLAN.md) for a category-by-category inventory, delivery order, and acceptance checks. Format conversion support in a category does not imply that category's editing tools are implemented.
+
 ## Input bounds
 
 Media: 4 GB; other files: 100 MB; subtitles: 10 MB. Images: 80 million pixels. PDF: 200 pages and 40 million pixels per rendered page. Archive/package expansion: 200 MB and 10,000 entries. Workbook import: 100,000 rows and 1,000 columns; large or unusually repeated ODS files may be rejected. Each job has a five-minute deadline and a 768 MB V8 heap limit. Native allocations are not strictly bounded by the V8 limit.
