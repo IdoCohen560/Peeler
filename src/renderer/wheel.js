@@ -21,6 +21,7 @@ function render() {
   document.querySelector('#convert-mode').setAttribute('aria-pressed', String(menu.mode === 'convert'));
   document.querySelector('#tools-mode').setAttribute('aria-pressed', String(menu.mode === 'tools'));
   document.querySelector('#more').hidden = menu.choices.length <= 8;
+  document.querySelector('#more').textContent = menu.mode === 'tools' ? 'More tools' : 'More formats';
   document.querySelector('#hint').textContent = `${menu.pending ? 'Click a choice to apply. ' : ''}${menu.note || 'Drop files here, then choose. Escape cancels.'}`;
   if (!menu.choices.length) document.querySelector('#hint').textContent = menu.note || 'No shared conversions are available for these files.';
   if (selected) choose(selected);

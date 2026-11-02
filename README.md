@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/branding/peeler-512.png" width="104" alt="Peeler banana and peeler logo" />
+<img src="https://raw.githubusercontent.com/IdoCohen560/Peeler/main/assets/branding/peeler-512.png" width="104" alt="Peeler banana and peeler logo" />
 
 # Peeler
 
@@ -9,6 +9,10 @@
 Convert files from a quick keyboard-driven menu. Your files stay on your device, your originals stay untouched, and there is no account, upload, telemetry, or conversion allowance.
 
 [Get the Windows preview](https://github.com/IdoCohen560/Peeler/releases/tag/v0.2.0-dev.1) · [See what works](docs/CURRENT_SUPPORT.md) · [Read the roadmap](docs/ROADMAP.md) · [Report a bug](https://github.com/IdoCohen560/Peeler/issues/new?template=bug_report.yml)
+
+[Architecture](docs/ARCHITECTURE.md) · [Release history](https://github.com/IdoCohen560/Peeler/releases) · [Contributing](CONTRIBUTING.md)
+
+[![CI](https://github.com/IdoCohen560/Peeler/actions/workflows/check.yml/badge.svg?branch=main)](https://github.com/IdoCohen560/Peeler/actions/workflows/check.yml) [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Status: development preview](https://img.shields.io/badge/status-development%20preview-orange.svg)](docs/RELEASE_READINESS.md) [![Local processing](https://img.shields.io/badge/processing-local%20%26%20offline-blue.svg)](docs/CURRENT_SUPPORT.md) [![Windows preview](https://img.shields.io/badge/Windows-preview-orange.svg)](https://github.com/IdoCohen560/Peeler/releases/tag/v0.2.0-dev.1) [![Linux and macOS](https://img.shields.io/badge/Linux%20%2B%20macOS-in%20development-lightgrey.svg)](docs/VALIDATION.md)
 
 ![Peeler conversion wheel](docs/assets/conversion-wheel.png)
 
@@ -49,7 +53,7 @@ Formats and fidelity vary by conversion route. Some routes and advanced tools ar
 
 ### Explore the categories
 
-Choose a category to expand its visual wheel preview, actions, and Peeler status. Screenshots are from Tangerine’s Mac website and show its Shift/Command menus; they are inspiration references, not Peeler UI. Peeler’s own shortcuts vary by operating system:
+Choose a category to expand Peeler’s format and tools wheel previews, actions, and implementation status. The previews use Peeler’s own wheel component. Planned tool names are shown in the same wheel layout to make the future work concrete; those choices are not implemented yet. The lists distinguish current actions from planned ones. Peeler’s shortcuts vary by operating system:
 
 | Peeler platform | Drag + key | Opens | Availability |
 | --- | --- | --- | --- |
@@ -66,134 +70,154 @@ Start dragging a file, tap the listed key, and drop it onto the wheel to stage t
 <details>
 <summary>Images</summary>
 
-![Tangerine Images category preview showing Shift conversion and Command tools wheels](docs/assets/references/categories/images.png)
+![Peeler Images format wheel](docs/assets/peeler/categories/images-formats.png)
+
+![Peeler Images tools wheel: current and planned actions](docs/assets/peeler/categories/images-tools.png) ![Peeler Images tools wheel, more planned actions](docs/assets/peeler/categories/images-tools-2.png)
 
 **Tangerine actions:** Shift converts raster images to JPG, PNG, WebP, HEIC, TIFF, AVIF, BMP, or PDF (choices depend on the input). Command, for one image: Compress, Metadata, Edit Photo, Annotate, Add Background, Crop, Redact. For a selection: Compress, Metadata, Crop, Create PDF, Make a collage.
 
 **Peeler now:** Shift converts supported image inputs to available formats/PDF. Left Alt (Windows/Linux X11) or Command (macOS) opens image options or metadata removal. Resize, quality, and JPG/BMP background settings are available in conversion or a same-format edited copy; metadata removal re-encodes supported images.
 
-**Peeler planned:** Target-size/percentage compression, general metadata inspection/editing, photo adjustment, annotations, background composition, crop UI, redaction, multi-image PDF creation, and collage. [Details](docs/TOOL_PARITY_PLAN.md#images)
+**Peeler planned:** Compress, Edit Metadata, Photo Adjust, Annotate, Background, Crop, Redact, Create PDF, and Collage. [Details](docs/TOOL_PARITY_PLAN.md#images)
 
 </details>
 
 <details>
 <summary>Video</summary>
 
-![Tangerine Video category preview showing Shift conversion and Command tools wheels](docs/assets/references/categories/video.png)
+![Peeler Video format wheel](docs/assets/peeler/categories/video-formats.png)
+
+![Peeler Video tools wheel: planned actions](docs/assets/peeler/categories/video-tools.png) ![Peeler Video tools wheel, more planned actions](docs/assets/peeler/categories/video-tools-2.png)
 
 **Tangerine actions:** Shift converts video among supported containers, exports GIF, or extracts MP3. Command, for one video: Compress, Metadata, Mute, Trim, Crop, Change Speed, Save Frames, Split, Redact. For a selection: Compress, Metadata, Mute, Join.
 
 **Peeler now:** Shift converts MP4, MOV, MKV, WebM, AVI, WMV, GIF, and audio extraction to MP3 when available. No video editing tools are implemented.
 
-**Peeler planned:** Compression controls, metadata editing/removal, mute, trim, crop, speed, frame export, split, join, and permanent time-scoped redaction. [Details](docs/TOOL_PARITY_PLAN.md#video)
+**Peeler planned:** Compress, Metadata, Mute, Trim, Crop, Change Speed, Save Frames, Split, Join, and Redact. [Details](docs/TOOL_PARITY_PLAN.md#video)
 
 </details>
 
 <details>
 <summary>Audio</summary>
 
-![Tangerine Audio category preview showing Shift conversion and Command tools wheels](docs/assets/references/categories/audio.png)
+![Peeler Audio format wheel](docs/assets/peeler/categories/audio-formats.png)
+
+![Peeler Audio tools wheel: planned actions](docs/assets/peeler/categories/audio-tools.png)
 
 **Tangerine actions:** Shift converts among MP3, M4A, WAV, FLAC, OGG, Opus, AIFF, and WMA. Command, for one recording: Compress, Metadata, Normalize Volume, Visualize, Trim, Convert Channels, Bleep. For a selection: Compress, Metadata, Normalize Volume.
 
 **Peeler now:** Shift converts the supported audio formats. No audio editing tools are implemented.
 
-**Peeler planned:** Compression controls, metadata editing/removal, loudness normalization, waveform video, trim, channel conversion, and bleep ranges. [Details](docs/TOOL_PARITY_PLAN.md#audio)
+**Peeler planned:** Compress, Metadata, Normalize, Visualize, Trim, Channels, and Bleep. [Details](docs/TOOL_PARITY_PLAN.md#audio)
 
 </details>
 
 <details>
 <summary>PDF</summary>
 
-![Tangerine PDF category preview showing Shift conversion and Command tools wheels](docs/assets/references/categories/pdf.png)
+![Peeler PDF format wheel](docs/assets/peeler/categories/pdf-formats.png)
+
+![Peeler PDF tools wheel: planned actions](docs/assets/peeler/categories/pdf-tools.png)
 
 **Tangerine actions:** Shift exports DOCX, Pages, PPTX, XLSX, JPG/PNG pages, EPUB, TXT, or Markdown. Command, for one PDF: Compress, Metadata, Split, Organize Pages. For a selection: Compress, Metadata, Split, Merge. The showcase also includes page-image export, text/Markdown extraction, Word/Pages/slides/spreadsheet exports, and EPUB creation.
 
 **Peeler now:** Shift exports text/Markdown, DOCX, EPUB, page images, and image-based PPTX. Selectable text is required; OCR and PDF page editing are not implemented.
 
-**Peeler planned:** PDF compression, metadata editor, split, merge, page organization (reorder/rotate/duplicate/delete), OCR, and table reconstruction. [Details](docs/TOOL_PARITY_PLAN.md#pdf)
+**Peeler planned:** Compress, Metadata, Split, Organize Pages, Merge, OCR, Extract Tables, and Redact. [Details](docs/TOOL_PARITY_PLAN.md#pdf)
 
 </details>
 
 <details>
 <summary>Documents</summary>
 
-![Tangerine Documents category preview showing its format wheel](docs/assets/references/categories/documents.png)
+![Peeler Documents format wheel](docs/assets/peeler/categories/documents-formats.png)
+
+![Peeler Documents tools wheel: planned actions](docs/assets/peeler/categories/documents-tools.png)
 
 **Tangerine actions:** Shift converts DOCX/Pages and text-based formats; exports documents as PDF, HTML, EPUB, JPG, or PNG; imports RTF, RTFD, and Finder text clippings. The category showcase does not show a separate Command tools wheel for documents.
 
 **Peeler now:** Shift converts DOCX, RTF, Markdown, TXT, and HTML among implemented text/document formats, PDF, EPUB, and page-image output. Fidelity varies by route and local Office engine availability.
 
-**Peeler planned:** Remaining document conversion routes and measured layout fidelity. No category-specific document editor appears in Tangerine’s category showcase. [Conversion gaps](docs/CONVERSION_TEST_RESULTS.md)
+**Peeler planned:** Compress, Metadata, Page Range, Watermark, Redact, and Extract Images, alongside remaining conversion routes and measured layout fidelity. [Details](docs/TOOL_PARITY_PLAN.md#documents) · [Conversion gaps](docs/CONVERSION_TEST_RESULTS.md)
 
 </details>
 
 <details>
 <summary>Slides</summary>
 
-![Tangerine Slides category preview showing its format wheel](docs/assets/references/categories/slides.png)
+![Peeler Slides format wheel](docs/assets/peeler/categories/slides-formats.png)
+
+![Peeler Slides tools wheel: planned actions](docs/assets/peeler/categories/slides-tools.png)
 
 **Tangerine actions:** Shift exports PPT/PPTX to PDF or JPG/PNG slide images and converts PDF to PPTX. The category showcase does not show a separate Command tools wheel for slides.
 
 **Peeler now:** Shift converts PPT/PPTX to PDF; page images require the local Office engine. PDF-to-PPTX is image-based in Peeler.
 
-**Peeler planned:** Remaining slide conversion routes and editable PDF-to-PPTX reconstruction. No category-specific slide editor appears in Tangerine’s category showcase. [Conversion gaps](docs/CONVERSION_TEST_RESULTS.md)
+**Peeler planned:** Compress, Metadata, Reorder Slides, Extract Media, Watermark, and Speaker Notes, alongside editable PDF-to-PPTX reconstruction. [Details](docs/TOOL_PARITY_PLAN.md#slides) · [Conversion gaps](docs/CONVERSION_TEST_RESULTS.md)
 
 </details>
 
 <details>
 <summary>Spreadsheets</summary>
 
-![Tangerine Spreadsheets category preview showing its format wheel](docs/assets/references/categories/spreadsheets.png)
+![Peeler Spreadsheets format wheel](docs/assets/peeler/categories/spreadsheets-formats.png)
+
+![Peeler Spreadsheets tools wheel: planned actions](docs/assets/peeler/categories/spreadsheets-tools.png)
 
 **Tangerine actions:** Shift converts XLSX, ODS, CSV, and TSV; imports XLS; exports spreadsheets as PDF; and exports PDF to Excel. The category showcase does not show a separate Command tools wheel for spreadsheets.
 
 **Peeler now:** Shift converts XLSX, ODS, CSV, and TSV; XLS support and PDF rendering use the local Office engine where required. PDF-to-XLSX reconstruction is not implemented.
 
-**Peeler planned:** PDF table extraction to XLSX and improved formula/style fidelity. No category-specific spreadsheet editor appears in Tangerine’s category showcase. [Conversion gaps](docs/CONVERSION_TEST_RESULTS.md)
+**Peeler planned:** Metadata, Remove Hidden Data, Formula Values, Split Sheets, Merge Sheets, and CSV Options, alongside PDF table extraction and improved formula/style fidelity. [Details](docs/TOOL_PARITY_PLAN.md#spreadsheets) · [Conversion gaps](docs/CONVERSION_TEST_RESULTS.md)
 
 </details>
 
 <details>
 <summary>EPUB</summary>
 
-![Tangerine EPUB category preview showing its format wheel](docs/assets/references/categories/epub.png)
+![Peeler EPUB format wheel](docs/assets/peeler/categories/epub-formats.png)
+
+![Peeler EPUB tools wheel: planned actions](docs/assets/peeler/categories/epub-tools.png)
 
 **Tangerine actions:** Shift converts EPUB to PDF, DOCX, Pages, TXT, Markdown, or HTML, and PDF to EPUB. The category showcase does not show a separate Command tools wheel for EPUB.
 
 **Peeler now:** Shift exports EPUB reading-order text to TXT, Markdown, HTML, DOCX, or PDF. Book images/layout and DRM files are unsupported.
 
-**Peeler planned:** EPUB-to-Pages, PDF-to-EPUB, and layout/asset-preserving book conversion. No category-specific EPUB editor appears in Tangerine’s category showcase. [Conversion gaps](docs/CONVERSION_TEST_RESULTS.md)
+**Peeler planned:** Metadata, Edit Cover, Organize Chapters, Extract Images, and Accessibility Check, alongside EPUB-to-Pages, PDF-to-EPUB, and layout/asset-preserving conversion. [Details](docs/TOOL_PARITY_PLAN.md#epub) · [Conversion gaps](docs/CONVERSION_TEST_RESULTS.md)
 
 </details>
 
 <details>
 <summary>Subtitles</summary>
 
-![Tangerine Subtitles category preview showing its format wheel](docs/assets/references/categories/subtitles.png)
+![Peeler Subtitles format wheel](docs/assets/peeler/categories/subtitles-formats.png)
+
+![Peeler Subtitles tools wheel: planned actions](docs/assets/peeler/categories/subtitles-tools.png)
 
 **Tangerine actions:** Shift converts SRT and VTT or extracts TXT. The category showcase does not show a separate Command tools wheel for subtitles.
 
 **Peeler now:** Shift converts SRT/VTT and exports TXT; styling and some cue settings are not preserved.
 
-**Peeler planned:** Preserve/edit cue identifiers, styling, and settings. No category-specific subtitle editor appears in Tangerine’s category showcase. [Details](docs/TOOL_PARITY_PLAN.md#subtitles)
+**Peeler planned:** Shift Timing, Sync Cues, Edit Cues, Merge Files, Split File, and Format Settings. [Details](docs/TOOL_PARITY_PLAN.md#subtitles)
 
 </details>
 
 <details>
 <summary>Archives</summary>
 
-![Tangerine Archives category preview showing Shift conversion and Command extraction](docs/assets/references/categories/archives.png)
+![Peeler Archives format wheel](docs/assets/peeler/categories/archives-formats.png)
+
+![Peeler Archives tools wheel: planned actions](docs/assets/peeler/categories/archives-tools.png)
 
 **Tangerine actions:** Shift converts archives to ZIP, TAR, or GZIP and imports RAR. Command extracts ZIP, TAR, GZIP, and RAR files beside the original.
 
 **Peeler now:** Shift converts ZIP, TAR, GZIP, and RAR input to supported archive outputs. Peeler does not yet extract an archive to a folder.
 
-**Peeler planned:** Safe extraction UI with destination choice, collision handling, cancellation, and archive safety checks. [Details](docs/TOOL_PARITY_PLAN.md#archives)
+**Peeler planned:** Extract Files, Inspect Contents, Test Archive, Create Archive, and Encrypt Archive, with destination choice, collision handling, cancellation, and archive safety checks. [Details](docs/TOOL_PARITY_PLAN.md#archives)
 
 </details>
 
-The live Tangerine screenshots are credited references. Peeler’s current support and planned parity are tracked separately in the [tool parity plan](docs/TOOL_PARITY_PLAN.md).
+The expandable category panels are interactive on GitHub and include Peeler visuals, current shortcuts, implemented actions, and planned actions. Peeler’s current support and planned work are tracked in the [tool parity plan](docs/TOOL_PARITY_PLAN.md).
 
 <details>
 <summary>File actions — planned</summary>

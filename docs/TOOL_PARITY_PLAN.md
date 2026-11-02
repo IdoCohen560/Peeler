@@ -1,6 +1,6 @@
 # Category actions and parity plan
 
-This inventory separates **format conversions** from **file tools**. Tangerine is the product reference; its website demonstrates a macOS app. Peeler is a separate project with its own controls and incomplete cross-platform native validation. The reference screenshots in `docs/assets/references/categories/` are credited visual references, not Peeler screenshots.
+This inventory separates **format conversions** from **file tools**. Tangerine is the product reference; its website demonstrates a macOS app. Peeler is a separate project with its own controls and incomplete cross-platform native validation. README category panels show Peeler's wheel component; actions prefixed as planned are mock previews and are not implemented. The separately credited Tangerine product image/video remain inspiration references only.
 
 ## Peeler keys by operating system
 
@@ -27,7 +27,7 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Peeler now:** The Formats wheel converts supported image inputs. The Tools wheel exposes metadata removal and image options. Proportional resize, lossy quality, and JPG/BMP background settings are available during conversion or for a same-format edited copy. Metadata removal re-encodes supported images.
 
-**Peeler planned:** Target-size/percentage compression; general metadata inspection/editing; photo/color/exposure editing; annotations; background composition; crop UI; permanent redaction; multi-image PDF creation; collage. Existing resize/quality controls do not provide exact-size compression.
+**Peeler planned:** Target-size/percentage compression; general metadata inspection/editing; photo/color/exposure editing; annotations; background composition; crop UI; permanent redaction; multi-image PDF creation; collage. Existing resize/quality controls do not provide exact-size compression. Add these as distinct Tools wheel actions: **Compress**, **Edit Metadata**, **Photo Adjust**, **Annotate**, **Background**, **Crop**, **Redact**, **Create PDF**, and **Collage**. Retain the existing **Remove Metadata** and **Resize / Quality** actions.
 
 ### Video
 
@@ -39,7 +39,7 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Peeler now:** Format conversion and MP3 audio extraction through the local FFmpeg worker. No video editing tools are implemented.
 
-**Peeler planned:** Compression controls; metadata inspection/editing/removal; mute; trim; crop; speed changes; frame export; split; join; permanent time-scoped redaction.
+**Peeler planned:** Compression controls; metadata inspection/editing/removal; mute; trim; crop; speed changes; frame export; split; join; permanent time-scoped redaction. Add Tools wheel actions: **Compress**, **Metadata**, **Mute**, **Trim**, **Crop**, **Change Speed**, **Save Frames**, **Split**, **Join**, and **Redact**.
 
 ### Audio
 
@@ -51,7 +51,7 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Peeler now:** Audio format conversion through the local FFmpeg worker. No audio editing tools are implemented.
 
-**Peeler planned:** Compression controls; metadata inspection/editing/removal; loudness normalization; waveform video; trim; channel conversion; bleep ranges.
+**Peeler planned:** Compression controls; metadata inspection/editing/removal; loudness normalization; waveform video; trim; channel conversion; bleep ranges. Add Tools wheel actions: **Compress**, **Metadata**, **Normalize**, **Visualize**, **Trim**, **Channels**, and **Bleep**.
 
 ### PDF
 
@@ -63,7 +63,7 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Peeler now:** Export selectable text/Markdown, DOCX, EPUB, page images, and image-based PPTX. No OCR, PDF page editor, metadata editor, or compression tool is implemented.
 
-**Peeler planned:** Compression; metadata inspection/editing/removal; split; merge; reorder/rotate/duplicate/delete pages; local OCR; table reconstruction; PDF-to-Pages and PDF-to-XLSX routes.
+**Peeler planned:** Compression; metadata inspection/editing/removal; split; merge; reorder/rotate/duplicate/delete pages; local OCR; table reconstruction; PDF-to-Pages and PDF-to-XLSX routes; permanent redaction. Add Tools wheel actions: **Compress**, **Metadata**, **Split**, **Organize Pages**, **Merge**, **OCR**, **Extract Tables**, and **Redact**.
 
 ### Documents
 
@@ -73,7 +73,7 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Peeler now:** Convert DOCX, RTF, Markdown, TXT, and HTML among supported text/document formats, PDF, EPUB, and page images. Layout fidelity varies by route and Office engine availability.
 
-**Peeler planned:** Pages input/output, RTFD and text-clipping import, remaining documented conversion routes, and measured layout fidelity. The missing routes are listed in [conversion audit results](CONVERSION_TEST_RESULTS.md).
+**Peeler planned:** Pages input/output, RTFD and text-clipping import, remaining documented conversion routes, and measured layout fidelity. Add document Tools wheel actions for **Compress**, **Metadata**, **Page Range**, **Watermark**, **Redact**, and **Extract Images**. The missing routes are listed in [conversion audit results](CONVERSION_TEST_RESULTS.md).
 
 ### Slides
 
@@ -83,7 +83,7 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Peeler now:** PPT/PPTX to PDF and page images when the local Office engine is available; PPTX has a text-only PDF fallback. PDF-to-PPTX embeds page images.
 
-**Peeler planned:** Improve rendering fidelity and evaluate editable PDF-to-PPTX reconstruction. No slide-specific editor appears in the reference category showcase.
+**Peeler planned:** Improve rendering fidelity and evaluate editable PDF-to-PPTX reconstruction. Add slide Tools wheel actions for **Compress**, **Metadata**, **Reorder Slides**, **Extract Media**, **Watermark**, and **Speaker Notes**. These are Peeler roadmap ideas; the reference category showcase does not demonstrate slide-specific tools.
 
 ### Spreadsheets
 
@@ -93,7 +93,7 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Peeler now:** XLSX, ODS, CSV, TSV, and PDF conversion; XLS support and Office PDF rendering depend on the local Office engine. Workbook/text exports preserve values and cached formula results, not formulas/styles.
 
-**Peeler planned:** PDF table extraction to XLSX and stronger formula/style fidelity. No spreadsheet-specific editor appears in the reference category showcase.
+**Peeler planned:** PDF table extraction to XLSX and stronger formula/style fidelity. Add spreadsheet Tools wheel actions for **Metadata**, **Remove Hidden Data**, **Formula Values**, **Split Sheets**, **Merge Sheets**, and **CSV Options**. These are Peeler roadmap ideas; the reference category showcase does not demonstrate spreadsheet-specific tools.
 
 ### EPUB
 
@@ -103,7 +103,7 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Peeler now:** Export EPUB reading-order text to TXT, Markdown, HTML, DOCX, or PDF. Book images/layout and DRM-protected files are unsupported.
 
-**Peeler planned:** EPUB-to-Pages, PDF-to-EPUB, and asset/layout-preserving conversion. No EPUB-specific editor appears in the reference category showcase.
+**Peeler planned:** EPUB-to-Pages, PDF-to-EPUB, and asset/layout-preserving conversion. Add EPUB Tools wheel actions for **Metadata**, **Edit Cover**, **Organize Chapters**, **Extract Images**, and **Accessibility Check**. These are Peeler roadmap ideas; the reference category showcase does not demonstrate EPUB-specific tools.
 
 ### Subtitles
 
@@ -113,7 +113,7 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Peeler now:** Convert SRT/VTT and export TXT. Cue styling and some settings are not preserved.
 
-**Peeler planned:** Preserve/edit cue identifiers, styling, and settings. No subtitle-specific editor appears in the reference category showcase.
+**Peeler planned:** Preserve/edit cue identifiers, styling, and settings. Add subtitle Tools wheel actions for **Shift Timing**, **Sync Cues**, **Edit Cues**, **Merge Files**, **Split File**, and **Format Settings**. These are Peeler roadmap ideas; the reference category showcase does not demonstrate subtitle-specific tools.
 
 ### Archives
 
@@ -123,7 +123,7 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Peeler now:** Convert ZIP, TAR, GZIP, and RAR input to supported archive outputs; reject unsafe paths, links, encryption, or expansion beyond configured bounds. No extraction-to-folder UI is implemented.
 
-**Peeler planned:** Safe extraction with destination choice, collision handling, cancellation, and archive safety checks.
+**Peeler planned:** Safe extraction with destination choice, collision handling, cancellation, and archive safety checks. Add archive Tools wheel actions for **Extract Files**, **Inspect Contents**, **Test Archive**, **Create Archive**, and **Encrypt Archive**.
 
 ## File actions
 
@@ -131,17 +131,20 @@ Tangerine also has a separate Control-key wheel for AirDrop, Float, Copy, Move, 
 
 ## Delivery order
 
-1. Image tools: target-size compression, crop, editing, background composition, annotation, redaction, PDF creation, and collage.
-2. PDF tools: compression, metadata, split/merge, and page organization; then local OCR and table reconstruction.
-3. Audio tools: normalization, trim, channels, waveform visualization, and bleep ranges.
-4. Video tools: compression, metadata, mute, trim, crop, speed, frames, split/join, and permanent redaction.
-5. Archive extraction with a safe destination workflow.
-6. Remaining format coverage and fidelity for documents, slides, spreadsheets, EPUB, and subtitles.
-7. Implement the separate file-actions wheel after native drag validation on each OS.
+1. Image tools: target-size compression, metadata editing, photo adjustment, crop, background composition, annotation, redaction, PDF creation, and collage.
+2. PDF tools: compression, metadata, split/merge, page organization, redaction, OCR, and table extraction.
+3. Audio tools: compression, metadata, normalization, trim, channel conversion, waveform visualization, and bleep ranges.
+4. Video tools: compression, metadata, mute, trim, crop, speed, frame export, split/join, and permanent redaction.
+5. Archive tools: safe extraction, content inspection, archive validation, creation, and encryption.
+6. Add file-specific tools for documents (page ranges, watermarks, redaction, image extraction), slides (reordering, media extraction, watermarks, notes), spreadsheets (hidden-data removal, formula values, sheet split/merge, CSV options), EPUB (cover, chapters, images, accessibility), and subtitles (timing, cue editing, merge/split, format settings).
+7. Complete remaining format coverage and fidelity for documents, slides, spreadsheets, EPUB, and subtitles.
+8. Implement the separate file-actions wheel after native drag validation on each OS.
 
 ## Acceptance checks
 
 - Show only operations applicable to the file type, selection size, and platform.
+- Keep planned tool concepts labeled as unavailable until they are implemented; the wheel must not present roadmap previews as working actions.
+- Use mode-appropriate pagination labels (for example, “More tools” in the Tools wheel).
 - Preview destructive edits and require explicit confirmation to export.
 - Save a separate result; never overwrite the source. Resolve collisions safely.
 - Preserve the source on success, failure, and cancellation.
