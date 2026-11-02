@@ -16,13 +16,13 @@ Background tray host, lazy radial overlay, optional picker, local conversion ada
 6. Upgrade document/slides/sheets adapters from text/value conversion to measured layout fidelity; add missing office formats and assess Pages import/export separately. See the office-engine proof in PARITY_PLAN.md.
 7. Extend bounded archive repacking with RAR input. Traversal/link rejection and expanded-size/entry-count bounds already exist; extend adversarial fixtures and engine-specific limits.
 
-Track editing actions independently from format conversion. The per-category comparison with Tangerine's published tools catalog, plus Peeler's current gaps, is in [TOOL_PARITY_PLAN.md](TOOL_PARITY_PLAN.md#tangerine-tool-catalog-comparison). Start with a verified image crop/composition slice, then PDF page operations and media controls; add general metadata editing and target-size compression across supported formats where the format allows it.
+Track editing actions independently from format conversion. The per-category comparison with Tangerine's public, simulated wheel demo, Peeler's current gaps, and evidence limits is in [TOOL_PARITY_PLAN.md](TOOL_PARITY_PLAN.md#evidence-and-limits). The Windows/Linux sequence starts with real Explorer and X11 file-manager validation, then a complete image slice, PDF operations, audio/video controls, and archive extraction. Tangerine's Control key is not adopted as Peeler's third-mode default until Windows/Linux native drag-copy conflicts are tested.
 
 ## Native workflow
 
-8. Manually validate the initial radial menu and native drag state machine in Explorer and on native macOS/X11. Improve source identification and drag fallback before claiming parity.
+8. Manually validate the initial radial menu and native drag state machine in Windows Explorer, GNOME Files, and Dolphin on X11. Improve source identification and drag fallback before claiming parity.
 9. Add opt-in file-manager actions and tray/menu-bar access on each OS. Prove native drag payload access in a minimal Windows experiment before designing a full global overlay around it.
-10. Implement platform-specific global gestures and file actions, including a shelf. Keep Linux Wayland fallback explicit. Sharing adapters must disclose availability.
+10. Implement platform-specific global gestures and file actions, including a shelf. Keep Linux Wayland fallback explicit. Sharing adapters must disclose availability. Defer macOS runtime/permission validation until Windows/Linux gates pass.
 11. Add advanced editors and permanent redaction only after preview, undo, export, and failure behavior are tested.
 
 The complete category-by-category reference actions, Peeler status, shortcuts, and acceptance gates are tracked in [TOOL_PARITY_PLAN.md](TOOL_PARITY_PLAN.md). Conversion routes and editing tools are separate parity measures.
