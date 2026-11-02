@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Check current format support
+    url: https://github.com/IdoCohen560/Peeler/blob/main/docs/CURRENT_SUPPORT.md
+    about: Review implemented conversions and known limitations.
+  - name: Read the platform validation notes
+    url: https://github.com/IdoCohen560/Peeler/blob/main/docs/VALIDATION.md
+    about: See which operating systems and behaviors have been checked.
