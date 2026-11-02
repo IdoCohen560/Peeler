@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/IdoCohen560/Peeler/main/assets/branding/peeler-512.png" width="104" alt="Peeler banana and peeler logo" />
-
 # Peeler
 
 ### A free, offline file converter for Windows, Linux, and macOS.
@@ -14,7 +12,9 @@ Convert files from a quick keyboard-driven menu. Your files stay on your device,
 
 [![CI](https://github.com/IdoCohen560/Peeler/actions/workflows/check.yml/badge.svg?branch=main)](https://github.com/IdoCohen560/Peeler/actions/workflows/check.yml) [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Status: development preview](https://img.shields.io/badge/status-development%20preview-orange.svg)](docs/RELEASE_READINESS.md) [![Local processing](https://img.shields.io/badge/processing-local%20%26%20offline-blue.svg)](docs/CURRENT_SUPPORT.md) [![Windows preview](https://img.shields.io/badge/Windows-preview-orange.svg)](https://github.com/IdoCohen560/Peeler/releases/tag/v0.2.0-dev.1) [![Linux and macOS](https://img.shields.io/badge/Linux%20%2B%20macOS-in%20development-lightgrey.svg)](docs/VALIDATION.md)
 
-![Peeler conversion wheel](docs/assets/conversion-wheel.png)
+<table align="center"><tr><td align="center" bgcolor="#ffffff"><img src="https://raw.githubusercontent.com/IdoCohen560/Peeler/main/assets/branding/peeler-512.png" width="112" alt="Peeler banana and peeler logo" /></td></tr></table>
+
+<table align="center"><tr><th>Image formats</th><th>Video formats</th></tr><tr><td><img src="docs/assets/peeler/categories/images-formats.png" width="300" alt="Peeler image format wheel" /></td><td><img src="docs/assets/peeler/categories/video-formats.png" width="300" alt="Peeler video format wheel" /></td></tr></table>
 
 </div>
 
@@ -45,7 +45,7 @@ Peeler runs in the tray or menu bar. Results are saved beside the originals or i
 | --- | --- |
 | File types | Images, video, audio, PDF, documents, slides, spreadsheets, EPUB, subtitles, and archives |
 | Conversions | 258 checks pass in the current Windows audit; 235 of 275 planned routes are verified |
-| File tools | Image resize and quality controls, metadata removal, and additional tools in progress |
+| File tools | Implemented tools are currently image-only: remove metadata and configure resize, quality, and background options. The other nine categories have conversion choices but no dedicated file tools yet. |
 | Workflow | Background tray host, radial conversion menu, batch jobs, cancellation, progress where available, and per-file errors |
 | Privacy | Local processing; no uploads, accounts, telemetry, or conversion allowance |
 
@@ -53,7 +53,7 @@ Formats and fidelity vary by conversion route. Some routes and advanced tools ar
 
 ### Explore the categories
 
-Choose a category to expand Peeler’s format and tools wheel previews, actions, and implementation status. The previews use Peeler’s own wheel component. Planned tool names are shown in the same wheel layout to make the future work concrete; those choices are not implemented yet. The lists distinguish current actions from planned ones. Peeler’s shortcuts vary by operating system:
+Choose a category to expand Peeler’s format and tools wheel previews, actions, and implementation status. The previews use Peeler’s own wheel component. In Tools previews, an asterisk marks a planned action that is not implemented. Only Images currently has dedicated file tools; all ten categories have format conversions. Peeler’s shortcuts vary by operating system:
 
 | Peeler platform | Drag + key | Opens | Availability |
 | --- | --- | --- | --- |
