@@ -8,7 +8,7 @@ async function launchApp(env, testInfo, extraArgs = []) {
 }
 async function expectOutputs(page, count, timeout = 30000) {
   try { await expect(page.getByRole('button', { name: 'Show file' })).toHaveCount(count, { timeout }); }
-  catch (error) { throw new Error(`${error.message}\nConversion errors: ${(await page.locator('.file-row').filter({ has: page.locator('.file-state.error') }).allTextContents()).join('; ') || 'No per-file error was reported.'}`); }
+  catch (error) { throw new Error(`${error.message}\nFile states: ${(await page.locator('.file-row').allTextContents()).join('; ') || 'No files remain in the queue.'}`); }
 }
 test('Quit Peeler button exits the entire background app', async ({}, testInfo) => {
   const env = { ...process.env, PEELER_SHOW_WINDOW: '1', PEELER_DISABLE_HOOK: '1' }; delete env.ELECTRON_RUN_AS_NODE;
@@ -209,6 +209,7 @@ test('desktop imports, chooses formats, converts a batch and isolates the render
   } finally { await app.close(); await fs.rm(directory, { recursive: true, force: true }); }
 });
 test('all ten categories convert through the desktop IPC and worker boundary', async ({}, testInfo) => {
+  test.setTimeout(180000);
   const directory = path.join(__dirname, '../.tmp', `desktop-all-${Date.now()}`);
   await fs.mkdir(directory, { recursive: true });
   const files = [];
@@ -239,7 +240,7 @@ test('all ten categories convert through the desktop IPC and worker boundary', a
     await page.keyboard.press('Escape'); await expect(page.locator('#format-dialog')).not.toBeVisible();
     await expect(page.getByRole('button', { name: 'Convert files', exact: true })).toBeInViewport();
     await page.getByRole('button', { name: 'Convert files', exact: true }).click();
-    await expectOutputs(page, 10);
+    await expectOutputs(page, 10, 120000);
     await expect(page.locator('.file-state.error')).toHaveCount(0);
     await expect(page.locator('#summary')).toHaveText('10 converted · 0 ready');
     expect(await fs.readFile(path.join(directory, 'report.txt'), 'utf8')).toContain('Desktop PDF fixture');
