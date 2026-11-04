@@ -11,7 +11,7 @@ function menuFor(paths, mode) {
   const infos = paths.map(capabilities);
   const values = infos.length ? (mode === 'tools' ? infos[0].tools : infos[0].targets).filter(value => infos.every(info => (mode === 'tools' ? info.tools : info.targets).includes(value))) : mode === 'tools' ? ['strip-metadata'] : COMMON;
   const note = mode === 'tools' && infos.length && !values.length ? 'No tools are available for these files yet. Choose Formats or cancel.' : infos.length ? [...new Set(infos.map(info => info.note))].join(' ') : 'Drop files onto the wheel, then release the mouse to choose.';
-  return { mode, choices: values.map(value => ({ value, label: ({ 'strip-metadata': 'Strip metadata', 'optimize-image': 'Resize / quality', 'crop-image': 'Crop image', 'extract-archive': 'Extract archive', 'mute-video': 'Mute video', 'normalize-audio': 'Normalize volume', gz: 'TAR.GZ' })[value] || value.toUpperCase() })), note };
+  return { mode, choices: values.map(value => ({ value, label: ({ 'strip-metadata': 'Strip metadata', 'optimize-image': 'Resize / quality', 'crop-image': 'Crop image', 'extract-archive': 'Extract archive', 'split-pdf': 'Split PDF', 'mute-video': 'Mute video', 'normalize-audio': 'Normalize volume', gz: 'TAR.GZ' })[value] || value.toUpperCase() })), note };
 }
 async function createBackground({ showConverter, configure, submit, cancel, quit }) {
   let tray, overlay, ready = false, requested = false, menu, pending = [], timer, expiry, hook, paused = false, generation = 0;

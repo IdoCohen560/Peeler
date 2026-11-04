@@ -76,9 +76,9 @@ Peeler has no file-actions wheel or assigned key for one. Tangerine's Mac demo u
 
 **Tangerine tools for a selection:** Compress; Edit Metadata; Split; Merge. Merge supports reordering the selected PDFs; split exports each page to its own PDF in a new folder. The showcase also describes OCR-backed text extraction for scanned pages.
 
-**Peeler now:** Export selectable text/Markdown, DOCX, EPUB, page images, and image-based PPTX. No OCR, PDF page editor, metadata editor, or compression tool is implemented.
+**Peeler now:** Export selectable text/Markdown, DOCX, EPUB, page images, and image-based PPTX. **Split PDF** writes each page to an individual PDF in a new folder and preserves page content; document-level metadata, outlines, and attachments are not retained. No OCR, page organizer, merge, metadata editor, or compression tool is implemented.
 
-**Peeler planned:** Compression; metadata inspection/editing/removal; split; merge; reorder/rotate/duplicate/delete pages; local OCR; table reconstruction; PDF-to-Pages and PDF-to-XLSX routes; permanent redaction. Add Tools wheel actions: **Compress**, **Metadata**, **Split**, **Organize Pages**, **Merge**, **OCR**, **Extract Tables**, and **Redact**.
+**Peeler planned:** Compression; metadata inspection/editing/removal; merge; reorder/rotate/duplicate/delete pages; local OCR; table reconstruction; PDF-to-Pages and PDF-to-XLSX routes; permanent redaction. Add remaining Tools wheel actions: **Compress**, **Metadata**, **Organize Pages**, **Merge**, **OCR**, **Extract Tables**, and **Redact**.
 
 ### Documents
 
@@ -153,7 +153,7 @@ Windows/Linux parity requires platform equivalents rather than macOS service nam
 1. **Windows interaction proof:** run Explorer file and folder drags through modifier-down, wheel-open, modifier-up, staged drop, selection, cancellation, multi-select, high DPI, multi-monitor, and ordinary Ctrl-drag copy/move. Fix the OS-level workflow before broad feature work.
 2. **Linux X11 interaction proof:** validate the same flows in GNOME Files and Dolphin, and ensure startup/status/fallback behavior. Keep Wayland explicitly picker-based until a supported native mechanism is implemented.
 3. **Image vertical slice:** metadata display/removal and a visual crop UI with preview, presets, and safe export; then add target-size compression, adjustments, annotations, backgrounds, redaction, PDF creation, and collage. Coordinate-based cropping is implemented.
-4. **PDF slice:** metadata, compression, split/merge, page organization, then OCR, redaction, and table extraction with independently checked results.
+4. **PDF slice:** metadata, compression, merge, page organization, then OCR, redaction, and table extraction with independently checked results. Split PDF is implemented and writes single-page PDFs to a separate folder.
 5. **Audio then video slices:** implement actions from the observed lists in small complete groups, sharing tested FFmpeg transforms where sensible; add preview, cancellation, audio/video sync and preservation checks before redaction.
 6. **Archive tools:** add a destination picker and deeper cancellation coverage for the implemented extraction action. Keep additional archive utilities as separate Peeler roadmap items.
 7. **Complete remaining conversion coverage and fidelity** for documents, slides, spreadsheets, EPUB, and subtitles. Keep new editor ideas in a separately labeled Peeler roadmap; do not imply they are reference parity requirements.

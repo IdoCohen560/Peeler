@@ -12,11 +12,11 @@ Background tray host, lazy radial overlay, optional picker, local conversion ada
 2. Add exact-size compression, metadata retention policy and animated/multipage handling. Resize, lossy quality and JPG/BMP background choices already exist.
 3. Add persisted preferences (opt-in history; filenames are sensitive). A session output folder picker and staged-wheel options handoff already exist.
 4. Maintain/update the bundled FFmpeg source and binary supply chain; extend tested conversions with trim, mute, normalize, and channel transforms before timelines and redaction.
-5. Add PDF merge/split/organize and optional local OCR/table reconstruction. Page rasterization and text extraction already have passing fixtures.
+5. Add PDF merge/organize and optional local OCR/table reconstruction. Split-to-folder is implemented; page copying preserves the PDF content but not document-level metadata, outlines, or attachments. Page rasterization and text extraction already have passing fixtures.
 6. Upgrade document/slides/sheets adapters from text/value conversion to measured layout fidelity; add missing office formats and assess Pages import/export separately. See the office-engine proof in PARITY_PLAN.md.
 7. Extend bounded archive repacking with RAR input. Traversal/link rejection and expanded-size/entry-count bounds already exist; archive extraction is now available from the Tools wheel. Extend adversarial fixtures and engine-specific limits.
 
-Track editing actions independently from format conversion. The per-category comparison with Tangerine's public, simulated wheel demo, Peeler's current gaps, and evidence limits is in [TOOL_PARITY_PLAN.md](TOOL_PARITY_PLAN.md#evidence-and-limits). The Windows/Linux sequence starts with real Explorer and X11 file-manager validation, then a complete image slice, PDF operations, audio/video controls, and archive extraction. Tangerine's Control key is not adopted as Peeler's third-mode default until Windows/Linux native drag-copy conflicts are tested.
+Track editing actions independently from format conversion. The per-category comparison with Tangerine's public, simulated wheel demo, Peeler's current gaps, and evidence limits is in [TOOL_PARITY_PLAN.md](TOOL_PARITY_PLAN.md#evidence-and-limits). The Windows/Linux sequence starts with real Explorer and X11 file-manager validation, then a complete image slice, PDF merge/organization and remaining actions, audio/video controls, and archive extraction. Tangerine's Control key is not adopted as Peeler's third-mode default until Windows/Linux native drag-copy conflicts are tested.
 
 ## Native workflow
 

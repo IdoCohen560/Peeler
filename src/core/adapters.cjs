@@ -47,7 +47,7 @@ async function runAdapter(job, options = {}) {
     } else await image.toFormat(format, { quality: settings.quality || 85 }).toFile(temporary);
     return;
   }
-  if (category === 'PDF') return require('./pdf.cjs').convertPDF(job, options);
+  if (category === 'PDF') return operation === 'split-pdf' ? require('./pdf.cjs').splitPDF(job, options) : require('./pdf.cjs').convertPDF(job, options);
   if (['Documents', 'EPUB'].includes(category)) {
     if (['docx', 'rtf'].includes(extension) && ['pdf', 'png', 'jpg'].includes(format) && require('./office.cjs').available()) return require('./office.cjs').renderOffice(job, options);
     const { readDocument, writeText } = require('./text-formats.cjs');

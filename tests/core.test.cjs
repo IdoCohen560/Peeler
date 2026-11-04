@@ -83,3 +83,18 @@ test('image Tools wheel crops requested pixel bounds to a separate copy', async 
   await assert.rejects(convert({ input, target: 'png', operation: 'crop-image', imageOptions: { crop: { left: 45, top: 30, width: 10, height: 10 } } }));
   assert.deepEqual(await fs.readFile(input), source);
 });
+test('PDF Tools wheel splits pages into separate selectable-text PDFs', async t => {
+  const directory = await fixture(t), input = path.join(directory, 'pages.pdf');
+  const source = await require('../src/core/pdf.cjs').textPDF('', { pages: ['First split page', 'Second split page'] }); await fs.writeFile(input, source);
+  assert(capabilities(input).tools.includes('split-pdf'));
+  const result = await convert({ input, target: 'pdf', operation: 'split-pdf' });
+  const files = (await fs.readdir(result.output)).sort();
+  assert.deepEqual(files, ['page-001.pdf', 'page-002.pdf']);
+  for (const [index, file] of files.entries()) {
+    const doc = await require('../src/core/pdf.cjs').openPDF(path.join(result.output, file));
+    try { assert.equal(doc.numPages, 1); assert.match(await require('../src/core/pdf.cjs').pdfText(doc), index ? /Second split page/ : /First split page/); }
+    finally { await doc.loadingTask.destroy(); }
+  }
+  assert.match(result.output, /pages - split$/);
+  assert.deepEqual(await fs.readFile(input), source);
+});

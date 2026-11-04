@@ -18,7 +18,7 @@ function capabilities(file) {
     if (category === 'Video' && ext !== 'gif' && require('./media.cjs').available()) tools = ['mute-video'];
     note = targets.length ? 'Re-encoded locally. Audio extraction requires an audio track; only the first video/audio stream is retained.' : 'FFmpeg is missing; reinstall app dependencies.';
   }
-  else if (ext === 'pdf') { category = 'PDF'; targets = ['txt', 'md', 'docx', 'epub', 'png', 'jpg', 'pptx']; note = 'Text exports require selectable text and do not preserve layout. PNG/JPG: all pages at 300 DPI in a ZIP. PPTX: page images, not editable slide objects. OCR is not included.'; }
+  else if (ext === 'pdf') { category = 'PDF'; targets = ['txt', 'md', 'docx', 'epub', 'png', 'jpg', 'pptx']; tools = ['split-pdf']; note = 'Text exports require selectable text and do not preserve layout. PNG/JPG: all pages at 300 DPI in a ZIP. PPTX: page images, not editable slide objects. OCR is not included.'; }
   else if (['docx', 'md', 'txt', 'html', 'rtf'].includes(ext)) { category = 'Documents'; targets = ['txt', 'md', 'html', 'docx', 'pdf', 'epub', 'png', 'jpg']; note = ['docx', 'rtf'].includes(ext) && require('./office.cjs').available() ? 'PDF and page images use local Office rendering; fonts may be substituted. Other exports preserve text only. PNG/JPG: all pages in a ZIP.' : 'Text-content conversion; original formatting, images, and layout are not preserved. PNG/JPG: rendered text pages in a ZIP.'; }
   else if (['ppt', 'pptx'].includes(ext)) { category = 'Slides'; const office = require('./office.cjs').available(); targets = office ? ['pdf', 'png', 'jpg'] : ext === 'pptx' ? ['pdf'] : []; note = office ? 'Local Office rendering with slide graphics and layout. Fonts may be substituted; animations are not retained. PNG/JPG: all slides in a ZIP.' : ext === 'pptx' ? 'Text-only PDF: one section per slide in presentation order. Images, graphics, animations, and original slide layout are not preserved.' : 'Legacy PPT requires the local Office engine. See docs/OFFICE_ENGINE.md.'; }
   else if (['xlsx', 'ods', 'csv', 'tsv', 'xls'].includes(ext)) { category = 'Spreadsheets'; targets = ext === 'xls' && !require('./office.cjs').available() ? [] : ['xlsx', 'ods', 'csv', 'tsv', 'pdf']; note = !targets.length ? 'Legacy XLS requires the local Office engine. See docs/OFFICE_ENGINE.md.' : 'Values only for workbook/text exports. CSV/TSV require one sheet. Office PDF rendering is used when available for XLS/XLSX/ODS; fonts and formulas may differ.'; }
@@ -50,14 +50,14 @@ function validateImageOptions(value, category) {
 async function convert({ input, target, operation = 'convert', outputDirectory, imageOptions, signal, onProgress }) {
   if (typeof input !== 'string' || typeof target !== 'string') throw new Error('Input and target are required.');
   if (signal?.aborted) throw new Error('Conversion cancelled.');
-  const info = await inspect(input), metadataOnly = operation === 'strip-metadata', imageCopy = operation === 'optimize-image', cropImage = operation === 'crop-image', archiveExtract = operation === 'extract-archive', muteVideo = operation === 'mute-video', normalizeAudio = operation === 'normalize-audio';
+  const info = await inspect(input), metadataOnly = operation === 'strip-metadata', imageCopy = operation === 'optimize-image', cropImage = operation === 'crop-image', archiveExtract = operation === 'extract-archive', splitPDF = operation === 'split-pdf', muteVideo = operation === 'mute-video', normalizeAudio = operation === 'normalize-audio';
   const validatedOptions = validateImageOptions(imageOptions, info.category);
-  if (!['convert', 'strip-metadata', 'optimize-image', 'crop-image', 'extract-archive', 'mute-video', 'normalize-audio'].includes(operation)) throw new Error('Unsupported operation.');
-  if (metadataOnly || imageCopy || cropImage || archiveExtract || muteVideo || normalizeAudio ? !info.tools.includes(operation) : !info.targets.includes(target)) throw new Error('Unsupported conversion.');
+  if (!['convert', 'strip-metadata', 'optimize-image', 'crop-image', 'extract-archive', 'split-pdf', 'mute-video', 'normalize-audio'].includes(operation)) throw new Error('Unsupported operation.');
+  if (metadataOnly || imageCopy || cropImage || archiveExtract || splitPDF || muteVideo || normalizeAudio ? !info.tools.includes(operation) : !info.targets.includes(target)) throw new Error('Unsupported conversion.');
   const ext = path.extname(input).slice(1).toLowerCase();
-  const format = metadataOnly || imageCopy || cropImage || muteVideo || normalizeAudio ? ({ jpeg: 'jpg', tif: 'tiff' }[ext] || ext) : target;
+  const format = metadataOnly || imageCopy || cropImage || splitPDF || muteVideo || normalizeAudio ? ({ jpeg: 'jpg', tif: 'tiff' }[ext] || ext) : target;
   const directory = path.resolve(outputDirectory || path.dirname(info.path));
-  const base = path.basename(input).replace(/(?:\.tar\.gz|\.tgz|\.[^.]+)$/i, '') + (metadataOnly ? ' - clean' : imageCopy ? ' - edited' : cropImage ? ' - cropped' : archiveExtract ? ' - extracted' : muteVideo ? ' - muted' : normalizeAudio ? ' - normalized' : '');
+  const base = path.basename(input).replace(/(?:\.tar\.gz|\.tgz|\.[^.]+)$/i, '') + (metadataOnly ? ' - clean' : imageCopy ? ' - edited' : cropImage ? ' - cropped' : archiveExtract ? ' - extracted' : splitPDF ? ' - split' : muteVideo ? ' - muted' : normalizeAudio ? ' - normalized' : '');
   if (archiveExtract) {
     const workDirectory = await allocateWorkspace();
     try {
@@ -74,6 +74,24 @@ async function convert({ input, target, operation = 'convert', outputDirectory, 
         }
       }
       throw new Error('Too many extracted folders with this name.');
+    } finally { await releaseWorkspace(workDirectory); }
+  }
+  if (splitPDF) {
+    const workDirectory = await allocateWorkspace();
+    try {
+      const temporary = path.join(workDirectory, 'split');
+      await runJob({ input: info.path, format, temporary, workDirectory, category: info.category, operation }, { signal, onProgress });
+      for (let index = 1; index <= 10000; index++) {
+        const candidate = path.join(directory, `${base}${index === 1 ? '' : ` (${index})`}`);
+        try { await fs.access(candidate); }
+        catch (error) {
+          if (error.code !== 'ENOENT') throw error;
+          const staging = path.join(directory, `.peeler-${require('node:crypto').randomUUID()}.tmp`);
+          try { await fs.cp(temporary, staging, { recursive: true, errorOnExist: true, force: false }); await fs.rename(staging, candidate); return { input: info.path, output: candidate, bytes: 0 }; }
+          catch (copyError) { await fs.rm(staging, { recursive: true, force: true }); if (copyError.code === 'EEXIST' || copyError.code === 'ENOTEMPTY') continue; throw copyError; }
+        }
+      }
+      throw new Error('Too many split folders with this name.');
     } finally { await releaseWorkspace(workDirectory); }
   }
   const suffix = ['PDF', 'Documents', 'Slides'].includes(info.category) && ['png', 'jpg'].includes(format) ? `${format}.zip` : format === 'gz' ? 'tar.gz' : format;

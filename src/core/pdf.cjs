@@ -2,6 +2,7 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const PDFDocument = require('pdfkit');
+const { PDFDocument: EditablePDF } = require('pdf-lib');
 const { writeText } = require('./text-formats.cjs');
 async function textPDF(text, { pages, landscape = false } = {}) {
   return new Promise((resolve, reject) => {
@@ -73,6 +74,18 @@ async function convertPDF({ input, format, temporary }, { onProgress } = {}) {
     }
   } finally { await doc.loadingTask.destroy(); }
 }
+async function splitPDF({ input, temporary }, { onProgress } = {}) {
+  const source = await EditablePDF.load(await fs.readFile(input));
+  const count = source.getPageCount();
+  if (!count || count > 200) throw new Error('PDFs are limited to 200 pages per job.');
+  await fs.mkdir(temporary);
+  for (let index = 0; index < count; index++) {
+    const pagePDF = await EditablePDF.create();
+    pagePDF.addPage((await pagePDF.copyPages(source, [index]))[0]);
+    await fs.writeFile(path.join(temporary, `page-${String(index + 1).padStart(3, '0')}.pdf`), await pagePDF.save(), { flag: 'wx' });
+    onProgress?.({ phase: 'Splitting pages', current: index + 1, total: count });
+  }
+}
 async function imagePDF(buffer) {
   return new Promise((resolve, reject) => {
     const doc = new PDFDocument({ autoFirstPage: false }), chunks = [];
@@ -81,4 +94,4 @@ async function imagePDF(buffer) {
     catch (error) { doc.destroy(); reject(error); }
   });
 }
-module.exports = { textPDF, imagePDF, openPDF, pdfText, renderPage, convertPDF };
+module.exports = { textPDF, imagePDF, openPDF, pdfText, renderPage, convertPDF, splitPDF };

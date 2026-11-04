@@ -45,7 +45,7 @@ Peeler runs in the tray or menu bar. Results are saved beside the originals or i
 | --- | --- |
 | File types | Images, video, audio, PDF, documents, slides, spreadsheets, EPUB, subtitles, and archives |
 | Conversions | 258 checks pass in the current Windows audit; 235 of 275 planned routes are verified |
-| File tools | Current: image metadata removal, resize/quality, and coordinate crop; video mute; audio normalization; archive extraction. Most Tangerine tools remain unimplemented, and Peeler still has no file-actions wheel. |
+| File tools | Current: image metadata removal, resize/quality, and coordinate crop; PDF page splitting; video mute; audio normalization; archive extraction. Most Tangerine tools remain unimplemented, and Peeler still has no file-actions wheel. |
 | Workflow | Background tray host, radial conversion menu, batch jobs, cancellation, progress where available, and per-file errors |
 | Privacy | Local processing; no uploads, accounts, telemetry, or conversion allowance |
 
@@ -117,7 +117,7 @@ Start dragging a file, tap the listed key, and drop it onto the wheel to stage t
 
 ![Peeler PDF format wheel](docs/assets/peeler/categories/pdf-formats.png)
 
-![Peeler PDF tools wheel: planned actions](docs/assets/peeler/categories/pdf-tools.png)
+![Peeler PDF tools wheel: Split PDF available, remaining actions planned](docs/assets/peeler/categories/pdf-tools.png)
 
 **Tangerine actions:** Shift exports DOCX, Pages, PPTX, XLSX, JPG/PNG pages, EPUB, TXT, or Markdown. Command, for one PDF: Compress, Metadata, Split, Organize Pages. For a selection: Compress, Metadata, Split, Merge. The showcase also includes page-image export, text/Markdown extraction, Word/Pages/slides/spreadsheet exports, and EPUB creation.
 
